@@ -1,0 +1,17 @@
+[
+  {"process_step_id": 1, "start_time": "0:21", "process_title": "Pre-Service Inspection"},
+  {"process_step_id": 2, "start_time": "1:25", "process_title": "Draining Old Engine Oil"},
+  {"process_step_id": 3, "start_time": "1:31", "process_title": "Replacing Oil Filter"},
+  {"process_step_id": 4, "start_time": "1:52", "process_title": "Brake Inspection"},
+  {"process_step_id": 5, "start_time": "2:52", "process_title": "Replacing Engine Oil"},
+  {"process_step_id": 6, "start_time": "3:19", "process_title": "Inspecting Spark Plugs"},
+  {"process_step_id": 7, "start_time": "3:32", "process_title": "Replacing Air Filter"},
+  {"process_step_id": 8, "start_time": "3:44", "process_title": "Coolant Top-Up"},
+  {"process_step_id": 9, "start_time": "3:54", "process_title": "Rust Protection Spray"},
+  {"process_step_id": 10, "start_time": "4:03", "process_title": "Brake Fluid Top-Up"},
+  {"process_step_id": 11, "start_time": "4:10", "process_title": "Windshield Washer Fluid Top-Up"},
+  {"process_step_id": 12, "start_time": "4:25", "process_title": "Battery Voltage Check"},
+  {"process_step_id": 13, "start_time": "4:43", "process_title": "Cabin Filter Cleaning"},
+  {"process_step_id": 14, "start_time": "5:07", "process_title": "Error Code Scanning"},
+  {"process_step_id": 15, "start_time": "5:17", "process_title": "Car Wash And Vacuuming"}
+]

@@ -1,0 +1,420 @@
+{
+  "completed_sub_steps": {
+    "Pre-Service Inspection": [
+      {
+        "step_id": 1,
+        "sub_step_id": 1,
+        "label": "Open Car Hood",
+        "description": "A mechanic opens the hood of the silver Hyundai Santro to begin the pre-service inspection.",
+        "matched_actions": [
+          {
+            "label": "pointing at car",
+            "details": "The person is pointing at the silver car with both hands, which are covered in black gloves.",
+            "confidence": "high",
+            "start": "00:20",
+            "end": "00:26",
+            "id": -4594397935841842734
+          },
+          {
+            "label": "touching car hood",
+            "details": "The person places both gloved hands on the hood of the silver car.",
+            "confidence": "high",
+            "start": "00:20",
+            "end": "00:26",
+            "id": -6744202896422250929
+          }
+        ]
+      },
+      {
+        "step_id": 1,
+        "sub_step_id": 2,
+        "label": "Check Engine Oil Level",
+        "description": "The mechanic uses the dipstick to check the level and condition of the engine oil before draining.",
+        "matched_actions": [
+          {
+            "label": "Pulling the dipstick",
+            "details": "The person's right hand, wearing a black glove, pulls the yellow dipstick out of the engine.",
+            "confidence": "high",
+            "start": "00:24",
+            "end": "00:30",
+            "id": -5438038399161917461
+          },
+          {
+            "label": "Wiping the dipstick",
+            "details": "The person's left hand holds a blue cloth, and the right hand, wearing a black glove, uses the cloth to wipe the yellow dipstick.",
+            "confidence": "high",
+            "start": "00:24",
+            "end": "00:30",
+            "id": -1415827084279570491
+          },
+          {
+            "label": "Inserting the dipstick",
+            "details": "The person's right hand, wearing a black glove, begins to insert the yellow dipstick back into the engine.",
+            "confidence": "high",
+            "start": "00:24",
+            "end": "00:30",
+            "id": 3940779745795809774
+          },
+          {
+            "label": "Pushing the dipstick",
+            "details": "The person's right hand, wearing a black glove, pushes the yellow dipstick further into the engine to fully insert it.",
+            "confidence": "high",
+            "start": "00:24",
+            "end": "00:30",
+            "id": 6097207922041533593
+          }
+        ]
+      },
+      {
+        "step_id": 1,
+        "sub_step_id": 5,
+        "label": "Inspect Air Filter",
+        "description": "The mechanic opens the air filter housing and removes the old air filter for inspection.",
+        "matched_actions": [
+          {
+            "label": "placing cap",
+            "details": "A gloved hand places a white cap onto a white fluid reservoir in the car's engine bay.",
+            "confidence": "high",
+            "start": "00:36",
+            "end": "00:42",
+            "id": -1701748565847837898
+          },
+          {
+            "label": "pressing cap",
+            "details": "The gloved hand presses down on the white cap to secure it on the reservoir.",
+            "confidence": "high",
+            "start": "00:36",
+            "end": "00:42",
+            "id": 7715431633447404163
+          },
+          {
+            "label": "releasing cap",
+            "details": "The gloved hand releases and moves away from the secured white cap on the reservoir.",
+            "confidence": "high",
+            "start": "00:36",
+            "end": "00:42",
+            "id": -971110651370405177
+          },
+          {
+            "label": "reaching for engine cover",
+            "details": "A gloved hand reaches towards the black plastic engine cover.",
+            "confidence": "high",
+            "start": "00:36",
+            "end": "00:42",
+            "id": 764436885959848507
+          },
+          {
+            "label": "gripping engine cover",
+            "details": "Both gloved hands grip the black plastic engine cover.",
+            "confidence": "high",
+            "start": "00:36",
+            "end": "00:42",
+            "id": -2593933886881375089
+          },
+          {
+            "label": "lifting engine cover",
+            "details": "Both gloved hands begin to lift the black plastic engine cover upwards.",
+            "confidence": "high",
+            "start": "00:36",
+            "end": "00:42",
+            "id": 4923931408200637521
+          },
+          {
+            "label": "continuing to lift engine cover",
+            "details": "Both gloved hands continue to lift the black plastic engine cover, revealing the air filter box underneath.",
+            "confidence": "high",
+            "start": "00:36",
+            "end": "00:42",
+            "id": 7996732981263253562
+          }
+        ]
+      }
+    ],
+    "Replacing Engine Oil": [
+      {
+        "step_id": 5,
+        "sub_step_id": 1,
+        "label": "Refill New Engine Oil",
+        "description": "New Mobil 1 0W-40 fully synthetic engine oil is poured into the engine using a funnel.",
+        "matched_actions": [
+          {
+            "label": "positioning a blue funnel",
+            "details": "A hand in a black glove positions a blue funnel over an opening in the car engine bay.",
+            "confidence": "high",
+            "start": "00:32",
+            "end": "00:38",
+            "id": 2087914301358678319
+          },
+          {
+            "label": "holding a white bottle",
+            "details": "Another hand in a black glove holds a white bottle near the blue funnel.",
+            "confidence": "high",
+            "start": "00:32",
+            "end": "00:38",
+            "id": -7951299124541091821
+          },
+          {
+            "label": "pouring liquid",
+            "details": "The hand pours liquid from the white bottle into the blue funnel.",
+            "confidence": "high",
+            "start": "00:32",
+            "end": "00:38",
+            "id": -3383645100803433939
+          },
+          {
+            "label": "removing a white bottle",
+            "details": "The hand removes the white bottle from the blue funnel.",
+            "confidence": "high",
+            "start": "00:32",
+            "end": "00:38",
+            "id": -5609510688103732588
+          },
+          {
+            "label": "removing a blue funnel",
+            "details": "The hand removes the blue funnel from the opening in the car engine bay.",
+            "confidence": "high",
+            "start": "00:32",
+            "end": "00:38",
+            "id": -790420701560204354
+          }
+        ]
+      }
+    ],
+    "Replacing Air Filter": [
+      {
+        "step_id": 7,
+        "sub_step_id": 1,
+        "label": "Replace Engine Air Filter",
+        "description": "The old, dirty engine air filter is discarded and replaced with a new, genuine Hyundai air filter.",
+        "matched_actions": [
+          {
+            "label": "manipulating object",
+            "details": "The person's hands are manipulating the black air filter housing cover.",
+            "confidence": "high",
+            "start": "00:40",
+            "end": "00:46",
+            "id": -3276526744462202611
+          },
+          {
+            "label": "lifting object",
+            "details": "The person's hands are lifting the black air filter housing cover.",
+            "confidence": "high",
+            "start": "00:40",
+            "end": "00:46",
+            "id": 5372327082261522955
+          },
+          {
+            "label": "lifting object",
+            "details": "The person's hands are lifting the black air filter housing cover further, exposing the air filter element.",
+            "confidence": "high",
+            "start": "00:40",
+            "end": "00:46",
+            "id": 5388909922324875087
+          },
+          {
+            "label": "grasping object",
+            "details": "The person's right hand is grasping the white pleated air filter element.",
+            "confidence": "high",
+            "start": "00:40",
+            "end": "00:46",
+            "id": -1815812177241870506
+          },
+          {
+            "label": "pulling object",
+            "details": "The person's right hand is pulling the white pleated air filter element upwards.",
+            "confidence": "high",
+            "start": "00:40",
+            "end": "00:46",
+            "id": 9010295297773425189
+          },
+          {
+            "label": "pulling object",
+            "details": "The person's right hand is pulling the white pleated air filter element out of the housing.",
+            "confidence": "high",
+            "start": "00:40",
+            "end": "00:46",
+            "id": 2153072752911358622
+          },
+          {
+            "label": "holding object",
+            "details": "The person's right hand is holding the white pleated air filter element, which is now mostly removed from the housing.",
+            "confidence": "high",
+            "start": "00:40",
+            "end": "00:46",
+            "id": -8873919098301576695
+          }
+        ]
+      }
+    ],
+    "Coolant Top-Up": [
+      {
+        "step_id": 8,
+        "sub_step_id": 1,
+        "label": "Top-Up Coolant",
+        "description": "GoMechanic Smartcool coolant is added to the coolant expansion tank to bring it to the correct level.",
+        "matched_actions": [
+          {
+            "label": "Left hand inserting a black funnel into the radiator opening",
+            "details": "The person's left hand is inserting a black funnel into the radiator opening of the car.",
+            "confidence": "high",
+            "start": "00:44",
+            "end": "00:50",
+            "id": -1868664286311852912
+          },
+          {
+            "label": "Left hand holding a black funnel in the radiator opening",
+            "details": "The person's left hand is holding a black funnel that is inserted into the radiator opening.",
+            "confidence": "high",
+            "start": "00:44",
+            "end": "00:50",
+            "id": 5353053565755627172
+          },
+          {
+            "label": "Right hand holding a black cap",
+            "details": "The person's right hand is holding a black cap, likely the radiator cap.",
+            "confidence": "high",
+            "start": "00:44",
+            "end": "00:50",
+            "id": -4918349088218420163
+          }
+        ]
+      }
+    ]
+  },
+  "in_progress_sub_steps": {},
+  "pending_sub_steps": [
+    {
+      "process_title": "Pre-Service Inspection",
+      "step_id": 1,
+      "sub_step_id": 3,
+      "label": "Inspect Coolant Level",
+      "description": "The mechanic visually inspects the coolant level in the expansion tank."
+    },
+    {
+      "process_title": "Pre-Service Inspection",
+      "step_id": 1,
+      "sub_step_id": 4,
+      "label": "Inspect Brake Fluid Level",
+      "description": "The mechanic checks the level of the brake fluid in its reservoir."
+    },
+    {
+      "process_title": "Pre-Service Inspection",
+      "step_id": 1,
+      "sub_step_id": 6,
+      "label": "Position and Lift Car",
+      "description": "The vehicle is positioned over a two-post hydraulic lift, and the lift arms are placed under the jacking points before raising the car."
+    },
+    {
+      "process_title": "Pre-Service Inspection",
+      "step_id": 1,
+      "sub_step_id": 7,
+      "label": "Underbody Inspection",
+      "description": "Using a light, the mechanic inspects the car's underbody, including the suspension, exhaust system, and chassis for any issues."
+    },
+    {
+      "process_title": "Pre-Service Inspection",
+      "step_id": 1,
+      "sub_step_id": 8,
+      "label": "Check Tyre Tread Depth",
+      "description": "A digital tread depth gauge is used to measure the remaining tread on the rear tyre."
+    },
+    {
+      "process_title": "Draining Old Engine Oil",
+      "step_id": 2,
+      "sub_step_id": 1,
+      "label": "Drain Old Engine Oil",
+      "description": "A wrench is used to loosen the drain plug, and the old, dark engine oil is drained into a collection pan."
+    },
+    {
+      "process_title": "Replacing Oil Filter",
+      "step_id": 3,
+      "sub_step_id": 1,
+      "label": "Replace Engine Oil Filter",
+      "description": "The old oil filter is removed, and a new, genuine Hyundai oil filter is unboxed, its gasket lubricated, and then installed."
+    },
+    {
+      "process_title": "Brake Inspection",
+      "step_id": 4,
+      "sub_step_id": 1,
+      "label": "Remove Front Wheel",
+      "description": "After loosening the nuts with a pneumatic wrench, the front wheel is removed to access the brake assembly."
+    },
+    {
+      "process_title": "Brake Inspection",
+      "step_id": 4,
+      "sub_step_id": 2,
+      "label": "Inspect Front Brake Pads",
+      "description": "The mechanic removes the brake pads from the caliper to check their thickness and condition before reinstalling them."
+    },
+    {
+      "process_title": "Brake Inspection",
+      "step_id": 4,
+      "sub_step_id": 3,
+      "label": "Reinstall Front Wheel",
+      "description": "The wheel is mounted back onto the hub, the nuts are tightened with the pneumatic wrench, and the wheel cover is reattached."
+    },
+    {
+      "process_title": "Inspecting Spark Plugs",
+      "step_id": 6,
+      "sub_step_id": 1,
+      "label": "Inspect Spark Plug Condition",
+      "description": "A spark plug is removed from the engine, its electrode is inspected for wear, and the gap is checked with a feeler gauge."
+    },
+    {
+      "process_title": "Rust Protection Spray",
+      "step_id": 9,
+      "sub_step_id": 1,
+      "label": "Apply Battery Terminal Spray",
+      "description": "A rust protection spray is applied to the battery terminals to prevent corrosion and ensure a good connection."
+    },
+    {
+      "process_title": "Brake Fluid Top-Up",
+      "step_id": 10,
+      "sub_step_id": 1,
+      "label": "Top-Up Brake Fluid",
+      "description": "GoMechanic DOT-4 brake fluid is added to the brake fluid reservoir to top it up."
+    },
+    {
+      "process_title": "Windshield Washer Fluid Top-Up",
+      "step_id": 11,
+      "sub_step_id": 1,
+      "label": "Top-Up Windshield Washer Fluid",
+      "description": "A concentrate is added to the windshield washer fluid reservoir, followed by water."
+    },
+    {
+      "process_title": "Battery Voltage Check",
+      "step_id": 12,
+      "sub_step_id": 1,
+      "label": "Check Battery Voltage",
+      "description": "A digital multimeter is used to check the battery's voltage, which reads 12.82V, indicating a healthy charge."
+    },
+    {
+      "process_title": "Cabin Filter Cleaning",
+      "step_id": 13,
+      "sub_step_id": 1,
+      "label": "Clean and Reinstall Cabin Filter",
+      "description": "The cabin air filter is removed from behind the glove box, cleaned with compressed air, and then reinstalled."
+    },
+    {
+      "process_title": "Error Code Scanning",
+      "step_id": 14,
+      "sub_step_id": 1,
+      "label": "Perform Engine Scan",
+      "description": "An OBD-II scanner is connected to the car to read and clear any diagnostic trouble codes from the engine control unit (ECU)."
+    },
+    {
+      "process_title": "Car Wash And Vacuuming",
+      "step_id": 15,
+      "sub_step_id": 1,
+      "label": "Underbody Pressure Wash",
+      "description": "The car is on a wash lift, and a high-pressure water jet is used to clean the underbody, wheel wells, and tyres."
+    },
+    {
+      "process_title": "Car Wash And Vacuuming",
+      "step_id": 15,
+      "sub_step_id": 2,
+      "label": "Exterior Foam Wash and Rinse",
+      "description": "The car's exterior is washed by hand with a soapy sponge and then thoroughly rinsed with a pressure washer."
+    }
+  ]
+}

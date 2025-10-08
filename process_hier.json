@@ -1,0 +1,220 @@
+{
+  "source_video": "Hyundai Santro Standard Service - POV by GoMechanic.mp4",
+  "process_steps": [
+    {
+      "step_id": 1,
+      "process_title": "Pre-Service Inspection",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Open Car Hood",
+          "description": "A mechanic opens the hood of the silver Hyundai Santro to begin the pre-service inspection."
+        },
+        {
+          "sub_step_id": 2,
+          "label": "Check Engine Oil Level",
+          "description": "The mechanic uses the dipstick to check the level and condition of the engine oil before draining."
+        },
+        {
+          "sub_step_id": 3,
+          "label": "Inspect Coolant Level",
+          "description": "The mechanic visually inspects the coolant level in the expansion tank."
+        },
+        {
+          "sub_step_id": 4,
+          "label": "Inspect Brake Fluid Level",
+          "description": "The mechanic checks the level of the brake fluid in its reservoir."
+        },
+        {
+          "sub_step_id": 5,
+          "label": "Inspect Air Filter",
+          "description": "The mechanic opens the air filter housing and removes the old air filter for inspection."
+        },
+        {
+          "sub_step_id": 6,
+          "label": "Position and Lift Car",
+          "description": "The vehicle is positioned over a two-post hydraulic lift, and the lift arms are placed under the jacking points before raising the car."
+        },
+        {
+          "sub_step_id": 7,
+          "label": "Underbody Inspection",
+          "description": "Using a light, the mechanic inspects the car's underbody, including the suspension, exhaust system, and chassis for any issues."
+        },
+        {
+          "sub_step_id": 8,
+          "label": "Check Tyre Tread Depth",
+          "description": "A digital tread depth gauge is used to measure the remaining tread on the rear tyre."
+        }
+      ]
+    },
+    {
+      "step_id": 2,
+      "process_title": "Draining Old Engine Oil",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Drain Old Engine Oil",
+          "description": "A wrench is used to loosen the drain plug, and the old, dark engine oil is drained into a collection pan."
+        }
+      ]
+    },
+    {
+      "step_id": 3,
+      "process_title": "Replacing Oil Filter",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Replace Engine Oil Filter",
+          "description": "The old oil filter is removed, and a new, genuine Hyundai oil filter is unboxed, its gasket lubricated, and then installed."
+        }
+      ]
+    },
+    {
+      "step_id": 4,
+      "process_title": "Brake Inspection",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Remove Front Wheel",
+          "description": "After loosening the nuts with a pneumatic wrench, the front wheel is removed to access the brake assembly."
+        },
+        {
+          "sub_step_id": 2,
+          "label": "Inspect Front Brake Pads",
+          "description": "The mechanic removes the brake pads from the caliper to check their thickness and condition before reinstalling them."
+        },
+        {
+          "sub_step_id": 3,
+          "label": "Reinstall Front Wheel",
+          "description": "The wheel is mounted back onto the hub, the nuts are tightened with the pneumatic wrench, and the wheel cover is reattached."
+        }
+      ]
+    },
+    {
+      "step_id": 5,
+      "process_title": "Replacing Engine Oil",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Refill New Engine Oil",
+          "description": "New Mobil 1 0W-40 fully synthetic engine oil is poured into the engine using a funnel."
+        }
+      ]
+    },
+    {
+      "step_id": 6,
+      "process_title": "Inspecting Spark Plugs",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Inspect Spark Plug Condition",
+          "description": "A spark plug is removed from the engine, its electrode is inspected for wear, and the gap is checked with a feeler gauge."
+        }
+      ]
+    },
+    {
+      "step_id": 7,
+      "process_title": "Replacing Air Filter",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Replace Engine Air Filter",
+          "description": "The old, dirty engine air filter is discarded and replaced with a new, genuine Hyundai air filter."
+        }
+      ]
+    },
+    {
+      "step_id": 8,
+      "process_title": "Coolant Top-Up",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Top-Up Coolant",
+          "description": "GoMechanic Smartcool coolant is added to the coolant expansion tank to bring it to the correct level."
+        }
+      ]
+    },
+    {
+      "step_id": 9,
+      "process_title": "Rust Protection Spray",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Apply Battery Terminal Spray",
+          "description": "A rust protection spray is applied to the battery terminals to prevent corrosion and ensure a good connection."
+        }
+      ]
+    },
+    {
+      "step_id": 10,
+      "process_title": "Brake Fluid Top-Up",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Top-Up Brake Fluid",
+          "description": "GoMechanic DOT-4 brake fluid is added to the brake fluid reservoir to top it up."
+        }
+      ]
+    },
+    {
+      "step_id": 11,
+      "process_title": "Windshield Washer Fluid Top-Up",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Top-Up Windshield Washer Fluid",
+          "description": "A concentrate is added to the windshield washer fluid reservoir, followed by water."
+        }
+      ]
+    },
+    {
+      "step_id": 12,
+      "process_title": "Battery Voltage Check",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Check Battery Voltage",
+          "description": "A digital multimeter is used to check the battery's voltage, which reads 12.82V, indicating a healthy charge."
+        }
+      ]
+    },
+    {
+      "step_id": 13,
+      "process_title": "Cabin Filter Cleaning",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Clean and Reinstall Cabin Filter",
+          "description": "The cabin air filter is removed from behind the glove box, cleaned with compressed air, and then reinstalled."
+        }
+      ]
+    },
+    {
+      "step_id": 14,
+      "process_title": "Error Code Scanning",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Perform Engine Scan",
+          "description": "An OBD-II scanner is connected to the car to read and clear any diagnostic trouble codes from the engine control unit (ECU)."
+        }
+      ]
+    },
+    {
+      "step_id": 15,
+      "process_title": "Car Wash And Vacuuming",
+      "sub_steps": [
+        {
+          "sub_step_id": 1,
+          "label": "Underbody Pressure Wash",
+          "description": "The car is on a wash lift, and a high-pressure water jet is used to clean the underbody, wheel wells, and tyres."
+        },
+        {
+          "sub_step_id": 2,
+          "label": "Exterior Foam Wash and Rinse",
+          "description": "The car's exterior is washed by hand with a soapy sponge and then thoroughly rinsed with a pressure washer."
+        }
+      ]
+    }
+  ]
+}

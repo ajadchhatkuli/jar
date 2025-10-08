@@ -1,0 +1,10 @@
+name: car-service-gt
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - google-generativeai>=0.7.2
+      - python-dotenv>=1.0.1

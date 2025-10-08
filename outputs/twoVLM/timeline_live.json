@@ -1,0 +1,508 @@
+{
+  "actions": [
+    {
+      "label": "holding steering wheel",
+      "details": "The person is holding the steering wheel with both hands, wearing black gloves, while driving a car.",
+      "confidence": "high",
+      "start": "00:04",
+      "end": "00:12",
+      "id": 8919779936801060735
+    },
+    {
+      "label": "person holding steering wheel",
+      "details": "The person is holding the steering wheel with both hands.",
+      "confidence": "high",
+      "start": "00:08",
+      "end": "00:16",
+      "id": 1633259509745029427
+    },
+    {
+      "label": "person reaching for car door handle",
+      "details": "The person's right hand is reaching for the car door handle.",
+      "confidence": "high",
+      "start": "00:08",
+      "end": "00:16",
+      "id": 3181265329351044352
+    },
+    {
+      "label": "person pulling car door handle",
+      "details": "The person's right hand is pulling the car door handle, causing the door to open.",
+      "confidence": "high",
+      "start": "00:08",
+      "end": "00:16",
+      "id": -325674425712410759
+    },
+    {
+      "label": "person pointing at sign",
+      "details": "The person is pointing upwards with both hands towards the 'GoMechanic' sign.",
+      "confidence": "high",
+      "start": "00:08",
+      "end": "00:16",
+      "id": 543727570829218497
+    },
+    {
+      "label": "person pointing at sign",
+      "details": "The person is pointing upwards with both hands, wearing black gloves, towards the 'GoMechanic' sign.",
+      "confidence": "high",
+      "start": "00:12",
+      "end": "00:20",
+      "id": 6120910969851204054
+    },
+    {
+      "label": "person holding steering wheel",
+      "details": "The person, wearing a black glove, is holding the steering wheel of the car.",
+      "confidence": "high",
+      "start": "00:12",
+      "end": "00:20",
+      "id": -2900678261853529400
+    },
+    {
+      "label": "person driving car",
+      "details": "The person is driving the car into a service area.",
+      "confidence": "high",
+      "start": "00:12",
+      "end": "00:20",
+      "id": 8439813923316844385
+    },
+    {
+      "label": "person pointing at car",
+      "details": "The person is pointing at the silver car with both hands.",
+      "confidence": "high",
+      "start": "00:16",
+      "end": "00:24",
+      "id": -4080278634651725122
+    },
+    {
+      "label": "person touching car hood",
+      "details": "The person is touching the hood of the silver car with both hands.",
+      "confidence": "high",
+      "start": "00:16",
+      "end": "00:24",
+      "id": 3060799907349590361
+    },
+    {
+      "label": "person manipulating car hood",
+      "details": "The person is manipulating the latch area of the car hood, likely to open it.",
+      "confidence": "high",
+      "start": "00:16",
+      "end": "00:24",
+      "id": 2858193338078319421
+    },
+    {
+      "label": "person pointing at car",
+      "details": "The person is pointing at the front of the silver car with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": 4742344689158241094
+    },
+    {
+      "label": "person pointing at car",
+      "details": "The person is pointing at the front of the silver car with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": -474194930122381827
+    },
+    {
+      "label": "person pointing at car",
+      "details": "The person is pointing at the front of the silver car with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": 687279089459556410
+    },
+    {
+      "label": "person pointing at car",
+      "details": "The person is pointing at the front of the silver car with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": -554028658697834220
+    },
+    {
+      "label": "person touching car hood",
+      "details": "The person is touching the car hood with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": 2153577475160551986
+    },
+    {
+      "label": "person manipulating car hood latch",
+      "details": "The person is manipulating the car hood latch with one hand.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": -1483673775855946846
+    },
+    {
+      "label": "person lifting car hood",
+      "details": "The person is lifting the car hood with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": -3785956753706534062
+    },
+    {
+      "label": "person lifting car hood",
+      "details": "The person is lifting the car hood with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": 4188209920533950975
+    },
+    {
+      "label": "person lifting car hood",
+      "details": "The person is lifting the car hood with both hands.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": 8633474972238475707
+    },
+    {
+      "label": "person wiping dipstick with cloth",
+      "details": "The person is wiping the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -2393895684962773760
+    },
+    {
+      "label": "person wiping dipstick with cloth",
+      "details": "The person is wiping the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -5879363094989872301
+    },
+    {
+      "label": "person wiping dipstick with cloth",
+      "details": "The person is wiping the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -3173086881114590345
+    },
+    {
+      "label": "person wiping dipstick with cloth",
+      "details": "The person is wiping the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -6804362461816532395
+    },
+    {
+      "label": "person holding dipstick",
+      "details": "The person is holding the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": 829658841966697666
+    },
+    {
+      "label": "person holding dipstick",
+      "details": "The person is holding the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": 5567415543990514935
+    },
+    {
+      "label": "person inserting dipstick into engine",
+      "details": "The person is inserting the dipstick into the engine.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -6206629092475577497
+    },
+    {
+      "label": "person inserting dipstick into engine",
+      "details": "The person is inserting the dipstick into the engine.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -2818626290974160965
+    },
+    {
+      "label": "person inserting dipstick into engine",
+      "details": "The person is inserting the dipstick into the engine.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -4436923963680870006
+    },
+    {
+      "label": "wiping dipstick",
+      "details": "The person is wiping the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": -8531259637215200994
+    },
+    {
+      "label": "inserting dipstick",
+      "details": "The person is inserting the dipstick back into the engine.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": 1349005298944347495
+    },
+    {
+      "label": "removing dipstick",
+      "details": "The person is removing the dipstick from the engine.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": -5730699964718168454
+    },
+    {
+      "label": "checking fluid level",
+      "details": "The person is checking the fluid level on the dipstick.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": -803582480949326585
+    },
+    {
+      "label": "wiping dipstick",
+      "details": "The person is wiping the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": -3446494417664481982
+    },
+    {
+      "label": "inserting dipstick",
+      "details": "The person is inserting the dipstick back into the engine.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": -5321825537008661972
+    },
+    {
+      "label": "removing dipstick",
+      "details": "The person is removing the dipstick from the engine.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": 6093362319038067247
+    },
+    {
+      "label": "checking fluid level",
+      "details": "The person is checking the fluid level on the dipstick.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": 210643138836460747
+    },
+    {
+      "label": "wiping dipstick",
+      "details": "The person is wiping the dipstick with a blue cloth.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": -2221128315569803052
+    },
+    {
+      "label": "person holding dipstick",
+      "details": "The person is holding the dipstick in their gloved hand, examining it.",
+      "confidence": "high",
+      "start": "00:32",
+      "end": "00:40",
+      "id": -3236813165233952122
+    },
+    {
+      "label": "person inserting dipstick into engine",
+      "details": "The person is inserting the dipstick back into the engine's dipstick tube.",
+      "confidence": "high",
+      "start": "00:32",
+      "end": "00:40",
+      "id": -8646404996769632779
+    },
+    {
+      "label": "person lifts air filter box cover with right hand",
+      "details": "The person uses their right hand to lift the black cover of the air filter box, revealing the filter underneath.",
+      "confidence": "high",
+      "start": "00:36",
+      "end": "00:44",
+      "id": -9099302656847102395
+    },
+    {
+      "label": "person grasps air filter with left hand",
+      "details": "The person's left hand reaches into the air filter box and grasps the air filter.",
+      "confidence": "high",
+      "start": "00:36",
+      "end": "00:44",
+      "id": 6267872630734794984
+    },
+    {
+      "label": "person removes air filter with left hand",
+      "details": "The person pulls the air filter out of its housing using their left hand.",
+      "confidence": "high",
+      "start": "00:36",
+      "end": "00:44",
+      "id": 3160490783677215340
+    },
+    {
+      "label": "lifting air filter housing cover",
+      "details": "The person is lifting the air filter housing cover with both hands.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": 638668664299990377
+    },
+    {
+      "label": "holding air filter housing cover",
+      "details": "The person is holding the air filter housing cover with both hands, having just removed it.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": -8467197582419525351
+    },
+    {
+      "label": "lifting air filter",
+      "details": "The person is lifting the air filter out of its housing with both hands.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": 1241623008008282084
+    },
+    {
+      "label": "holding air filter",
+      "details": "The person is holding the removed air filter with both hands.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": 4386744753851955374
+    },
+    {
+      "label": "holding air filter",
+      "details": "The person is holding the removed air filter with both hands, moving it away from the engine.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": 6285261014128757413
+    },
+    {
+      "label": "moving air filter",
+      "details": "The person is moving the removed air filter away from the engine bay.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": -6399598283696903516
+    },
+    {
+      "label": "placing air filter housing cover",
+      "details": "The person is placing the air filter housing cover back onto the air filter housing.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": 4010330640211111271
+    },
+    {
+      "label": "pressing air filter housing cover",
+      "details": "The person is pressing down on the air filter housing cover to secure it.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": 5373568881544849047
+    },
+    {
+      "label": "touching air filter housing cover",
+      "details": "The person is touching the air filter housing cover, ensuring it is properly seated.",
+      "confidence": "high",
+      "start": "00:40",
+      "end": "00:48",
+      "id": 998047063594274834
+    },
+    {
+      "label": "positioning engine cover",
+      "details": "The person is positioning a black plastic engine cover over the engine.",
+      "confidence": "high",
+      "start": "00:44",
+      "end": "00:52",
+      "id": 4735871674120391996
+    },
+    {
+      "label": "securing engine cover",
+      "details": "The person is pressing down on the black plastic engine cover to secure it in place.",
+      "confidence": "high",
+      "start": "00:44",
+      "end": "00:52",
+      "id": -3930803386950958292
+    },
+    {
+      "label": "giving thumbs up",
+      "details": "The person is giving a thumbs-up gesture with their right hand.",
+      "confidence": "high",
+      "start": "00:44",
+      "end": "00:52",
+      "id": -1095817391088772537
+    },
+    {
+      "label": "grasping car hood",
+      "details": "The person is grasping the underside of the car hood with both hands.",
+      "confidence": "high",
+      "start": "00:44",
+      "end": "00:52",
+      "id": -7615085435558500023
+    },
+    {
+      "label": "lowering car hood",
+      "details": "The person is lowering the car hood towards the front of the car.",
+      "confidence": "high",
+      "start": "00:44",
+      "end": "00:52",
+      "id": -6967933532808574231
+    },
+    {
+      "label": "closing car hood",
+      "details": "The person is pressing down on the car hood to latch it closed.",
+      "confidence": "high",
+      "start": "00:44",
+      "end": "00:52",
+      "id": 3757466799806831684
+    },
+    {
+      "label": "releasing car hood",
+      "details": "The person is releasing their hands from the closed car hood.",
+      "confidence": "high",
+      "start": "00:44",
+      "end": "00:52",
+      "id": -1996333121876630937
+    },
+    {
+      "label": "person touching the yellow jack",
+      "details": "The person's hands, wearing black gloves, are on the yellow jack, appearing to prepare it for use.",
+      "confidence": "high",
+      "start": "00:48",
+      "end": "00:56",
+      "id": -3244274177878644544
+    },
+    {
+      "label": "person moving the yellow jack",
+      "details": "The person is moving the yellow jack across the floor, guiding it with both hands.",
+      "confidence": "high",
+      "start": "00:48",
+      "end": "00:56",
+      "id": 4373720881462636434
+    },
+    {
+      "label": "person positioning the yellow jack under the car",
+      "details": "The person is carefully placing the yellow jack directly under the side of the silver car.",
+      "confidence": "high",
+      "start": "00:48",
+      "end": "00:56",
+      "id": 5768096844266694196
+    },
+    {
+      "label": "person operating the yellow jack",
+      "details": "The person is using both hands to operate the yellow jack, likely pumping it to lift the car.",
+      "confidence": "high",
+      "start": "00:48",
+      "end": "00:56",
+      "id": 7943139860395936271
+    }
+  ]
+}

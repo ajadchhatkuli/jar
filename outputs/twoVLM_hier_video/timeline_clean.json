@@ -1,0 +1,220 @@
+{
+  "actions": [
+    {
+      "label": "holding steering wheel",
+      "details": "A person's gloved hands are holding the steering wheel of a car while driving.",
+      "confidence": "high",
+      "start": "00:00",
+      "end": "00:08",
+      "id": -6364617830913623938
+    },
+    {
+      "label": "manipulating gear stick",
+      "details": "Left hand moves to and manipulates the gear stick.",
+      "confidence": "high",
+      "start": "00:04",
+      "end": "00:12",
+      "id": 6375452054040917706
+    },
+    {
+      "label": "holding steering wheel",
+      "details": "Both hands are holding the steering wheel while driving.",
+      "confidence": "high",
+      "start": "00:04",
+      "end": "00:12",
+      "id": 26403930839953020
+    },
+    {
+      "label": "pulling door handle",
+      "details": "Right hand moves to and pulls the car door handle.",
+      "confidence": "high",
+      "start": "00:04",
+      "end": "00:12",
+      "id": 4252270768182237805
+    },
+    {
+      "label": "opening car door",
+      "details": "The car door opens after the handle is pulled.",
+      "confidence": "high",
+      "start": "00:04",
+      "end": "00:12",
+      "id": 1517777761912520872
+    },
+    {
+      "label": "touching steering wheel",
+      "details": "The person is touching the steering wheel with both hands.",
+      "confidence": "high",
+      "start": "00:08",
+      "end": "00:16",
+      "id": 1162326118303073333
+    },
+    {
+      "label": "manipulating gear stick",
+      "details": "The person is manipulating the gear stick with their left hand.",
+      "confidence": "high",
+      "start": "00:08",
+      "end": "00:16",
+      "id": 9020966630621277212
+    },
+    {
+      "label": "person looking into engine bay",
+      "details": "A person is standing next to the car with the hood open, looking into the engine bay.",
+      "confidence": "high",
+      "start": "00:12",
+      "end": "00:20",
+      "id": 7540826731365779205
+    },
+    {
+      "label": "person reaching into engine bay",
+      "details": "A person reaches their right hand into the car's engine bay.",
+      "confidence": "high",
+      "start": "00:12",
+      "end": "00:20",
+      "id": -5857015846479766562
+    },
+    {
+      "label": "person manipulating component in engine bay",
+      "details": "A person is manipulating a component within the car's engine bay with their right hand.",
+      "confidence": "high",
+      "start": "00:12",
+      "end": "00:20",
+      "id": -7304029750949587693
+    },
+    {
+      "label": "pointing at car's front",
+      "details": "The person points their right hand towards the front of the car.",
+      "confidence": "high",
+      "start": "00:16",
+      "end": "00:24",
+      "id": 4077574701297118255
+    },
+    {
+      "label": "moving hand towards car's front",
+      "details": "The person moves their right hand closer to the car's front bumper.",
+      "confidence": "high",
+      "start": "00:16",
+      "end": "00:24",
+      "id": -2691464087634387158
+    },
+    {
+      "label": "touching car's front bumper",
+      "details": "The person touches the car's front bumper with their right hand.",
+      "confidence": "high",
+      "start": "00:16",
+      "end": "00:24",
+      "id": 596532301226131250
+    },
+    {
+      "label": "sliding hand along car's front bumper",
+      "details": "The person slides their right hand along the car's front bumper, moving from left to right.",
+      "confidence": "high",
+      "start": "00:16",
+      "end": "00:24",
+      "id": -5806166774278357515
+    },
+    {
+      "label": "pointing at car front",
+      "details": "The person points towards the front of the silver car.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": 7565673024637302840
+    },
+    {
+      "label": "touching car front",
+      "details": "The person touches the front bumper/grille area of the silver car.",
+      "confidence": "high",
+      "start": "00:20",
+      "end": "00:28",
+      "id": -3015517622500923292
+    },
+    {
+      "label": "lifting car hood",
+      "details": "The person lifts the car hood with both hands.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -4120794650508217307
+    },
+    {
+      "label": "opening car hood",
+      "details": "The person fully opens the car hood, revealing the engine bay.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": 4411951848963438000
+    },
+    {
+      "label": "taking hood prop rod",
+      "details": "The person takes the hood prop rod from its holder.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": 839519830673781361
+    },
+    {
+      "label": "inserting hood prop rod",
+      "details": "The person inserts the hood prop rod into the designated hole to keep the hood open.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": 7042433339679870621
+    },
+    {
+      "label": "grasping oil dipstick",
+      "details": "The person grasps the yellow handle of the oil dipstick.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -2137681082449306167
+    },
+    {
+      "label": "pulling out oil dipstick",
+      "details": "The person pulls the oil dipstick out of the engine.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -6700794103584513866
+    },
+    {
+      "label": "wiping oil dipstick",
+      "details": "The person uses a blue cloth to wipe the oil from the dipstick.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": -7185986606013885316
+    },
+    {
+      "label": "reinserting oil dipstick",
+      "details": "The person reinserts the clean oil dipstick back into the engine.",
+      "confidence": "high",
+      "start": "00:24",
+      "end": "00:32",
+      "id": 3049897775368219275
+    },
+    {
+      "label": "loosening bolt with wrench",
+      "details": "The person uses a wrench to loosen a bolt on the car's underside.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": 4766066385599658936
+    },
+    {
+      "label": "removing bolt by hand",
+      "details": "After loosening, the person removes the bolt completely by hand.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": -4458417264251033176
+    },
+    {
+      "label": "placing wrench down",
+      "details": "The person moves the wrench away from the car and places it down.",
+      "confidence": "high",
+      "start": "00:28",
+      "end": "00:36",
+      "id": 1577832225370338836
+    }
+  ]
+}
