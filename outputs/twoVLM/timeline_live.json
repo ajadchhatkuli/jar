@@ -1,508 +1,556 @@
 {
   "actions": [
     {
-      "label": "holding steering wheel",
-      "details": "The person is holding the steering wheel with both hands, wearing black gloves, while driving a car.",
-      "confidence": "high",
-      "start": "00:04",
-      "end": "00:12",
-      "id": 8919779936801060735
+      "label": "open car hood",
+      "details": "hands open car hood",
+      "subject": "hands",
+      "object": "car hood",
+      "verb": "open",
+      "time": "00:20"
     },
     {
-      "label": "person holding steering wheel",
-      "details": "The person is holding the steering wheel with both hands.",
-      "confidence": "high",
-      "start": "00:08",
-      "end": "00:16",
-      "id": 1633259509745029427
+      "label": "remove engine oil dipstick",
+      "details": "hands remove engine oil dipstick",
+      "subject": "hands",
+      "object": "engine oil dipstick",
+      "verb": "remove",
+      "time": "00:24"
     },
     {
-      "label": "person reaching for car door handle",
-      "details": "The person's right hand is reaching for the car door handle.",
-      "confidence": "high",
-      "start": "00:08",
-      "end": "00:16",
-      "id": 3181265329351044352
+      "label": "clean engine oil dipstick",
+      "details": "hands clean engine oil dipstick",
+      "subject": "hands",
+      "object": "engine oil dipstick",
+      "verb": "clean",
+      "time": "00:28"
     },
     {
-      "label": "person pulling car door handle",
-      "details": "The person's right hand is pulling the car door handle, causing the door to open.",
-      "confidence": "high",
-      "start": "00:08",
-      "end": "00:16",
-      "id": -325674425712410759
+      "label": "position funnel",
+      "details": "hands position funnel",
+      "subject": "hands",
+      "object": "funnel",
+      "verb": "position",
+      "time": "00:30"
     },
     {
-      "label": "person pointing at sign",
-      "details": "The person is pointing upwards with both hands towards the 'GoMechanic' sign.",
-      "confidence": "high",
-      "start": "00:08",
-      "end": "00:16",
-      "id": 543727570829218497
+      "label": "remove air filter housing cover",
+      "details": "hands remove air filter housing cover",
+      "subject": "hands",
+      "object": "air filter housing cover",
+      "verb": "remove",
+      "time": "00:41"
     },
     {
-      "label": "person pointing at sign",
-      "details": "The person is pointing upwards with both hands, wearing black gloves, towards the 'GoMechanic' sign.",
-      "confidence": "high",
-      "start": "00:12",
-      "end": "00:20",
-      "id": 6120910969851204054
+      "label": "remove air filter",
+      "details": "hands remove air filter",
+      "subject": "hands",
+      "object": "air filter",
+      "verb": "remove",
+      "time": "00:43"
     },
     {
-      "label": "person holding steering wheel",
-      "details": "The person, wearing a black glove, is holding the steering wheel of the car.",
-      "confidence": "high",
-      "start": "00:12",
-      "end": "00:20",
-      "id": -2900678261853529400
+      "label": "reinstall air filter housing cover",
+      "details": "hands reinstall air filter housing cover",
+      "subject": "hands",
+      "object": "air filter housing cover",
+      "verb": "reinstall",
+      "time": "00:47"
     },
     {
-      "label": "person driving car",
-      "details": "The person is driving the car into a service area.",
-      "confidence": "high",
-      "start": "00:12",
-      "end": "00:20",
-      "id": 8439813923316844385
+      "label": "position lift arm",
+      "details": "hands position lift arm",
+      "subject": "hands",
+      "object": "lift arm",
+      "verb": "position",
+      "time": "00:52"
     },
     {
-      "label": "person pointing at car",
-      "details": "The person is pointing at the silver car with both hands.",
-      "confidence": "high",
-      "start": "00:16",
-      "end": "00:24",
-      "id": -4080278634651725122
+      "label": "position lift arm",
+      "details": "hands position lift arm",
+      "subject": "hands",
+      "object": "lift arm",
+      "verb": "position",
+      "time": "00:53"
     },
     {
-      "label": "person touching car hood",
-      "details": "The person is touching the hood of the silver car with both hands.",
-      "confidence": "high",
-      "start": "00:16",
-      "end": "00:24",
-      "id": 3060799907349590361
+      "label": "lift car",
+      "details": "lift lift car",
+      "subject": "lift",
+      "object": "car",
+      "verb": "lift",
+      "time": "00:54"
     },
     {
-      "label": "person manipulating car hood",
-      "details": "The person is manipulating the latch area of the car hood, likely to open it.",
-      "confidence": "high",
-      "start": "00:16",
-      "end": "00:24",
-      "id": 2858193338078319421
+      "label": "lift car",
+      "details": "lift arms lift car",
+      "subject": "lift arms",
+      "object": "car",
+      "verb": "lift",
+      "time": "01:04"
     },
     {
-      "label": "person pointing at car",
-      "details": "The person is pointing at the front of the silver car with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": 4742344689158241094
+      "label": "check rear tyre",
+      "details": "digital tread depth gauge check rear tyre",
+      "subject": "digital tread depth gauge",
+      "object": "rear tyre",
+      "verb": "check",
+      "time": "01:17"
     },
     {
-      "label": "person pointing at car",
-      "details": "The person is pointing at the front of the silver car with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": -474194930122381827
+      "label": "remove drain plug",
+      "details": "hands remove drain plug",
+      "subject": "hands",
+      "object": "drain plug",
+      "verb": "remove",
+      "time": "01:21"
     },
     {
-      "label": "person pointing at car",
-      "details": "The person is pointing at the front of the silver car with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": 687279089459556410
+      "label": "drain old engine oil",
+      "details": "hands drain old engine oil",
+      "subject": "hands",
+      "object": "old engine oil",
+      "verb": "drain",
+      "time": "01:24"
     },
     {
-      "label": "person pointing at car",
-      "details": "The person is pointing at the front of the silver car with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": -554028658697834220
+      "label": "remove oil filter",
+      "details": "hands remove oil filter",
+      "subject": "hands",
+      "object": "oil filter",
+      "verb": "remove",
+      "time": "01:30"
     },
     {
-      "label": "person touching car hood",
-      "details": "The person is touching the car hood with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": 2153577475160551986
+      "label": "open oil filter packaging",
+      "details": "hands open oil filter packaging",
+      "subject": "hands",
+      "object": "oil filter packaging",
+      "verb": "open",
+      "time": "01:36"
     },
     {
-      "label": "person manipulating car hood latch",
-      "details": "The person is manipulating the car hood latch with one hand.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": -1483673775855946846
+      "label": "remove oil filter",
+      "details": "hands remove oil filter",
+      "subject": "hands",
+      "object": "oil filter",
+      "verb": "remove",
+      "time": "01:37"
     },
     {
-      "label": "person lifting car hood",
-      "details": "The person is lifting the car hood with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": -3785956753706534062
+      "label": "remove lug nut",
+      "details": "impact wrench remove lug nut",
+      "subject": "impact wrench",
+      "object": "lug nut",
+      "verb": "remove",
+      "time": "01:46"
     },
     {
-      "label": "person lifting car hood",
-      "details": "The person is lifting the car hood with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": 4188209920533950975
+      "label": "remove lug nut",
+      "details": "impact wrench remove lug nut",
+      "subject": "impact wrench",
+      "object": "lug nut",
+      "verb": "remove",
+      "time": "01:47"
     },
     {
-      "label": "person lifting car hood",
-      "details": "The person is lifting the car hood with both hands.",
-      "confidence": "high",
-      "start": "00:20",
-      "end": "00:28",
-      "id": 8633474972238475707
+      "label": "remove lug nut",
+      "details": "impact wrench remove lug nut",
+      "subject": "impact wrench",
+      "object": "lug nut",
+      "verb": "remove",
+      "time": "01:48"
     },
     {
-      "label": "person wiping dipstick with cloth",
-      "details": "The person is wiping the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": -2393895684962773760
+      "label": "remove lug nut",
+      "details": "hands remove lug nut",
+      "subject": "hands",
+      "object": "lug nut",
+      "verb": "remove",
+      "time": "01:49"
     },
     {
-      "label": "person wiping dipstick with cloth",
-      "details": "The person is wiping the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": -5879363094989872301
+      "label": "remove front wheel",
+      "details": "hands remove front wheel",
+      "subject": "hands",
+      "object": "front wheel",
+      "verb": "remove",
+      "time": "01:55"
     },
     {
-      "label": "person wiping dipstick with cloth",
-      "details": "The person is wiping the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": -3173086881114590345
+      "label": "inspect brake caliper",
+      "details": "hands inspect brake caliper",
+      "subject": "hands",
+      "object": "brake caliper",
+      "verb": "inspect",
+      "time": "02:00"
     },
     {
-      "label": "person wiping dipstick with cloth",
-      "details": "The person is wiping the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": -6804362461816532395
+      "label": "remove outer brake pad",
+      "details": "hands remove outer brake pad",
+      "subject": "hands",
+      "object": "outer brake pad",
+      "verb": "remove",
+      "time": "02:06"
     },
     {
-      "label": "person holding dipstick",
-      "details": "The person is holding the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": 829658841966697666
+      "label": "remove inner brake pad",
+      "details": "hands remove inner brake pad",
+      "subject": "hands",
+      "object": "inner brake pad",
+      "verb": "remove",
+      "time": "02:08"
     },
     {
-      "label": "person holding dipstick",
-      "details": "The person is holding the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": 5567415543990514935
+      "label": "reinstall front brake pads",
+      "details": "hands reinstall front brake pads",
+      "subject": "hands",
+      "object": "front brake pads",
+      "verb": "reinstall",
+      "time": "02:10"
     },
     {
-      "label": "person inserting dipstick into engine",
-      "details": "The person is inserting the dipstick into the engine.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": -6206629092475577497
+      "label": "reinstall brake caliper",
+      "details": "wrench reinstall brake caliper",
+      "subject": "wrench",
+      "object": "brake caliper",
+      "verb": "reinstall",
+      "time": "02:14"
     },
     {
-      "label": "person inserting dipstick into engine",
-      "details": "The person is inserting the dipstick into the engine.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": -2818626290974160965
+      "label": "reinstall front wheel",
+      "details": "hands reinstall front wheel",
+      "subject": "hands",
+      "object": "front wheel",
+      "verb": "reinstall",
+      "time": "02:20"
     },
     {
-      "label": "person inserting dipstick into engine",
-      "details": "The person is inserting the dipstick into the engine.",
-      "confidence": "high",
-      "start": "00:24",
-      "end": "00:32",
-      "id": -4436923963680870006
+      "label": "reinstall front wheel",
+      "details": "pneumatic wrench reinstall front wheel",
+      "subject": "pneumatic wrench",
+      "object": "front wheel",
+      "verb": "reinstall",
+      "time": "02:20"
     },
     {
-      "label": "wiping dipstick",
-      "details": "The person is wiping the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": -8531259637215200994
+      "label": "reinstall front wheel",
+      "details": "hands reinstall front wheel",
+      "subject": "hands",
+      "object": "front wheel",
+      "verb": "reinstall",
+      "time": "02:26"
     },
     {
-      "label": "inserting dipstick",
-      "details": "The person is inserting the dipstick back into the engine.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": 1349005298944347495
+      "label": "lift car",
+      "details": "hands lift car",
+      "subject": "hands",
+      "object": "car",
+      "verb": "lift",
+      "time": "02:30"
     },
     {
-      "label": "removing dipstick",
-      "details": "The person is removing the dipstick from the engine.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": -5730699964718168454
+      "label": "remove lift arms",
+      "details": "hands remove lift arms",
+      "subject": "hands",
+      "object": "lift arms",
+      "verb": "remove",
+      "time": "02:35"
     },
     {
-      "label": "checking fluid level",
-      "details": "The person is checking the fluid level on the dipstick.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": -803582480949326585
+      "label": "remove Hyundai air filter box",
+      "details": "hands remove Hyundai air filter box",
+      "subject": "hands",
+      "object": "Hyundai air filter box",
+      "verb": "remove",
+      "time": "02:49"
     },
     {
-      "label": "wiping dipstick",
-      "details": "The person is wiping the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": -3446494417664481982
+      "label": "position funnel",
+      "details": "hands position funnel",
+      "subject": "hands",
+      "object": "funnel",
+      "verb": "position",
+      "time": "02:50"
     },
     {
-      "label": "inserting dipstick",
-      "details": "The person is inserting the dipstick back into the engine.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": -5321825537008661972
+      "label": "remove engine oil cap",
+      "details": "hands remove engine oil cap",
+      "subject": "hands",
+      "object": "engine oil cap",
+      "verb": "remove",
+      "time": "02:53"
     },
     {
-      "label": "removing dipstick",
-      "details": "The person is removing the dipstick from the engine.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": 6093362319038067247
+      "label": "remove funnel",
+      "details": "hands remove funnel",
+      "subject": "hands",
+      "object": "funnel",
+      "verb": "remove",
+      "time": "02:55"
     },
     {
-      "label": "checking fluid level",
-      "details": "The person is checking the fluid level on the dipstick.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": 210643138836460747
+      "label": "reinstall engine oil cap",
+      "details": "hands reinstall engine oil cap",
+      "subject": "hands",
+      "object": "engine oil cap",
+      "verb": "reinstall",
+      "time": "02:59"
     },
     {
-      "label": "wiping dipstick",
-      "details": "The person is wiping the dipstick with a blue cloth.",
-      "confidence": "high",
-      "start": "00:28",
-      "end": "00:36",
-      "id": -2221128315569803052
+      "label": "refill engine oil",
+      "details": "hands refill engine oil",
+      "subject": "hands",
+      "object": "engine oil",
+      "verb": "refill",
+      "time": "03:00"
     },
     {
-      "label": "person holding dipstick",
-      "details": "The person is holding the dipstick in their gloved hand, examining it.",
-      "confidence": "high",
-      "start": "00:32",
-      "end": "00:40",
-      "id": -3236813165233952122
+      "label": "remove funnel",
+      "details": "hands remove funnel",
+      "subject": "hands",
+      "object": "funnel",
+      "verb": "remove",
+      "time": "03:09"
     },
     {
-      "label": "person inserting dipstick into engine",
-      "details": "The person is inserting the dipstick back into the engine's dipstick tube.",
-      "confidence": "high",
-      "start": "00:32",
-      "end": "00:40",
-      "id": -8646404996769632779
+      "label": "remove dipstick",
+      "details": "hands remove dipstick",
+      "subject": "hands",
+      "object": "dipstick",
+      "verb": "remove",
+      "time": "03:10"
     },
     {
-      "label": "person lifts air filter box cover with right hand",
-      "details": "The person uses their right hand to lift the black cover of the air filter box, revealing the filter underneath.",
-      "confidence": "high",
-      "start": "00:36",
-      "end": "00:44",
-      "id": -9099302656847102395
+      "label": "clean dipstick",
+      "details": "hands clean dipstick",
+      "subject": "hands",
+      "object": "dipstick",
+      "verb": "clean",
+      "time": "03:12"
     },
     {
-      "label": "person grasps air filter with left hand",
-      "details": "The person's left hand reaches into the air filter box and grasps the air filter.",
-      "confidence": "high",
-      "start": "00:36",
-      "end": "00:44",
-      "id": 6267872630734794984
+      "label": "reinstall dipstick",
+      "details": "hands reinstall dipstick",
+      "subject": "hands",
+      "object": "dipstick",
+      "verb": "reinstall",
+      "time": "03:14"
     },
     {
-      "label": "person removes air filter with left hand",
-      "details": "The person pulls the air filter out of its housing using their left hand.",
-      "confidence": "high",
-      "start": "00:36",
-      "end": "00:44",
-      "id": 3160490783677215340
+      "label": "remove dipstick",
+      "details": "hands remove dipstick",
+      "subject": "hands",
+      "object": "dipstick",
+      "verb": "remove",
+      "time": "03:16"
     },
     {
-      "label": "lifting air filter housing cover",
-      "details": "The person is lifting the air filter housing cover with both hands.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": 638668664299990377
+      "label": "clean dipstick",
+      "details": "hands clean dipstick",
+      "subject": "hands",
+      "object": "dipstick",
+      "verb": "clean",
+      "time": "03:18"
     },
     {
-      "label": "holding air filter housing cover",
-      "details": "The person is holding the air filter housing cover with both hands, having just removed it.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": -8467197582419525351
+      "label": "reinstall dipstick",
+      "details": "hands reinstall dipstick",
+      "subject": "hands",
+      "object": "dipstick",
+      "verb": "reinstall",
+      "time": "03:20"
     },
     {
-      "label": "lifting air filter",
-      "details": "The person is lifting the air filter out of its housing with both hands.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": 1241623008008282084
+      "label": "remove spark plug",
+      "details": "socket wrench remove spark plug",
+      "subject": "socket wrench",
+      "object": "spark plug",
+      "verb": "remove",
+      "time": "03:23"
     },
     {
-      "label": "holding air filter",
-      "details": "The person is holding the removed air filter with both hands.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": 4386744753851955374
+      "label": "inspect spark plug",
+      "details": "hands inspect spark plug",
+      "subject": "hands",
+      "object": "spark plug",
+      "verb": "inspect",
+      "time": "03:27"
     },
     {
-      "label": "holding air filter",
-      "details": "The person is holding the removed air filter with both hands, moving it away from the engine.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": 6285261014128757413
+      "label": "remove air filter housing cover",
+      "details": "hands remove air filter housing cover",
+      "subject": "hands",
+      "object": "air filter housing cover",
+      "verb": "remove",
+      "time": "03:34"
     },
     {
-      "label": "moving air filter",
-      "details": "The person is moving the removed air filter away from the engine bay.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": -6399598283696903516
+      "label": "remove old air filter",
+      "details": "hands remove old air filter",
+      "subject": "hands",
+      "object": "old air filter",
+      "verb": "remove",
+      "time": "03:35"
     },
     {
-      "label": "placing air filter housing cover",
-      "details": "The person is placing the air filter housing cover back onto the air filter housing.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": 4010330640211111271
+      "label": "top-up coolant expansion tank",
+      "details": "hands top-up coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "top-up",
+      "time": "03:45"
     },
     {
-      "label": "pressing air filter housing cover",
-      "details": "The person is pressing down on the air filter housing cover to secure it.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": 5373568881544849047
+      "label": "top-up coolant expansion tank",
+      "details": "hands top-up coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "top-up",
+      "time": "03:50"
     },
     {
-      "label": "touching air filter housing cover",
-      "details": "The person is touching the air filter housing cover, ensuring it is properly seated.",
-      "confidence": "high",
-      "start": "00:40",
-      "end": "00:48",
-      "id": 998047063594274834
+      "label": "top-up coolant expansion tank",
+      "details": "hands top-up coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "top-up",
+      "time": "03:51"
     },
     {
-      "label": "positioning engine cover",
-      "details": "The person is positioning a black plastic engine cover over the engine.",
-      "confidence": "high",
-      "start": "00:44",
-      "end": "00:52",
-      "id": 4735871674120391996
+      "label": "top-up coolant expansion tank",
+      "details": "hands top-up coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "top-up",
+      "time": "03:52"
     },
     {
-      "label": "securing engine cover",
-      "details": "The person is pressing down on the black plastic engine cover to secure it in place.",
-      "confidence": "high",
-      "start": "00:44",
-      "end": "00:52",
-      "id": -3930803386950958292
+      "label": "top-up coolant expansion tank",
+      "details": "hands top-up coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "top-up",
+      "time": "03:53"
     },
     {
-      "label": "giving thumbs up",
-      "details": "The person is giving a thumbs-up gesture with their right hand.",
-      "confidence": "high",
-      "start": "00:44",
-      "end": "00:52",
-      "id": -1095817391088772537
+      "label": "reinstall coolant expansion tank",
+      "details": "hands reinstall coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "reinstall",
+      "time": "03:54"
     },
     {
-      "label": "grasping car hood",
-      "details": "The person is grasping the underside of the car hood with both hands.",
-      "confidence": "high",
-      "start": "00:44",
-      "end": "00:52",
-      "id": -7615085435558500023
+      "label": "reinstall coolant expansion tank",
+      "details": "hands reinstall coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "reinstall",
+      "time": "03:55"
     },
     {
-      "label": "lowering car hood",
-      "details": "The person is lowering the car hood towards the front of the car.",
-      "confidence": "high",
-      "start": "00:44",
-      "end": "00:52",
-      "id": -6967933532808574231
+      "label": "reinstall coolant expansion tank",
+      "details": "hands reinstall coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "reinstall",
+      "time": "03:56"
     },
     {
-      "label": "closing car hood",
-      "details": "The person is pressing down on the car hood to latch it closed.",
-      "confidence": "high",
-      "start": "00:44",
-      "end": "00:52",
-      "id": 3757466799806831684
+      "label": "reinstall coolant expansion tank",
+      "details": "hands reinstall coolant expansion tank",
+      "subject": "hands",
+      "object": "coolant expansion tank",
+      "verb": "reinstall",
+      "time": "03:57"
     },
     {
-      "label": "releasing car hood",
-      "details": "The person is releasing their hands from the closed car hood.",
-      "confidence": "high",
-      "start": "00:44",
-      "end": "00:52",
-      "id": -1996333121876630937
+      "label": "apply battery terminals",
+      "details": "hands apply battery terminals",
+      "subject": "hands",
+      "object": "battery terminals",
+      "verb": "apply",
+      "time": "03:58"
     },
     {
-      "label": "person touching the yellow jack",
-      "details": "The person's hands, wearing black gloves, are on the yellow jack, appearing to prepare it for use.",
-      "confidence": "high",
-      "start": "00:48",
-      "end": "00:56",
-      "id": -3244274177878644544
+      "label": "apply battery terminals",
+      "details": "hands apply battery terminals",
+      "subject": "hands",
+      "object": "battery terminals",
+      "verb": "apply",
+      "time": "03:59"
     },
     {
-      "label": "person moving the yellow jack",
-      "details": "The person is moving the yellow jack across the floor, guiding it with both hands.",
-      "confidence": "high",
-      "start": "00:48",
-      "end": "00:56",
-      "id": 4373720881462636434
+      "label": "apply battery terminals",
+      "details": "hands apply battery terminals",
+      "subject": "hands",
+      "object": "battery terminals",
+      "verb": "apply",
+      "time": "04:00"
     },
     {
-      "label": "person positioning the yellow jack under the car",
-      "details": "The person is carefully placing the yellow jack directly under the side of the silver car.",
-      "confidence": "high",
-      "start": "00:48",
-      "end": "00:56",
-      "id": 5768096844266694196
+      "label": "inspect brake fluid reservoir",
+      "details": "hands inspect brake fluid reservoir",
+      "subject": "hands",
+      "object": "brake fluid reservoir",
+      "verb": "inspect",
+      "time": "04:00"
     },
     {
-      "label": "person operating the yellow jack",
-      "details": "The person is using both hands to operate the yellow jack, likely pumping it to lift the car.",
-      "confidence": "high",
-      "start": "00:48",
-      "end": "00:56",
-      "id": 7943139860395936271
+      "label": "top-up windshield washer fluid reservoir",
+      "details": "hands top-up windshield washer fluid reservoir",
+      "subject": "hands",
+      "object": "windshield washer fluid reservoir",
+      "verb": "top-up",
+      "time": "04:17"
+    },
+    {
+      "label": "top-up windshield washer fluid reservoir",
+      "details": "hands top-up windshield washer fluid reservoir",
+      "subject": "hands",
+      "object": "windshield washer fluid reservoir",
+      "verb": "top-up",
+      "time": "04:20"
+    },
+    {
+      "label": "top-up windshield washer fluid reservoir",
+      "details": "hands top-up windshield washer fluid reservoir",
+      "subject": "hands",
+      "object": "windshield washer fluid reservoir",
+      "verb": "top-up",
+      "time": "04:20"
+    },
+    {
+      "label": "remove white bottle",
+      "details": "hands remove white bottle",
+      "subject": "hands",
+      "object": "white bottle",
+      "verb": "remove",
+      "time": "04:25"
+    },
+    {
+      "label": "remove funnel",
+      "details": "hands remove funnel",
+      "subject": "hands",
+      "object": "funnel",
+      "verb": "remove",
+      "time": "04:26"
+    },
+    {
+      "label": "reinstall windshield washer fluid reservoir cap",
+      "details": "hands reinstall windshield washer fluid reservoir cap",
+      "subject": "hands",
+      "object": "windshield washer fluid reservoir cap",
+      "verb": "reinstall",
+      "time": "04:27"
+    },
+    {
+      "label": "check battery voltage",
+      "details": "hands check battery voltage",
+      "subject": "hands",
+      "object": "battery voltage",
+      "verb": "check",
+      "time": "04:30"
     }
   ]
 }

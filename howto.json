@@ -1,120 +1,255 @@
 {
-  "source_video": "Hyundai Santro Standard Service - POV by GoMechanic.mp4",
+  "source_video": "POV_car_repair.mp4",
   "steps": [
     {
-      "process_step_id": 1,
+      "id": 1,
       "process_title": "Pre-Service Inspection",
-      "actions": [
-        {"index": 1, "label": "Open Car Hood", "description": "A mechanic opens the hood of the silver Hyundai Santro to begin the pre-service inspection."},
-        {"index": 2, "label": "Check Engine Oil Level", "description": "The mechanic uses the dipstick to check the level and condition of the engine oil before draining."},
-        {"index": 3, "label": "Inspect Coolant Level", "description": "The mechanic visually inspects the coolant level in the expansion tank."},
-        {"index": 4, "label": "Inspect Brake Fluid Level", "description": "The mechanic checks the level of the brake fluid in its reservoir."},
-        {"index": 5, "label": "Inspect Air Filter", "description": "The mechanic opens the air filter housing and removes the old air filter for inspection."},
-        {"index": 6, "label": "Position and Lift Car", "description": "The vehicle is positioned over a two-post hydraulic lift, and the lift arms are placed under the jacking points before raising the car."},
-        {"index": 7, "label": "Underbody Inspection", "description": "Using a light, the mechanic inspects the car's underbody, including the suspension, exhaust system, and chassis for any issues."},
-        {"index": 8, "label": "Check Tyre Tread Depth", "description": "A digital tread depth gauge is used to measure the remaining tread on the rear tyre."}
-      ]
+      "step_text": "Open Car Hood",
+      "question": "",
+      "how": "A mechanic opens the hood of the silver Hyundai Santro to begin the pre-service inspection.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 2,
+      "id": 2,
+      "process_title": "Pre-Service Inspection",
+      "step_text": "Check Engine Oil Level",
+      "question": "",
+      "how": "The mechanic uses the dipstick to check the level and condition of the engine oil before draining.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 3,
+      "process_title": "Pre-Service Inspection",
+      "step_text": "Inspect Coolant Level",
+      "question": "",
+      "how": "The mechanic visually inspects the coolant level in the expansion tank.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 4,
+      "process_title": "Pre-Service Inspection",
+      "step_text": "Inspect Brake Fluid Level",
+      "question": "",
+      "how": "The mechanic checks the level of the brake fluid in its reservoir.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 5,
+      "process_title": "Pre-Service Inspection",
+      "step_text": "Inspect Air Filter",
+      "question": "",
+      "how": "The mechanic opens the air filter housing and removes the old air filter for inspection.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 6,
+      "process_title": "Pre-Service Inspection",
+      "step_text": "Position and Lift Car",
+      "question": "",
+      "how": "The vehicle is positioned over a two-post hydraulic lift, and the lift arms are placed under the jacking points before raising the car.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 7,
+      "process_title": "Pre-Service Inspection",
+      "step_text": "Underbody Inspection",
+      "question": "",
+      "how": "Using a light, the mechanic inspects the car's underbody, including the suspension, exhaust system, and chassis for any issues.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 8,
+      "process_title": "Pre-Service Inspection",
+      "step_text": "Check Tyre Tread Depth",
+      "question": "",
+      "how": "A digital tread depth gauge is used to measure the remaining tread on the rear tyre.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 9,
       "process_title": "Draining Old Engine Oil",
-      "actions": [
-        {"index": 9, "label": "Drain Old Engine Oil", "description": "A wrench is used to loosen the drain plug, and the old, dark engine oil is drained into a collection pan."}
-      ]
+      "step_text": "Drain Old Engine Oil",
+      "question": "",
+      "how": "A wrench is used to loosen the drain plug, and the old, dark engine oil is drained into a collection pan.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 3,
+      "id": 10,
       "process_title": "Replacing Oil Filter",
-      "actions": [
-        {"index": 10, "label": "Replace Engine Oil Filter", "description": "The old oil filter is removed, and a new, genuine Hyundai oil filter is unboxed, its gasket lubricated, and then installed."}
-      ]
+      "step_text": "Replace Engine Oil Filter",
+      "question": "",
+      "how": "The old oil filter is removed, and a new, genuine Hyundai oil filter is unboxed, its gasket lubricated, and then installed.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 4,
+      "id": 11,
       "process_title": "Brake Inspection",
-      "actions": [
-        {"index": 11, "label": "Remove Front Wheel", "description": "After loosening the nuts with a pneumatic wrench, the front wheel is removed to access the brake assembly."},
-        {"index": 12, "label": "Inspect Front Brake Pads", "description": "The mechanic removes the brake pads from the caliper to check their thickness and condition before reinstalling them."},
-        {"index": 13, "label": "Reinstall Front Wheel", "description": "The wheel is mounted back onto the hub, the nuts are tightened with the pneumatic wrench, and the wheel cover is reattached."}
-      ]
+      "step_text": "Remove Front Wheel",
+      "question": "",
+      "how": "After loosening the nuts with a pneumatic wrench, the front wheel is removed to access the brake assembly.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 5,
+      "id": 12,
+      "process_title": "Brake Inspection",
+      "step_text": "Inspect Front Brake Pads",
+      "question": "",
+      "how": "The mechanic removes the brake pads from the caliper to check their thickness and condition before reinstalling them.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 13,
+      "process_title": "Brake Inspection",
+      "step_text": "Reinstall Front Wheel",
+      "question": "",
+      "how": "The wheel is mounted back onto the hub, the nuts are tightened with the pneumatic wrench, and the wheel cover is reattached.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 14,
       "process_title": "Replacing Engine Oil",
-      "actions": [
-        {"index": 14, "label": "Refill New Engine Oil", "description": "New Mobil 1 0W-40 fully synthetic engine oil is poured into the engine using a funnel."}
-      ]
+      "step_text": "Refill New Engine Oil",
+      "question": "",
+      "how": "New Mobil 1 0W-40 fully synthetic engine oil is poured into the engine using a funnel.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 6,
+      "id": 15,
       "process_title": "Inspecting Spark Plugs",
-      "actions": [
-        {"index": 15, "label": "Inspect Spark Plug Condition", "description": "A spark plug is removed from the engine, its electrode is inspected for wear, and the gap is checked with a feeler gauge."}
-      ]
+      "step_text": "Inspect Spark Plug Condition",
+      "question": "",
+      "how": "A spark plug is removed from the engine, its electrode is inspected for wear, and the gap is checked with a feeler gauge.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 7,
+      "id": 16,
       "process_title": "Replacing Air Filter",
-      "actions": [
-        {"index": 16, "label": "Replace Engine Air Filter", "description": "The old, dirty engine air filter is discarded and replaced with a new, genuine Hyundai air filter."}
-      ]
+      "step_text": "Replace Engine Air Filter",
+      "question": "",
+      "how": "The old, dirty engine air filter is discarded and replaced with a new, genuine Hyundai air filter.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 8,
+      "id": 17,
       "process_title": "Coolant Top-Up",
-      "actions": [
-        {"index": 17, "label": "Top-Up Coolant", "description": "GoMechanic Smartcool coolant is added to the coolant expansion tank to bring it to the correct level."}
-      ]
+      "step_text": "Top-Up Coolant",
+      "question": "",
+      "how": "GoMechanic Smartcool coolant is added to the coolant expansion tank to bring it to the correct level.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 9,
+      "id": 18,
       "process_title": "Rust Protection Spray",
-      "actions": [
-        {"index": 18, "label": "Apply Battery Terminal Spray", "description": "A rust protection spray is applied to the battery terminals to prevent corrosion and ensure a good connection."}
-      ]
+      "step_text": "Apply Battery Terminal Spray",
+      "question": "",
+      "how": "A rust protection spray is applied to the battery terminals to prevent corrosion and ensure a good connection.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 10,
+      "id": 19,
       "process_title": "Brake Fluid Top-Up",
-      "actions": [
-        {"index": 19, "label": "Top-Up Brake Fluid", "description": "GoMechanic DOT-4 brake fluid is added to the brake fluid reservoir to top it up."}
-      ]
+      "step_text": "Top-Up Brake Fluid",
+      "question": "",
+      "how": "GoMechanic DOT-4 brake fluid is added to the brake fluid reservoir to top it up.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 11,
+      "id": 20,
       "process_title": "Windshield Washer Fluid Top-Up",
-      "actions": [
-        {"index": 20, "label": "Top-Up Windshield Washer Fluid", "description": "A concentrate is added to the windshield washer fluid reservoir, followed by water."}
-      ]
+      "step_text": "Top-Up Windshield Washer Fluid",
+      "question": "",
+      "how": "A concentrate is added to the windshield washer fluid reservoir, followed by water.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 12,
+      "id": 21,
       "process_title": "Battery Voltage Check",
-      "actions": [
-        {"index": 21, "label": "Check Battery Voltage", "description": "A digital multimeter is used to check the battery's voltage, which reads 12.82V, indicating a healthy charge."}
-      ]
+      "step_text": "Check Battery Voltage",
+      "question": "",
+      "how": "A digital multimeter is used to check the battery's voltage, which reads 12.82V, indicating a healthy charge.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 13,
+      "id": 22,
       "process_title": "Cabin Filter Cleaning",
-      "actions": [
-        {"index": 22, "label": "Clean and Reinstall Cabin Filter", "description": "The cabin air filter is removed from behind the glove box, cleaned with compressed air, and then reinstalled."}
-      ]
+      "step_text": "Clean and Reinstall Cabin Filter",
+      "question": "",
+      "how": "The cabin air filter is removed from behind the glove box, cleaned with compressed air, and then reinstalled.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 14,
+      "id": 23,
       "process_title": "Error Code Scanning",
-      "actions": [
-        {"index": 23, "label": "Perform Engine Scan", "description": "An OBD-II scanner is connected to the car to read and clear any diagnostic trouble codes from the engine control unit (ECU)."}
-      ]
+      "step_text": "Perform Engine Scan",
+      "question": "",
+      "how": "An OBD-II scanner is connected to the car to read and clear any diagnostic trouble codes from the engine control unit (ECU).",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     },
     {
-      "process_step_id": 15,
+      "id": 24,
       "process_title": "Car Wash And Vacuuming",
-      "actions": [
-        {"index": 24, "label": "Underbody Pressure Wash", "description": "The car is on a wash lift, and a high-pressure water jet is used to clean the underbody, wheel wells, and tyres."},
-        {"index": 25, "label": "Exterior Foam Wash and Rinse", "description": "The car's exterior is washed by hand with a soapy sponge and then thoroughly rinsed with a pressure washer."}
-      ]
+      "step_text": "Underbody Pressure Wash",
+      "question": "",
+      "how": "The car is on a wash lift, and a high-pressure water jet is used to clean the underbody, wheel wells, and tyres.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
+    },
+    {
+      "id": 25,
+      "process_title": "Car Wash And Vacuuming",
+      "step_text": "Exterior Foam Wash and Rinse",
+      "question": "",
+      "how": "The car's exterior is washed by hand with a soapy sponge and then thoroughly rinsed with a pressure washer.",
+      "keywords": [],
+      "prerequisites": [],
+      "ambiguity": []
     }
   ]
 }

@@ -1,4 +1,4 @@
-# run_two_vlm_sticky.py
+# run_two_sticky_evidence.py
 
 import os, cv2, json, time, random, subprocess
 from collections import deque
@@ -10,10 +10,10 @@ from google.genai import types
 
 # ====================== Config ======================
 
-TITLE = "Airplane Wheel Maintenance of Airbus A320."
-VIDEO_PATH    = "./aero_wheel_full.mp4"
+TITLE = "Hyundai Santro Car Service and Repair"
+VIDEO_PATH    = "./POV_car_repair.mp4"
 HOWTO_JSON    = "./howto.json"
-OBJECTS_JSON = "./objects.json"
+OBJECTS_JSON = "./process_hier.json"
 ACTION_VERBS_JSON = "./action_verbs.json"
 OUTPUT_DIR    = "outputs/twoVLM"
 
@@ -214,12 +214,12 @@ def build_s1_prompt(
         f"Video title: {title}\n"
         f"Analyze frames from {time_range}.\n\n"
         "Your task is to extract **fine-grained human–object actions** that are "
-        "specifically relevant to this aircraft wheel maintenance task.\n\n"
+        "specifically relevant to this car service and repair task.\n\n"
         "### Object Knowledge (reference only)\n"
         f"{json.dumps(object_knowledge, ensure_ascii=False, indent=2)}\n\n"
         "### Action Template\n"
         "- Subject: the tool or body part performing the action (hands, torque wrench, pry bar, etc.).\n"
-        "- Object: the exact aircraft component being acted upon.\n"
+        "- Object: the exact vehicle component being acted upon.\n"
         "- Verb: choose exactly one verb from this approved list.\n"
         f"{verbs_block}\n"
         "- Time: the timestamp (MM:SS) within this window when the action is visible.\n\n"
@@ -250,6 +250,10 @@ def build_s2_prompt(title: str,
                     steps: List[Dict[str,Any]],
                     last_completed_id: Optional[int],
                     last_candidate_id: Optional[int]) -> str:
+    steps_summary = [
+        {"id": s.get("id"), "step_text": s.get("step_text", "")}
+        for s in steps
+    ]
     return (
         f"Video title: {title}\n"
         f"Time range: {ts(window_start)}–{ts(window_end)}\n\n"
@@ -262,7 +266,7 @@ def build_s2_prompt(title: str,
         "Evidence history so far:\n"
         f"{json.dumps(evidence_history, ensure_ascii=False, indent=2)}\n\n"
         "Candidate steps:\n"
-        f"{json.dumps(steps, ensure_ascii=False)}\n\n"
+        f"{json.dumps(steps_summary, ensure_ascii=False)}\n\n"
         "Policy:\n"
         "- If the verb is ambiguous, wait for more actions to promote the verb to specific action."
         "- If the last step still appears, accumulate more evidence.\n"
