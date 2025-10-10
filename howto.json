@@ -9,7 +9,10 @@
       "how": "A mechanic opens the hood of the silver Hyundai Santro to begin the pre-service inspection.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic opens hood"
+      ]
     },
     {
       "id": 2,
@@ -19,7 +22,11 @@
       "how": "The mechanic uses the dipstick to check the level and condition of the engine oil before draining.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic uses dipstick",
+        "Mechanic checks oil level"
+      ]
     },
     {
       "id": 3,
@@ -29,7 +36,10 @@
       "how": "The mechanic visually inspects the coolant level in the expansion tank.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic inspects coolant level"
+      ]
     },
     {
       "id": 4,
@@ -39,7 +49,10 @@
       "how": "The mechanic checks the level of the brake fluid in its reservoir.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic checks brake fluid level"
+      ]
     },
     {
       "id": 5,
@@ -49,7 +62,12 @@
       "how": "The mechanic opens the air filter housing and removes the old air filter for inspection.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic opens air filter housing",
+        "Mechanic removes air filter",
+        "Mechanic installs air filter"
+      ]
     },
     {
       "id": 6,
@@ -59,7 +77,12 @@
       "how": "The vehicle is positioned over a two-post hydraulic lift, and the lift arms are placed under the jacking points before raising the car.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic positions vehicle",
+        "Mechanic places lift arms",
+        "Mechanic raises car"
+      ]
     },
     {
       "id": 7,
@@ -69,7 +92,11 @@
       "how": "Using a light, the mechanic inspects the car's underbody, including the suspension, exhaust system, and chassis for any issues.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic illuminates underbody",
+        "Mechanic inspects underbody components"
+      ]
     },
     {
       "id": 8,
@@ -79,7 +106,11 @@
       "how": "A digital tread depth gauge is used to measure the remaining tread on the rear tyre.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic uses tread depth gauge",
+        "Mechanic measures rear tyre tread"
+      ]
     },
     {
       "id": 9,
@@ -89,7 +120,12 @@
       "how": "A wrench is used to loosen the drain plug, and the old, dark engine oil is drained into a collection pan.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic loosens drain plug",
+        "Mechanic drains engine oil",
+        "Mechanic directs oil"
+      ]
     },
     {
       "id": 10,
@@ -99,7 +135,13 @@
       "how": "The old oil filter is removed, and a new, genuine Hyundai oil filter is unboxed, its gasket lubricated, and then installed.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic removes old oil filter",
+        "Mechanic unboxes new oil filter",
+        "Mechanic lubricates filter gasket",
+        "Mechanic installs new oil filter"
+      ]
     },
     {
       "id": 11,
@@ -109,7 +151,11 @@
       "how": "After loosening the nuts with a pneumatic wrench, the front wheel is removed to access the brake assembly.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic loosens wheel nuts",
+        "Mechanic removes front wheel"
+      ]
     },
     {
       "id": 12,
@@ -119,7 +165,13 @@
       "how": "The mechanic removes the brake pads from the caliper to check their thickness and condition before reinstalling them.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic removes brake pads",
+        "Mechanic checks pad thickness",
+        "Mechanic inspects pad condition",
+        "Mechanic reinstalls brake pads"
+      ]
     },
     {
       "id": 13,
@@ -129,7 +181,12 @@
       "how": "The wheel is mounted back onto the hub, the nuts are tightened with the pneumatic wrench, and the wheel cover is reattached.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic mounts front wheel",
+        "Mechanic tightens wheel nuts",
+        "Mechanic reattaches wheel cover"
+      ]
     },
     {
       "id": 14,
@@ -139,7 +196,11 @@
       "how": "New Mobil 1 0W-40 fully synthetic engine oil is poured into the engine using a funnel.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic uses funnel",
+        "Mechanic pours Mobil 1 oil"
+      ]
     },
     {
       "id": 15,
@@ -149,7 +210,12 @@
       "how": "A spark plug is removed from the engine, its electrode is inspected for wear, and the gap is checked with a feeler gauge.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic removes spark plug",
+        "Mechanic inspects spark plug electrode",
+        "Mechanic checks spark plug gap"
+      ]
     },
     {
       "id": 16,
@@ -159,7 +225,11 @@
       "how": "The old, dirty engine air filter is discarded and replaced with a new, genuine Hyundai air filter.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic removes old air filter",
+        "Mechanic installs new air filter"
+      ]
     },
     {
       "id": 17,
@@ -169,7 +239,11 @@
       "how": "GoMechanic Smartcool coolant is added to the coolant expansion tank to bring it to the correct level.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic adds Smartcool coolant",
+        "Mechanic fills expansion tank"
+      ]
     },
     {
       "id": 18,
@@ -179,7 +253,11 @@
       "how": "A rust protection spray is applied to the battery terminals to prevent corrosion and ensure a good connection.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic applies rust protection spray",
+        "Mechanic coats battery terminals"
+      ]
     },
     {
       "id": 19,
@@ -189,7 +267,11 @@
       "how": "GoMechanic DOT-4 brake fluid is added to the brake fluid reservoir to top it up.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic adds DOT-4 brake fluid",
+        "Mechanic tops brake fluid reservoir"
+      ]
     },
     {
       "id": 20,
@@ -199,7 +281,11 @@
       "how": "A concentrate is added to the windshield washer fluid reservoir, followed by water.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic adds washer concentrate",
+        "Mechanic adds water"
+      ]
     },
     {
       "id": 21,
@@ -209,7 +295,12 @@
       "how": "A digital multimeter is used to check the battery's voltage, which reads 12.82V, indicating a healthy charge.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic connects digital multimeter",
+        "Mechanic checks battery voltage",
+        "Multimeter displays 12.82V reading"
+      ]
     },
     {
       "id": 22,
@@ -219,7 +310,12 @@
       "how": "The cabin air filter is removed from behind the glove box, cleaned with compressed air, and then reinstalled.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic removes cabin air filter",
+        "Mechanic cleans cabin filter",
+        "Mechanic reinstalls cabin air filter"
+      ]
     },
     {
       "id": 23,
@@ -229,7 +325,12 @@
       "how": "An OBD-II scanner is connected to the car to read and clear any diagnostic trouble codes from the engine control unit (ECU).",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic connects OBD-II scanner",
+        "Mechanic reads diagnostic trouble codes",
+        "Mechanic clears diagnostic trouble codes"
+      ]
     },
     {
       "id": 24,
@@ -239,7 +340,12 @@
       "how": "The car is on a wash lift, and a high-pressure water jet is used to clean the underbody, wheel wells, and tyres.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic directs high-pressure water jet",
+        "Mechanic cleans underbody surfaces",
+        "Mechanic rinses wheel wells and tyres"
+      ]
     },
     {
       "id": 25,
@@ -249,7 +355,11 @@
       "how": "The car's exterior is washed by hand with a soapy sponge and then thoroughly rinsed with a pressure washer.",
       "keywords": [],
       "prerequisites": [],
-      "ambiguity": []
+      "ambiguity": [],
+      "sub-steps": [
+        "Mechanic washes exterior",
+        "Mechanic rinses exterior"
+      ]
     }
   ]
 }

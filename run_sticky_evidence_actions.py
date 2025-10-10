@@ -13,25 +13,25 @@ from google.genai import types
 TITLE = "Hyundai Santro Car Service and Repair"
 VIDEO_PATH    = "./POV_car_repair.mp4"
 HOWTO_JSON    = "./howto.json"
-OBJECTS_JSON = "./process_hier.json"
+OBJECTS_JSON = "./objects.json"
 ACTION_VERBS_JSON = "./action_verbs.json"
 OUTPUT_DIR    = "outputs/twoVLM"
 
 # Sliding window
-STRIDE_SECONDS   = 10
-S1_WINDOW_SEC    = 10
-S2_WINDOW_SEC    = 60
+STRIDE_SECONDS   = 5
+S1_WINDOW_SEC    = 5
+S2_WINDOW_SEC    = 30
 
 # Sampling fps
-S1_FPS = 2
+S1_FPS = 1.5
 S2_FPS = 1
 
 # Patience policy
 PATIENCE_SECONDS = 20
 
 # Models
-VLM_MODEL_S1 = "gemini-2.5-flash"
-VLM_MODEL_S2 = "gemini-2.5-pro"
+VLM_MODEL_S1 = "gemini-2.5-pro"
+VLM_MODEL_S2 = "gemini-2.5-flash"
 
 # Thresholds
 CONF_THRESHOLD                = 90
@@ -48,7 +48,9 @@ MAX_RETRIES  = 3
 
 # Downscale frames before JPEG
 DOWNSCALE = (640, 360)
-JPEG_QUALITY = 75
+JPEG_QUALITY = 85
+# Thinking budget for Gemini models (tokens)
+THINKING_BUDGET_TOKENS = 128
 
 # ====================== Setup ======================
 load_dotenv()
@@ -56,6 +58,19 @@ API_KEY = os.getenv("GOOGLE_API_KEY")
 if not API_KEY:
     raise RuntimeError("Missing GOOGLE_API_KEY in .env")
 client = genai.Client(api_key=API_KEY)
+
+try:
+    THINKING_CONFIG = types.ThinkingConfig(thinking_budget=THINKING_BUDGET_TOKENS)
+except Exception:
+    THINKING_CONFIG = None
+    if DEBUG:
+        print("⚠️ ThinkingConfig not available; proceeding without explicit thinking budget.")
+
+def _thinking_config_for_model(model_name: str) -> Optional[Any]:
+    """Return thinking config only for models that support it."""
+    if model_name == "gemini-2.5-pro":
+        return THINKING_CONFIG
+    return None
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -94,6 +109,7 @@ def load_steps(path: str) -> List[Dict[str, Any]]:
             "keywords": s.get("keywords", []),
             "prerequisites": s.get("prerequisites", []),
             "ambiguity": s.get("ambiguity", []),
+            "sub_steps": s.get("sub-steps", []),
         })
     return cleaned
 
@@ -120,8 +136,19 @@ def load_action_verbs(path: str) -> List[str]:
             cleaned.append(val)
     return cleaned
 
-def retry_json_call(model: str, contents: List[Any], temperature: float = 0.0) -> Optional[Any]:
-    cfg = types.GenerateContentConfig(response_mime_type="application/json", temperature=temperature)
+def retry_json_call(
+        model: str,
+        contents: List[Any],
+        temperature: float = 0.0,
+        thinking_config: Optional[Any] = None
+    ) -> Optional[Any]:
+    cfg_kwargs = {
+        "response_mime_type": "application/json",
+        "temperature": temperature,
+    }
+    if thinking_config is not None:
+        cfg_kwargs["thinking_config"] = thinking_config
+    cfg = types.GenerateContentConfig(**cfg_kwargs)
     last_err = None
     for attempt in range(MAX_RETRIES):
         try:
@@ -209,24 +236,30 @@ def build_s1_prompt(
     end_m, end_s = divmod(int(t_end), 60)
     time_range = f"{start_m:02d}:{start_s:02d}–{end_m:02d}:{end_s:02d}"
     verbs_block = json.dumps(action_verbs, ensure_ascii=False)
+    subjects = object_knowledge.get("subjects", []) if isinstance(object_knowledge, dict) else []
+    objects = object_knowledge.get("objects", []) if isinstance(object_knowledge, dict) else []
+    subjects_block = json.dumps(subjects, ensure_ascii=False)
+    objects_block = json.dumps(objects, ensure_ascii=False)
 
     return (
         f"Video title: {title}\n"
         f"Analyze frames from {time_range}.\n\n"
-        "Your task is to extract **fine-grained human–object actions** that are "
-        "specifically relevant to this car service and repair task.\n\n"
-        "### Object Knowledge (reference only)\n"
-        f"{json.dumps(object_knowledge, ensure_ascii=False, indent=2)}\n\n"
-        "### Action Template\n"
-        "- Subject: the tool or body part performing the action (hands, torque wrench, pry bar, etc.).\n"
-        "- Object: the exact vehicle component being acted upon.\n"
-        "- Verb: choose exactly one verb from this approved list.\n"
+        "Your task is to extract **fine-grained human–object actions** that are relevant to the above title.\n"
+        "Give specific action, without inventing unseen actions.\n"
+        "### Allowed Subjects\n"
+        f"{subjects_block}\n\n"
+        "### Allowed Objects\n"
+        f"{objects_block}\n\n"
+        "### Allowed Verbs\n"
         f"{verbs_block}\n"
+        "### Action Template\n"
+        "- Subject: pick exactly one value from `Allowed Subjects`.\n"
+        "- Object: pick exactly one value from `Allowed Objects`.\n"
+        "- Verb: choose exactly one verb from `Allowed Verbs`.\n"
         "- Time: the timestamp (MM:SS) within this window when the action is visible.\n\n"
         "### Guidelines:\n"
-        "- Carefully distinguish what object is being worked on (see 'possible_confusions').\n"
-        "- Use only verbs from the approved list; skip the action if none apply.\n"
-        "- Prefer precise tool names in subject; default to 'hands' only when no tool is clear.\n"
+        "- Use only the provided lists; skip the action if the subject, verb, or object is missing.\n"
+        "- Prefer precise subject/object matches from the lists rather than close paraphrases.\n"
         "- Keep each action **atomic** (single observable motion).\n"
         "- Ensure the provided timestamp matches the moment the action happens within this window.\n"
         "### Output JSON format (ONLY JSON):\n"
@@ -251,22 +284,27 @@ def build_s2_prompt(title: str,
                     last_completed_id: Optional[int],
                     last_candidate_id: Optional[int]) -> str:
     steps_summary = [
-        {"id": s.get("id"), "step_text": s.get("step_text", "")}
+        {
+            "id": s.get("id"),
+            "step_text": s.get("step_text", ""),
+            "sub_steps": s.get("sub_steps", []),
+        }
         for s in steps
     ]
     return (
         f"Video title: {title}\n"
         f"Time range: {ts(window_start)}–{ts(window_end)}\n\n"
-        "- Match the recent atomic actions with an instruction step if possible.\n"
+        "- Match the recent atomic actions with an instruction step.\n"
+        "- Treat each `sub_step` as a subject–verb–object condition that must all be satisfied for a match.\n"
         f"- Highly prefer steps close to the last step with evidence (in evidence time) (±{SEQUENTIAL_BIAS_STEPS}).\n"
         f"- Do not jump more than {MAX_STEP_JUMP} steps forward unless very strong.\n"
-        "- Only confirm a step if the recent actions clearly without ambiguity support the described step in the instructions.\n"
+        "- Only confirm a step if the recent actions clearly without ambiguity satisfy every listed sub_step.\n"
         "Recent atomic actions observed (ordered):\n"
         f"{json.dumps(atomic_actions_recent, ensure_ascii=False, indent=2)}\n\n"
         "Evidence history so far:\n"
         f"{json.dumps(evidence_history, ensure_ascii=False, indent=2)}\n\n"
-        "Candidate steps:\n"
-        f"{json.dumps(steps_summary, ensure_ascii=False)}\n\n"
+        "Candidate steps with required sub_steps:\n"
+        f"{json.dumps(steps_summary, ensure_ascii=False, indent=2)}\n\n"
         "Policy:\n"
         "- If the verb is ambiguous, wait for more actions to promote the verb to specific action."
         "- If the last step still appears, accumulate more evidence.\n"
@@ -300,7 +338,12 @@ def vlm_stage1(
     prompt = build_s1_prompt(title, t_start, t_end, object_knowledge, steps, last_evidences, action_verbs)
     contents = frame_parts + [{"text": prompt}]
 
-    data = retry_json_call(VLM_MODEL_S1, contents, temperature=0.0)
+    data = retry_json_call(
+        VLM_MODEL_S1,
+        contents,
+        temperature=0.0,
+        thinking_config=_thinking_config_for_model(VLM_MODEL_S1)
+    )
 
     actions = []
     if isinstance(data, dict):
@@ -398,9 +441,15 @@ def vlm_stage2(
         last_candidate_id
     )
 
-    contents = [{"new video frames:"}, new_frame_parts, {"video history:"}, frame_parts, {"text": prompt}]
+    # contents = [{"new video frames:"}, new_frame_parts, {"video history:"}, frame_parts, {"text": prompt}]
+    contents = [{"text": prompt}]
 
-    data = retry_json_call(VLM_MODEL_S2, contents, temperature=0.0)
+    data = retry_json_call(
+        VLM_MODEL_S2,
+        contents,
+        temperature=0.0,
+        thinking_config=_thinking_config_for_model(VLM_MODEL_S2)
+    )
     if not isinstance(data, dict):
         return {"step_id": "no_match", "confidence": 0}
 

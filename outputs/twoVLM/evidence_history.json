@@ -1,184 +1,40 @@
 {
-  "2": [
+  "1": [
     {
       "offset": "00:00",
       "confidence": 100,
-      "reason": "The mechanic has opened the car's hood, removed the engine oil dipstick, and is cleaning it with a cloth. These are the initial and necessary actions for checking the engine oil level.",
+      "reason": "The atomic action 'Mechanic open hood' at 00:23 directly matches the sub_step 'Mechanic opens hood'. The subsequent action 'Mechanic lift hood' at 00:24 further confirms the opening of the hood.",
+      "evidence_time": "00:24"
+    }
+  ],
+  "2": [
+    {
+      "offset": "00:00",
+      "confidence": 95,
+      "reason": "The atomic action 'Mechanic inspect dipstick' at 00:26 directly implies 'Mechanic uses dipstick' and is the primary action for 'Mechanic checks oil level'. The subsequent action 'Mechanic clean dipstick' at 00:28 is a standard procedure performed when checking the engine oil level with a dipstick, further confirming the intent to check the oil level.",
       "evidence_time": "00:28"
+    },
+    {
+      "offset": "00:05",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic inspect dipstick' at 00:32 and 'Mechanic check oil level' at 00:34 directly satisfy the sub-steps 'Mechanic uses dipstick' and 'Mechanic checks oil level' respectively. The repeated cleaning and inspection of the dipstick are part of the process of accurately checking the engine oil level, culminating in the explicit 'check oil level' action.",
+      "evidence_time": "00:34"
     }
   ],
   "4": [
     {
-      "offset": "00:00",
+      "offset": "00:10",
       "confidence": 100,
-      "reason": "The mechanic is shown opening the cap of the brake fluid reservoir and inspecting the fluid level inside, which directly corresponds to this step.",
+      "reason": "The atomic action 'Mechanic open brake fluid reservoir' at 00:36 is a preparatory action, and 'Mechanic inspect brake fluid reservoir' at 00:38 directly satisfies the sub_step 'Mechanic checks brake fluid level' as inspecting the reservoir is how the fluid level is checked.",
       "evidence_time": "00:38"
     }
   ],
   "5": [
     {
-      "offset": "00:00",
-      "confidence": 100,
-      "reason": "The mechanic is clearly shown opening the air filter housing, removing the rectangular air filter, and holding it up, which is a direct inspection of the component.",
-      "evidence_time": "00:43"
-    }
-  ],
-  "6": [
-    {
-      "offset": "00:00",
-      "confidence": 100,
-      "reason": "The mechanic is clearly shown positioning the yellow lift arms under the car's jacking points and then the car is raised off the ground, which directly corresponds to this step.",
-      "evidence_time": "00:54"
-    }
-  ],
-  "7": [
-    {
-      "offset": "00:10",
-      "confidence": 100,
-      "reason": "The car has been fully lifted, and the mechanic is now using a light to inspect the underside of the vehicle. The on-screen text explicitly states 'UNDER BODY INSPECTION', confirming this step.",
-      "evidence_time": "01:19"
-    }
-  ],
-  "8": [
-    {
       "offset": "00:20",
-      "confidence": 100,
-      "reason": "The mechanic is shown using a digital tread depth gauge to measure the tread on the rear tyre, which is the exact action described in the step. The on-screen text \"TYRE TREAD CHECK\" further confirms this.",
-      "evidence_time": "01:17"
-    }
-  ],
-  "9": [
-    {
-      "offset": "00:30",
-      "confidence": 100,
-      "reason": "The mechanic is shown under the car, using a wrench to remove the drain plug, and then the old, dark engine oil is seen draining into a collection pan. The on-screen text explicitly states 'DRAINING OLD ENGINE OIL', confirming this step.",
-      "evidence_time": "01:24"
-    }
-  ],
-  "10": [
-    {
-      "offset": "00:40",
-      "confidence": 100,
-      "reason": "The mechanic is shown removing the old oil filter from the car and then unboxing a new, genuine replacement filter. The on-screen text explicitly states \"REPLACING OIL FILTER\" and \"GENUINE OIL FILTER\", directly corresponding to the actions described in this step.",
-      "evidence_time": "01:36"
-    }
-  ],
-  "11": [
-    {
-      "offset": "00:50",
-      "confidence": 100,
-      "reason": "The mechanic is shown using a pneumatic impact wrench to remove the lug nuts from the front wheel and then removes the wheel by hand. This directly corresponds to the actions described in the step.",
-      "evidence_time": "01:50"
-    }
-  ],
-  "12": [
-    {
-      "offset": "01:00",
-      "confidence": 100,
-      "reason": "After removing the front wheel, the mechanic is shown inspecting the brake caliper and rotor. The on-screen text explicitly states 'BRAKE INSPECTION', which directly corresponds to the actions described in this step.",
-      "evidence_time": "02:00"
-    },
-    {
-      "offset": "01:10",
-      "confidence": 100,
-      "reason": "Following the wheel removal, the mechanic is shown removing both the outer and inner brake pads from the caliper to inspect them, which directly corresponds to the actions described in this step.",
-      "evidence_time": "02:08"
-    }
-  ],
-  "13": [
-    {
-      "offset": "01:20",
-      "confidence": 100,
-      "reason": "The mechanic is shown mounting the front wheel back onto the vehicle's hub. They then proceed to tighten the lug nuts using a pneumatic impact wrench and finally reattach the wheel cover. These actions directly and completely match the description for reinstalling the front wheel.",
-      "evidence_time": "02:28"
-    },
-    {
-      "offset": "01:30",
-      "confidence": 100,
-      "reason": "The mechanic is shown mounting the front wheel back onto the vehicle's hub. They then proceed to tighten the lug nuts using a pneumatic impact wrench and finally reattach the wheel cover. These actions directly and completely match the description for reinstalling the front wheel.",
-      "evidence_time": "02:28"
-    }
-  ],
-  "16": [
-    {
-      "offset": "01:50",
-      "confidence": 100,
-      "reason": "After inspecting the old air filter, the mechanic is now shown in a parts store selecting a new, genuine Hyundai air filter from the shelf and unboxing it, which is the direct preparation for replacing the old part.",
-      "evidence_time": "02:49"
-    },
-    {
-      "offset": "02:40",
-      "confidence": 100,
-      "reason": "The mechanic is shown removing the air filter housing cover, taking out the old, dirty air filter, and then unboxing a new, genuine Hyundai filter to install it. The on-screen text explicitly states 'REPLACING AIR FILTER', confirming this step.",
-      "evidence_time": "03:35"
-    }
-  ],
-  "17": [
-    {
-      "offset": "02:00",
-      "confidence": 100,
-      "reason": "After briefly preparing to add engine oil, the mechanic shifts focus to the cooling system. They are shown removing the entire coolant expansion tank from its mounting bracket and then opening the cap, which are the preparatory actions for inspecting and topping up the coolant level.",
-      "evidence_time": "02:59"
-    },
-    {
-      "offset": "02:50",
-      "confidence": 100,
-      "reason": "The mechanic is shown holding a bottle of coolant, the on-screen text explicitly states 'COOLANT TOP-UP', and they then proceed to pour the coolant into the expansion tank. This directly corresponds to the actions described in this step.",
-      "evidence_time": "03:45"
-    }
-  ],
-  "14": [
-    {
-      "offset": "02:10",
-      "confidence": 100,
-      "reason": "The mechanic is shown placing a funnel into the engine's oil filler neck and pouring new Mobil 1 engine oil from a bottle into the engine. This directly corresponds to the action of refilling the engine oil.",
-      "evidence_time": "03:00"
-    },
-    {
-      "offset": "02:20",
-      "confidence": 100,
-      "reason": "After pouring new oil into the engine, the mechanic is now performing the standard procedure to verify the oil level. They are shown removing the dipstick, wiping it clean, reinserting it, and then removing it again to check the level. This is the final part of the oil refilling process.",
-      "evidence_time": "03:16"
-    }
-  ],
-  "15": [
-    {
-      "offset": "02:30",
-      "confidence": 100,
-      "reason": "The mechanic is shown using a socket wrench to remove a spark plug from the engine. They then proceed to visually inspect the spark plug's electrode and use a feeler gauge to check the gap. The on-screen text explicitly states 'INSPECTING SPARK PLUGS', which directly corresponds to this step.",
-      "evidence_time": "03:27"
-    }
-  ],
-  "18": [
-    {
-      "offset": "03:00",
-      "confidence": 100,
-      "reason": "The mechanic is shown holding a can labeled \"RUST PROTECTION SPRAY\" and then proceeds to spray the contents directly onto the car's battery terminals. This action perfectly matches the description of the step.",
-      "evidence_time": "03:58"
-    }
-  ],
-  "19": [
-    {
-      "offset": "03:10",
-      "confidence": 100,
-      "reason": "The mechanic is shown holding a bottle of brake fluid, the on-screen text explicitly states 'BRAKE FLUID TOP-UP', and they then proceed to open the brake fluid reservoir cap in preparation for adding fluid. This directly corresponds to the actions described in this step.",
-      "evidence_time": "04:04"
-    }
-  ],
-  "20": [
-    {
-      "offset": "03:20",
-      "confidence": 100,
-      "reason": "The mechanic is shown holding a packet of windshield washer fluid concentrate, the on-screen text explicitly states 'WINDSHIELD WASHER TOP-UP', and they then proceed to pour the concentrate and water into the reservoir. This directly corresponds to the actions described in this step.",
-      "evidence_time": "04:17"
-    }
-  ],
-  "21": [
-    {
-      "offset": "03:30",
-      "confidence": 100,
-      "reason": "The mechanic is shown connecting a digital multimeter to the car's battery terminals to measure its voltage. The on-screen text explicitly states 'BATTERY VOLTAGE CHECK', confirming this step.",
-      "evidence_time": "04:30"
+      "confidence": 90,
+      "reason": "The atomic action 'Mechanic inspect old air filter' at 00:40 implies the mechanic opened the air filter housing and removed the air filter for inspection, thus satisfying 'Mechanic opens air filter housing' and 'Mechanic removes air filter'. The subsequent action 'Mechanic place old air filter' at 00:42 implies the mechanic installed the air filter back into its housing. Together, these actions clearly satisfy all listed sub_steps for inspecting the air filter.",
+      "evidence_time": "00:42"
     }
   ]
 }
