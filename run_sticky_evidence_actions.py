@@ -50,7 +50,8 @@ MAX_RETRIES  = 3
 DOWNSCALE = (640, 360)
 JPEG_QUALITY = 85
 # Thinking budget for Gemini models (tokens)
-THINKING_BUDGET_TOKENS = 128
+THINKING_BUDGET_STAGE1 = 128
+THINKING_BUDGET_STAGE2 = 0
 
 # ====================== Setup ======================
 load_dotenv()
@@ -59,18 +60,21 @@ if not API_KEY:
     raise RuntimeError("Missing GOOGLE_API_KEY in .env")
 client = genai.Client(api_key=API_KEY)
 
-try:
-    THINKING_CONFIG = types.ThinkingConfig(thinking_budget=THINKING_BUDGET_TOKENS)
-except Exception:
-    THINKING_CONFIG = None
-    if DEBUG:
-        print("⚠️ ThinkingConfig not available; proceeding without explicit thinking budget.")
+_thinking_configs: Dict[str, Optional[Any]] = {}
+for _model, _budget in (
+        (VLM_MODEL_S1, THINKING_BUDGET_STAGE1),
+        (VLM_MODEL_S2, THINKING_BUDGET_STAGE2),
+    ):
+    try:
+        _thinking_configs[_model] = types.ThinkingConfig(thinking_budget=_budget)
+    except Exception:
+        _thinking_configs[_model] = None
+        if DEBUG:
+            print(f"⚠️ ThinkingConfig not available for {_model} with budget {_budget}; proceeding without explicit thinking budget.")
 
 def _thinking_config_for_model(model_name: str) -> Optional[Any]:
     """Return thinking config only for models that support it."""
-    if model_name == "gemini-2.5-pro":
-        return THINKING_CONFIG
-    return None
+    return _thinking_configs.get(model_name)
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 

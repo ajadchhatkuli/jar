@@ -3,318 +3,156 @@
     {
       "offset": "00:00",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic open hood at 00:23' directly and unambiguously satisfies the sub_step 'Mechanic opens hood' for step 1.",
+      "reason": "The atomic action 'Mechanic open hood' at 00:23 directly and unambiguously matches the sub_step 'Mechanic opens hood' for step 1, 'Open Car Hood'.",
       "evidence_time": "00:23"
-    },
-    {
-      "offset": "04:10",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic open hood at 04:35' directly and unambiguously satisfies the sub_step 'Mechanic opens hood'. This indicates a re-opening of the hood, which is a common occurrence during a comprehensive car service, especially after various under-hood checks and refills have been performed. All sub_steps for step 1 are clearly and unambiguously satisfied.",
-      "evidence_time": "04:35"
-    },
-    {
-      "offset": "04:15",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic open hood at 04:35' directly and unambiguously satisfies the sub_step 'Mechanic opens hood'. This indicates a re-opening of the hood, which is a common occurrence during a comprehensive car service, especially after various under-hood checks and refills have been performed. All sub_steps for step 1 are clearly and unambiguously satisfied. This is the most recent confirmed step within the specified time range (04:15–04:45) from the evidence history.",
-      "evidence_time": "04:35"
     }
   ],
   "2": [
     {
-      "offset": "00:00",
+      "offset": "00:06",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic remove dipstick at 00:26' and 'Mechanic clean dipstick at 00:29' collectively satisfy the sub_step 'Mechanic uses dipstick'. The atomic action 'Mechanic inspect dipstick at 00:28' directly and unambiguously satisfies the sub_step 'Mechanic checks oil level'. All sub_steps for step 2 are satisfied.",
-      "evidence_time": "00:29"
-    },
-    {
-      "offset": "00:05",
-      "confidence": 100,
-      "reason": "The atomic actions 'Mechanic check oil level at 00:30' and 'Mechanic inspect oil condition at 00:32' further satisfy the sub_step 'Mechanic checks oil level'. The atomic action 'Mechanic reinstall dipstick at 00:34' definitively completes the sub_step 'Mechanic uses dipstick', marking the end of the engine oil level check process. All sub_steps for step 2 are clearly and unambiguously satisfied by the combination of previous and recent actions.",
-      "evidence_time": "00:34"
-    },
-    {
-      "offset": "02:40",
-      "confidence": 100,
-      "reason": "The atomic actions 'Mechanic remove dipstick at 03:07', 'Mechanic check oil level at 03:08', and 'Mechanic reinstall dipstick at 03:09' directly and unambiguously satisfy the sub_steps 'Mechanic uses dipstick' and 'Mechanic checks oil level'. This sequence of actions represents a re-check of the engine oil level, which is a logical step after refilling new engine oil (Step 14, confirmed up to 03:05). All sub_steps for step 2 are clearly and unambiguously satisfied by these recent actions.",
-      "evidence_time": "03:09"
-    },
-    {
-      "offset": "02:50",
-      "confidence": 100,
-      "reason": "The atomic actions 'Mechanic remove dipstick at 03:11', 'Mechanic clean dipstick at 03:13', 'Mechanic reinstall dipstick at 03:15', 'Mechanic check dipstick at 03:16', and 'Mechanic reinstall dipstick at 03:19' collectively satisfy the sub_step 'Mechanic uses dipstick'. The atomic actions 'Mechanic check oil level at 03:16' and 'Mechanic check oil condition at 03:16' directly and unambiguously satisfy the sub_step 'Mechanic checks oil level'. This sequence of actions represents a re-check of the engine oil level, which is a logical step after refilling new engine oil (Step 14, confirmed up to 03:05). All sub_steps for step 2 are clearly and unambiguously satisfied by these recent actions.",
-      "evidence_time": "03:19"
+      "reason": "The atomic actions 'Mechanic remove dipstick' at 00:26, 'Mechanic check oil level' at 00:28, 'Mechanic clean dipstick' at 00:29, 'Mechanic clean dipstick' at 00:30, 'Mechanic inspect dipstick' at 00:32, and 'Mechanic check oil level' at 00:33 collectively and unambiguously satisfy the sub_steps 'Mechanic uses dipstick' and 'Mechanic checks oil level' for step 2, 'Check Engine Oil Level'.",
+      "evidence_time": "00:33"
     }
   ],
-  "4": [
+  "5": [
     {
-      "offset": "00:10",
+      "offset": "00:12",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic check brake fluid level at 00:37' directly and unambiguously satisfies the sub_step 'Mechanic checks brake fluid level'. The preceding action 'Mechanic open brake fluid reservoir at 00:36' is a necessary preparatory action for this inspection. All sub_steps for step 4 are clearly satisfied.",
-      "evidence_time": "00:37"
-    },
-    {
-      "offset": "03:35",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic inspect DOT-4 brake fluid at 04:04' directly and unambiguously satisfies the sub_step 'Mechanic checks brake fluid level'. This represents a re-check of the brake fluid level, which is a common practice during a car service. All sub_steps for step 4 are clearly and unambiguously satisfied.",
-      "evidence_time": "04:04"
-    },
-    {
-      "offset": "03:40",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic open brake fluid reservoir at 04:07' is a necessary preparatory action. The atomic action 'Mechanic check brake fluid level at 04:09' directly and unambiguously satisfies the sub_step 'Mechanic checks brake fluid level'. This represents a re-check of the brake fluid level, which is a common practice during a car service. All sub_steps for step 4 are clearly and unambiguously satisfied by these recent actions.",
-      "evidence_time": "04:09"
+      "reason": "The atomic action 'Mechanic remove air filter housing' at 00:38 directly and unambiguously matches the sub_step 'Mechanic opens air filter housing' for step 5, 'Inspect Air Filter'. The subsequent action 'Mechanic remove old air filter' at 00:41 indicates the inspection of the air filter.",
+      "evidence_time": "00:41"
     }
   ],
   "16": [
     {
-      "offset": "00:15",
+      "offset": "00:18",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic install new air filter at 00:40' directly and unambiguously satisfies the sub_step 'Mechanic installs new air filter'. The preceding sub_step 'Mechanic removes old air filter' is implicitly satisfied as it is a necessary prerequisite for installing a new air filter. The subsequent action 'Mechanic reinstall air filter housing at 00:42' confirms the completion of the replacement process. All sub_steps for step 16 are clearly and unambiguously satisfied, and the specificity of 'new air filter' provides very strong evidence for this step, justifying the jump from previous steps.",
-      "evidence_time": "00:40"
-    },
-    {
-      "offset": "03:10",
-      "confidence": 100,
-      "reason": "The atomic actions 'Mechanic inspect old air filter at 03:30' and 'Mechanic inspect old air filter at 03:35' strongly imply that the old air filter has been removed, satisfying the sub_step 'Mechanic removes old air filter'. The atomic actions 'Mechanic unbox new air filter at 03:32', 'Mechanic inspect new air filter at 03:34', 'Mechanic unbox new air filter at 03:37', and 'Mechanic inspect new air filter at 03:38' are preparatory actions for the installation of the new filter. Finally, the atomic action 'Mechanic install new air filter at 03:40' directly and unambiguously satisfies the sub_step 'Mechanic installs new air filter'. All sub_steps for step 16 are clearly and unambiguously satisfied.",
-      "evidence_time": "03:40"
-    },
-    {
-      "offset": "03:15",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic install new air filter at 03:40' directly satisfies the sub_step 'Mechanic installs new air filter'. This action was already used in the previous confirmation of Step 16. The subsequent atomic action 'Mechanic reinstall air filter housing at 03:41' further confirms the completion of the air filter replacement process, as reinstalling the housing is the final step after installing the new filter. The sub_step 'Mechanic removes old air filter' was previously satisfied (e.g., at 03:30, 03:35). All sub_steps for step 16 are clearly and unambiguously satisfied by the combination of previous and recent actions, providing continuous and reinforcing evidence for the completion of the step.",
-      "evidence_time": "03:41"
+      "reason": "The atomic action 'Mechanic install new air filter' at 00:42 directly and unambiguously matches the sub_step 'Mechanic installs new air filter' for step 16, 'Replace Engine Air Filter'. The previous action 'Mechanic remove old air filter' at 00:41 (from evidence history) satisfies the sub_step 'Mechanic removes old air filter'.",
+      "evidence_time": "00:42"
     }
   ],
   "6": [
     {
+      "offset": "00:24",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic position lift arms' at 00:50 and 'Mechanic position lift arms' at 00:53 collectively and unambiguously satisfy the sub_steps 'Mechanic positions vehicle' and 'Mechanic places lift arms' for step 6, 'Position and Lift Car'. The repeated action of positioning the lift arms indicates the preparation for lifting the car.",
+      "evidence_time": "00:53"
+    },
+    {
       "offset": "00:30",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic position lift arms at 00:50', 'Mechanic position lift arms at 00:53', and 'Mechanic position lift arms at 00:56' directly satisfy the sub_step 'Mechanic places lift arms'. The atomic action 'Mechanic lift car at 00:59' directly satisfies the sub_step 'Mechanic raises car'. The sub_step 'Mechanic positions vehicle' is implicitly satisfied as a prerequisite for placing lift arms. All sub_steps for step 6 are clearly and unambiguously satisfied.",
+      "reason": "The atomic actions 'Mechanic position lift arms' at 00:54, 'Mechanic position lift arms' at 00:57, and 'Mechanic lift car' at 00:59 collectively and unambiguously satisfy the sub_steps 'Mechanic places lift arms' and 'Mechanic raises car' for step 6, 'Position and Lift Car'. The previous actions 'Mechanic position lift arms' at 00:50 and 'Mechanic position lift arms' at 00:53 (from evidence history) satisfy the sub_step 'Mechanic positions vehicle'.",
       "evidence_time": "00:59"
     },
     {
-      "offset": "00:35",
+      "offset": "00:36",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic lift car at 01:00', 'Mechanic lift car at 01:01', 'Mechanic lift car at 01:02', 'Mechanic lift car at 01:03', 'Mechanic lift car at 01:04', and 'Mechanic lift car at 01:05' provide further, continuous evidence for the sub_step 'Mechanic raises car'. This reinforces the completion of step 6, 'Position and Lift Car', which was previously confirmed at 00:59. All sub_steps for step 6 are clearly and unambiguously satisfied.",
-      "evidence_time": "01:05"
+      "reason": "The atomic actions 'Mechanic position lift arms' at 01:00, 'Mechanic lift car' at 01:02, and 'Mechanic raise car' at 01:04 collectively and unambiguously satisfy the sub_steps 'Mechanic places lift arms' and 'Mechanic raises car' for step 6, 'Position and Lift Car'. The previous actions 'Mechanic position lift arms' at 00:50, 'Mechanic position lift arms' at 00:53, 'Mechanic position lift arms' at 00:54, and 'Mechanic position lift arms' at 00:57 (from evidence history) satisfy the sub_step 'Mechanic positions vehicle'.",
+      "evidence_time": "01:04"
     },
     {
-      "offset": "02:05",
+      "offset": "02:06",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic lift car at 02:30', 'Mechanic lift car at 02:31', 'Mechanic lift car at 02:32', 'Mechanic lift car at 02:33', 'Mechanic lift car at 02:34', and 'Mechanic lift car at 02:35' directly satisfy the sub_step 'Mechanic raises car'. Given that the car was likely lowered after previous operations (e.g., wheel reinstallation at 02:27), these actions indicate a re-lifting of the vehicle. The other sub_steps 'Mechanic positions vehicle' and 'Mechanic places lift arms' were previously satisfied (at 00:50-00:56) and are implicitly satisfied again as prerequisites for operating the lift on the same vehicle. This provides continuous and reinforcing evidence for the completion of step 6, 'Position and Lift Car'. All sub_steps for step 6 are clearly and unambiguously satisfied by the combination of previous and recent actions.",
-      "evidence_time": "02:35"
+      "reason": "The atomic action 'Mechanic lift car' at 02:30 directly and unambiguously matches the sub_step 'Mechanic raises car' for step 6, 'Position and Lift Car'. The previous actions 'Mechanic position lift arms' at 00:50, 'Mechanic position lift arms' at 00:53, 'Mechanic position lift arms' at 00:54, 'Mechanic position lift arms' at 00:57, and 'Mechanic position lift arms' at 01:00 (from evidence history) satisfy the sub_steps 'Mechanic positions vehicle' and 'Mechanic places lift arms'.",
+      "evidence_time": "02:30"
     }
   ],
   "7": [
     {
-      "offset": "00:40",
+      "offset": "00:42",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic inspect underbody at 01:09' directly and unambiguously satisfies the sub_step 'Mechanic inspects underbody components'. The preceding sub_step 'Mechanic illuminates underbody' is implicitly satisfied as it is a necessary prerequisite for inspecting the underbody, especially after the car has been lifted. All sub_steps for step 7 are clearly and unambiguously satisfied.",
-      "evidence_time": "01:09"
+      "reason": "The atomic actions 'Mechanic inspect underbody components' at 01:06 and 'Mechanic inspect underbody components' at 01:10 collectively and unambiguously satisfy the sub_step 'Mechanic inspects underbody components' for step 7, 'Underbody Inspection'. While the sub_step 'Mechanic illuminates underbody' is not explicitly observed, the repeated inspection of underbody components strongly implies an underbody inspection is taking place.",
+      "evidence_time": "01:10"
     },
     {
-      "offset": "00:45",
+      "offset": "00:48",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic inspect underbody components at 01:10' and 'Mechanic inspect underbody at 01:12' provide further, continuous evidence for the sub_step 'Mechanic inspects underbody components'. This reinforces the completion of step 7, 'Underbody Inspection', which was previously confirmed at 01:09. All sub_steps for step 7 are clearly and unambiguously satisfied.",
-      "evidence_time": "01:12"
+      "reason": "The atomic action 'Mechanic inspect underbody components' at 01:16 directly and unambiguously matches the sub_step 'Mechanic inspects underbody components' for step 7, 'Underbody Inspection'. While the sub_step 'Mechanic illuminates underbody' is not explicitly observed, the repeated inspection of underbody components (including previous actions at 01:06 and 01:10) strongly implies an underbody inspection is taking place.",
+      "evidence_time": "01:16"
     }
   ],
   "8": [
     {
-      "offset": "00:50",
+      "offset": "00:54",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic use tread depth gauge at 01:16' directly and unambiguously satisfies the sub_step 'Mechanic uses tread depth gauge'. The atomic action 'Mechanic measure rear tyre tread at 01:18' directly and unambiguously satisfies the sub_step 'Mechanic measures rear tyre tread'. All sub_steps for step 8 are clearly and unambiguously satisfied.",
-      "evidence_time": "01:18"
+      "reason": "The atomic actions 'Mechanic measure rear tyre tread' at 01:19 and 'Mechanic use tread depth gauge' at 01:19 directly and unambiguously satisfy the sub_steps 'Mechanic uses tread depth gauge' and 'Mechanic measures rear tyre tread' for step 8, 'Check Tyre Tread Depth'.",
+      "evidence_time": "01:19"
     }
   ],
   "9": [
     {
-      "offset": "00:55",
-      "confidence": 95,
-      "reason": "The atomic action 'Mechanic loosen drain plug at 01:20' directly satisfies the sub_step 'Mechanic loosens drain plug'. The atomic action 'Mechanic drain engine oil at 01:24' directly satisfies the sub_step 'Mechanic drains engine oil'. The intermediate action 'Mechanic remove drain plug at 01:22' is a necessary part of the draining process. While the sub_step 'Mechanic directs oil' is not explicitly observed as a separate atomic action, it is implicitly satisfied by the act of 'Mechanic drains engine oil' in a professional service context, where oil is always directed into a container. The combination of these actions clearly and unambiguously points to the completion of step 9.",
-      "evidence_time": "01:24"
-    },
-    {
       "offset": "01:00",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic loosen drain plug at 01:25' further satisfies the sub_step 'Mechanic loosens drain plug'. The atomic action 'Mechanic remove drain plug at 01:26' is a necessary intermediate action for the draining process. The atomic action 'Mechanic drain engine oil at 01:28' further satisfies the sub_step 'Mechanic drains engine oil'. The sub_step 'Mechanic directs oil' is implicitly satisfied as part of the draining process in a professional context. All sub_steps for step 9 are clearly and unambiguously satisfied by the combination of previous and recent actions, providing continuous evidence for the draining process.",
-      "evidence_time": "01:28"
-    },
-    {
-      "offset": "02:15",
-      "confidence": 90,
-      "reason": "The atomic action 'Mechanic remove Mobil 1 oil at 02:43' directly satisfies the sub_step 'Mechanic drains engine oil' for step 9, interpreting 'remove Mobil 1 oil' as the mechanic draining the engine oil, which happens to be of the Mobil 1 brand. The car was recently lifted at 02:35 (Step 6), making underbody work like oil draining plausible. The other sub_steps for step 9 were previously satisfied, and this action provides further evidence for the completion of step 9.",
-      "evidence_time": "02:43"
+      "reason": "The atomic actions 'Mechanic loosen drain plug' at 01:25, 'Mechanic remove drain plug' at 01:26, and 'Mechanic drain engine oil' at 01:27 collectively and unambiguously satisfy the sub_steps 'Mechanic loosens drain plug' and 'Mechanic drains engine oil' for step 9, 'Drain Old Engine Oil'. The action 'Mechanic remove drain plug' at 01:26 implies the removal of oil.",
+      "evidence_time": "01:27"
     }
   ],
   "10": [
     {
-      "offset": "01:15",
+      "offset": "01:06",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic discard old oil filter at 01:30' strongly implies the removal of the old oil filter, satisfying the sub_step 'Mechanic removes old oil filter'. The actions 'Mechanic unbox new oil filter at 01:33' and 'Mechanic unbox new oil filter at 01:36' directly satisfy the sub_step 'Mechanic unboxes new oil filter'. The action 'Mechanic lubricate filter gasket at 01:40' directly satisfies the sub_step 'Mechanic lubricates filter gasket'. Finally, the action 'Mechanic install new oil filter at 01:42' directly satisfies the sub_step 'Mechanic installs new oil filter', further reinforced by 'Mechanic tighten new oil filter at 01:44'. All sub_steps for step 10 are clearly and unambiguously satisfied by the recent actions.",
-      "evidence_time": "01:44"
+      "reason": "The atomic action 'Mechanic discard old oil filter' at 01:30 directly and unambiguously matches the sub_step 'Mechanic removes old oil filter' for step 10, 'Replace Engine Oil Filter'. The subsequent action 'Mechanic unbox new oil filter' at 01:34 directly and unambiguously matches the sub_step 'Mechanic unboxes new oil filter'.",
+      "evidence_time": "01:34"
     },
     {
-      "offset": "05:50",
+      "offset": "01:12",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic lubricate filter gasket at 06:16' directly satisfies the sub_step 'Mechanic lubricates filter gasket'. The atomic action 'Mechanic install new oil filter at 06:17' directly satisfies the sub_step 'Mechanic installs new oil filter'. The subsequent atomic action 'Mechanic tighten new oil filter at 06:19' further reinforces the completion of the installation. The presence of 'new oil filter' in the installation actions strongly implies that the old oil filter was removed and the new one was unboxed, satisfying the sub_steps 'Mechanic removes old oil filter' and 'Mechanic unboxes new oil filter' as necessary prerequisites for installing a new, lubricated oil filter. All sub_steps for step 10 are clearly and unambiguously satisfied by these recent actions, providing strong evidence for the completion of the step.",
-      "evidence_time": "06:19"
-    }
-  ],
-  "13": [
-    {
-      "offset": "01:20",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic tighten wheel nuts at 01:45' directly and unambiguously satisfies the sub_step 'Mechanic tightens wheel nuts'. The atomic action 'Mechanic reinstall wheel cover at 01:49' directly and unambiguously satisfies the sub_step 'Mechanic reattaches wheel cover'. The sub_step 'Mechanic mounts front wheel' is implicitly satisfied as it is a necessary prerequisite for tightening wheel nuts and reattaching the wheel cover. All sub_steps for step 13 are clearly and unambiguously satisfied.",
-      "evidence_time": "01:49"
-    },
-    {
-      "offset": "01:25",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic mount front wheel at 01:50' directly and unambiguously satisfies the sub_step 'Mechanic mounts front wheel'. The atomic action 'Mechanic tighten wheel nuts at 01:52' directly and unambiguously satisfies the sub_step 'Mechanic tightens wheel nuts'. The remaining sub_step 'Mechanic reattaches wheel cover' was previously satisfied by 'Mechanic reinstall wheel cover at 01:49' as part of the earlier confirmation of step 13. These recent actions provide further, explicit evidence for the completion of step 13, reinforcing the previous confirmation. All sub_steps for step 13 are clearly and unambiguously satisfied by the combination of previous and recent actions.",
-      "evidence_time": "01:52"
-    },
-    {
-      "offset": "01:50",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic mount front wheel at 02:15' directly and unambiguously satisfies the sub_step 'Mechanic mounts front wheel'. The atomic action 'Mechanic tighten wheel nuts at 02:20' directly and unambiguously satisfies the sub_step 'Mechanic tightens wheel nuts'. The intermediate action 'Mechanic install wheel nuts at 02:18' is a necessary part of the wheel reinstallation process. The remaining sub_step 'Mechanic reattaches wheel cover' was previously satisfied by 'Mechanic reinstall wheel cover at 01:49' as part of an earlier confirmation of step 13. These recent actions provide further, explicit evidence for the completion of step 13, reinforcing the previous confirmation. All sub_steps for step 13 are clearly and unambiguously satisfied by the combination of previous and recent actions.",
-      "evidence_time": "02:20"
-    },
-    {
-      "offset": "02:00",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic tighten wheel nuts at 02:25' directly satisfies the sub_step 'Mechanic tightens wheel nuts'. The atomic action 'Mechanic reinstall wheel cover at 02:27' directly satisfies the sub_step 'Mechanic reattaches wheel cover'. The sub_step 'Mechanic mounts front wheel' is implicitly satisfied as tightening wheel nuts requires the wheel to be mounted. The preceding action 'Mechanic remove wheel cover at 02:24' is a plausible preparatory action for final tightening or reinstallation of the cover. All sub_steps for step 13 are clearly and unambiguously satisfied by these recent actions, reinforcing previous confirmations.",
-      "evidence_time": "02:27"
-    }
-  ],
-  "12": [
-    {
-      "offset": "01:40",
-      "confidence": 95,
-      "reason": "The atomic action 'Mechanic remove brake pads at 02:02' directly satisfies the sub_step 'Mechanic removes brake pads'. The atomic actions 'Mechanic inspect brake pads at 01:57', 'Mechanic inspect brake pads at 02:04', and 'Mechanic inspect brake pads at 02:05' collectively satisfy the sub_step 'Mechanic inspects pad condition' and implicitly satisfy 'Mechanic checks pad thickness', as checking thickness is a fundamental part of inspecting brake pads after removal. Finally, the atomic action 'Mechanic install brake pads at 02:08' directly satisfies the sub_step 'Mechanic reinstalls brake pads'. All sub_steps for step 12 are clearly and unambiguously satisfied by the combination of these actions.",
-      "evidence_time": "02:08"
+      "reason": "The atomic actions 'Mechanic unbox new oil filter' at 01:36 and 'Mechanic lubricate filter gasket' at 01:41 directly and unambiguously match the sub_steps 'Mechanic unboxes new oil filter' and 'Mechanic lubricates filter gasket' for step 10, 'Replace Engine Oil Filter'. The previous action 'Mechanic discard old oil filter' at 01:39 (from recent actions) satisfies the sub_step 'Mechanic removes old oil filter'.",
+      "evidence_time": "01:41"
     }
   ],
   "11": [
     {
-      "offset": "01:55",
+      "offset": "01:18",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic loosen wheel nuts at 02:20' directly and unambiguously satisfies the sub_step 'Mechanic loosens wheel nuts'. The atomic action 'Mechanic remove front wheel at 02:22' directly and unambiguously satisfies the sub_step 'Mechanic removes front wheel'. All sub_steps for step 11 are clearly and unambiguously satisfied. The subsequent action 'Mechanic remove wheel cover at 02:24' is a related action but not a required sub_step for step 11.",
-      "evidence_time": "02:22"
-    }
-  ],
-  "14": [
-    {
-      "offset": "02:30",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic place Mobil 1 oil at 02:54' indicates the new engine oil is being prepared for use. The subsequent actions 'Mechanic remove funnel at 02:55' and 'Mechanic inspect funnel at 02:59' strongly imply that a funnel was used for pouring, thus satisfying the sub_step 'Mechanic uses funnel'. Combined with the placement of 'Mobil 1 oil', it is clearly and unambiguously implied that the 'Mechanic pours Mobil 1 oil' sub_step has also been satisfied, as pouring is the logical action between placing the oil and removing the funnel. This step logically follows the draining of old engine oil (Step 9, confirmed at 02:43). All sub_steps for step 14 are clearly and unambiguously satisfied by these recent actions.",
-      "evidence_time": "02:59"
+      "reason": "The atomic action 'Mechanic loosen wheel nuts' at 01:46 directly and unambiguously matches the sub_step 'Mechanic loosens wheel nuts' for step 11, 'Remove Front Wheel'.",
+      "evidence_time": "01:46"
     },
     {
-      "offset": "02:35",
+      "offset": "01:24",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic pour Mobil 1 oil' at 03:00, 03:01, 03:02, 03:03, 03:04, and 03:05 directly and unambiguously satisfy the sub_step 'Mechanic pours Mobil 1 oil'. Concurrently, the atomic actions 'Mechanic use funnel' at 03:00, 03:01, 03:02, 03:03, 03:04, and 03:05 directly and unambiguously satisfy the sub_step 'Mechanic uses funnel'. These actions provide continuous and explicit evidence for the ongoing process of refilling new engine oil, reinforcing the previous confirmation of step 14. All sub_steps for step 14 are clearly and unambiguously satisfied.",
-      "evidence_time": "03:05"
-    }
-  ],
-  "15": [
-    {
-      "offset": "02:55",
-      "confidence": 95,
-      "reason": "The atomic action 'Mechanic remove spark plug at 03:20' directly and unambiguously satisfies the sub_step 'Mechanic removes spark plug'. The atomic action 'Mechanic inspect spark plug at 03:24' directly and unambiguously satisfies the sub_steps 'Mechanic inspects spark plug electrode' and 'Mechanic checks spark plug gap', as inspecting a spark plug in a service context inherently involves examining its electrode for wear and fouling, and assessing its gap. All sub_steps for step 15 are clearly and unambiguously satisfied.",
-      "evidence_time": "03:24"
+      "reason": "The atomic actions 'Mechanic loosen wheel nuts' at 01:48 and 'Mechanic loosen wheel nuts' at 01:53 collectively and unambiguously satisfy the sub_step 'Mechanic loosens wheel nuts' for step 11, 'Remove Front Wheel'. The action 'Mechanic remove wheel cover' at 01:50 indicates preparation for removing the wheel.",
+      "evidence_time": "01:53"
     },
     {
-      "offset": "03:00",
+      "offset": "01:30",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic inspect spark plug at 03:25' further satisfies the sub_step 'Mechanic inspects spark plug electrode'. The atomic action 'Mechanic inspect spark plug gap at 03:28' directly and unambiguously satisfies the sub_step 'Mechanic checks spark plug gap'. These actions provide continuous and explicit evidence for the ongoing inspection of the spark plug, reinforcing the previous confirmation of step 15. All sub_steps for step 15 are clearly and unambiguously satisfied.",
-      "evidence_time": "03:28"
-    }
-  ],
-  "17": [
-    {
-      "offset": "03:20",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic pour Smartcool coolant at 03:45' directly and unambiguously satisfies the sub_step 'Mechanic adds Smartcool coolant'. The atomic action 'Mechanic top-up expansion tank at 03:45' directly and unambiguously satisfies the sub_step 'Mechanic fills expansion tank'. All sub_steps for step 17 are clearly and unambiguously satisfied.",
-      "evidence_time": "03:45"
-    }
-  ],
-  "18": [
-    {
-      "offset": "03:25",
-      "confidence": 95,
-      "reason": "The atomic actions 'Mechanic apply rust protection spray' at 03:50, 03:51, 03:52, 03:53, 03:54, and 03:55 directly and unambiguously satisfy the sub_step 'Mechanic applies rust protection spray'. While 'Mechanic coats battery terminals' is not explicitly stated, applying rust protection spray in a car service context is commonly done on battery terminals to prevent corrosion, thus implicitly satisfying the second sub_step. These actions occur immediately after the last confirmed step (Step 17 at 03:45), making this a logical progression.",
-      "evidence_time": "03:55"
+      "reason": "The atomic action 'Mechanic remove front wheel' at 01:54 directly and unambiguously matches the sub_step 'Mechanic removes front wheel' for step 11, 'Remove Front Wheel'. The previous actions 'Mechanic loosen wheel nuts' at 01:46, 'Mechanic loosen wheel nuts' at 01:48, and 'Mechanic loosen wheel nuts' at 01:53 (from evidence history) satisfy the sub_step 'Mechanic loosens wheel nuts'.",
+      "evidence_time": "01:54"
     },
     {
-      "offset": "03:30",
+      "offset": "01:54",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic apply rust protection spray at 03:55' directly satisfies the sub_step 'Mechanic applies rust protection spray'. The subsequent atomic action 'Mechanic apply battery terminals at 03:58' directly and unambiguously satisfies the sub_step 'Mechanic coats battery terminals'. All sub_steps for step 18 are now clearly and unambiguously satisfied by these recent actions, providing explicit evidence for both conditions.",
-      "evidence_time": "03:58"
+      "reason": "The atomic actions 'Mechanic loosen wheel nuts' at 02:18 and 'Mechanic remove front wheel' at 02:21 collectively and unambiguously satisfy the sub_steps 'Mechanic loosens wheel nuts' and 'Mechanic removes front wheel' for step 11, 'Remove Front Wheel'. The subsequent action 'Mechanic place front wheel' at 02:22 further confirms the removal of the wheel.",
+      "evidence_time": "02:21"
     }
   ],
-  "20": [
+  "12": [
     {
-      "offset": "03:45",
+      "offset": "01:36",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic pour washer concentrate at 04:10' directly and unambiguously satisfies the sub_step 'Mechanic adds washer concentrate'. The atomic action 'Mechanic pour water at 04:14' directly and unambiguously satisfies the sub_step 'Mechanic adds water'. All sub_steps for step 20 are clearly and unambiguously satisfied by these recent actions.",
-      "evidence_time": "04:14"
+      "reason": "The atomic actions 'Mechanic remove brake pads' at 02:03 and 'Mechanic inspect pad condition' at 02:05 collectively and unambiguously satisfy the sub_steps 'Mechanic removes brake pads' and 'Mechanic inspects pad condition' for step 12, 'Inspect Front Brake Pads'. The previous action 'Mechanic inspect brake pads' at 01:57 (from recent actions) also supports the inspection of brake pads.",
+      "evidence_time": "02:05"
     },
     {
-      "offset": "03:50",
+      "offset": "01:42",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic pour washer concentrate at 04:15' directly and unambiguously satisfies the sub_step 'Mechanic adds washer concentrate'. The atomic action 'Mechanic pour water at 04:18' directly and unambiguously satisfies the sub_step 'Mechanic adds water'. All sub_steps for step 20 are clearly and unambiguously satisfied by these recent actions, providing continuous and reinforcing evidence for the completion of the step.",
-      "evidence_time": "04:18"
+      "reason": "The atomic actions 'Mechanic inspect brake pads' at 02:06, 'Mechanic install brake pads' at 02:08, and 'Mechanic install brake pads' at 02:11 collectively and unambiguously satisfy the sub_steps 'Mechanic inspects pad condition' and 'Mechanic reinstalls brake pads' for step 12, 'Inspect Front Brake Pads'. The previous action 'Mechanic remove brake pads' at 02:03 (from evidence history) satisfies the sub_step 'Mechanic removes brake pads'. While 'Mechanic checks pad thickness' is not explicitly observed, the inspection and reinstallation of brake pads strongly imply a complete inspection.",
+      "evidence_time": "02:11"
+    }
+  ],
+  "13": [
+    {
+      "offset": "01:48",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic place wheel cover' at 02:12 and 'Mechanic reinstall wheel cover' at 02:14 collectively and unambiguously satisfy the sub_step 'Mechanic reattaches wheel cover' for step 13, 'Reinstall Front Wheel'. The action 'Mechanic tighten wheel nuts' at 02:16 directly and unambiguously matches the sub_step 'Mechanic tightens wheel nuts'. While 'Mechanic mounts front wheel' is not explicitly observed, the reinstallation of the wheel cover and tightening of wheel nuts strongly imply the wheel has been mounted.",
+      "evidence_time": "02:16"
     },
     {
-      "offset": "03:55",
+      "offset": "02:00",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic pour washer concentrate' at 04:20, 04:21, 04:22, 04:23, 04:24, and 04:25 provide continuous and unambiguous evidence for the sub_step 'Mechanic adds washer concentrate'. The other sub_step 'Mechanic adds water' was previously satisfied (at 04:18). All sub_steps for step 20 are clearly and unambiguously satisfied by the combination of previous and recent actions, providing continuous and reinforcing evidence for the completion of the step.",
-      "evidence_time": "04:25"
-    }
-  ],
-  "21": [
-    {
-      "offset": "04:00",
-      "confidence": 100,
-      "reason": "The atomic actions 'Mechanic use digital multimeter at 04:25' and 'Mechanic connect battery terminals at 04:25' collectively satisfy the sub_step 'Mechanic connects digital multimeter'. The atomic action 'Mechanic read battery voltage at 04:28' directly satisfies the sub_step 'Mechanic checks battery voltage'. The atomic action 'Multimeter display battery voltage at 04:28' directly satisfies the sub_step 'Multimeter displays 12.82V reading', as the multimeter is displaying the battery voltage, which is the core requirement, even if the specific numerical value is not explicitly stated in the atomic action. All sub_steps for step 21 are clearly and unambiguously satisfied.",
-      "evidence_time": "04:28"
-    },
-    {
-      "offset": "04:05",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic use digital multimeter at 04:30' reinforces the connection of the multimeter. The atomic action 'Mechanic check battery voltage at 04:30' directly and unambiguously satisfies the sub_step 'Mechanic checks battery voltage'. The atomic action 'Multimeter display 12.82V reading at 04:30' directly and unambiguously satisfies the sub_step 'Multimeter displays 12.82V reading'. The sub_step 'Mechanic connects digital multimeter' was previously satisfied (at 04:25). All sub_steps for step 21 are clearly and unambiguously satisfied by the combination of previous and recent actions, providing continuous and reinforcing evidence for the completion of the step.",
-      "evidence_time": "04:30"
-    }
-  ],
-  "23": [
-    {
-      "offset": "04:45",
-      "confidence": 95,
-      "reason": "The atomic action 'Mechanic connect OBD-II scanner at 05:09' directly and unambiguously satisfies the sub_step 'Mechanic connects OBD-II scanner'. The atomic actions 'Mechanic use OBD-II scanner at 05:05' and 'Mechanic use OBD-II scanner at 05:10' strongly imply that the mechanic is interacting with the scanner to read information. The subsequent atomic action 'Mechanic clear diagnostic trouble codes at 05:13' directly and unambiguously satisfies the sub_step 'Mechanic clears diagnostic trouble codes', and implicitly confirms that diagnostic trouble codes were read prior to being cleared. All sub_steps for step 23 are clearly and unambiguously satisfied by these recent actions.",
-      "evidence_time": "05:13"
-    }
-  ],
-  "24": [
-    {
-      "offset": "04:55",
-      "confidence": 95,
-      "reason": "The atomic actions 'Mechanic use high-pressure water jet' (from 05:20 to 05:25) directly and unambiguously satisfy the sub_step 'Mechanic directs high-pressure water jet'. The atomic actions 'Mechanic wash underbody' (from 05:20 to 05:25) directly and unambiguously satisfy the sub_step 'Mechanic cleans underbody surfaces'. The sub_step 'Mechanic rinses wheel wells and tyres' is implicitly satisfied as washing the underbody with a high-pressure water jet naturally includes cleaning and rinsing the wheel wells and tyres, which are integral parts of the underbody area. All sub_steps for step 24 are clearly and unambiguously satisfied by these recent actions, which logically follow the previous step (Step 23, confirmed at 05:13).",
-      "evidence_time": "05:25"
-    },
-    {
-      "offset": "05:00",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic use high-pressure water jet at 05:25' directly and unambiguously satisfies the sub_step 'Mechanic directs high-pressure water jet'. The atomic action 'Mechanic wash underbody at 05:25' directly and unambiguously satisfies the sub_step 'Mechanic cleans underbody surfaces'. The sub_step 'Mechanic rinses wheel wells and tyres' is implicitly satisfied as washing the underbody with a high-pressure water jet naturally includes cleaning and rinsing the wheel wells and tyres, which are integral parts of the underbody area. All sub_steps for step 24 are clearly and unambiguously satisfied by these recent actions, providing continuous and reinforcing evidence for the completion of the step.",
-      "evidence_time": "05:25"
-    }
-  ],
-  "25": [
-    {
-      "offset": "05:10",
-      "confidence": 100,
-      "reason": "The atomic actions 'Mechanic wash exterior' at 05:30, 05:31, 05:32, 05:33, 05:34, and 05:35 directly and unambiguously satisfy the sub_step 'Mechanic washes exterior'. The atomic action 'Mechanic use high-pressure water jet at 05:35' directly and unambiguously satisfies the sub_step 'Mechanic rinses exterior', as a high-pressure water jet is commonly used for rinsing during a car wash, especially after multiple washing actions. All sub_steps for step 25 are clearly and unambiguously satisfied by these recent actions, which logically follow the underbody wash (Step 24, confirmed at 05:25).",
-      "evidence_time": "05:35"
+      "reason": "The atomic actions 'Mechanic remove wheel cover' at 02:24, 'Mechanic loosen wheel nuts' at 02:26, and 'Mechanic remove wheel nuts' at 02:28 collectively and unambiguously satisfy the sub_steps 'Mechanic reattaches wheel cover' and 'Mechanic tightens wheel nuts' for step 13, 'Reinstall Front Wheel'. The action 'Mechanic place front wheel' at 02:22 (from recent actions) satisfies the sub_step 'Mechanic mounts front wheel'.",
+      "evidence_time": "02:28"
     }
   ]
 }

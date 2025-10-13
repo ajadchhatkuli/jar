@@ -3,15 +3,78 @@
     {
       "id": 1,
       "step_text": "Open Car Hood",
-      "reason": "The atomic action 'Mechanic open hood at 00:23' directly and unambiguously satisfies the sub_step 'Mechanic opens hood' for step 1.",
+      "reason": "The atomic action 'Mechanic open hood' at 00:23 directly and unambiguously matches the sub_step 'Mechanic opens hood' for step 1, 'Open Car Hood'.",
       "evidence_time": "00:23",
-      "evidence_count": 3
+      "evidence_count": 1
     },
     {
-      "id": 25,
-      "step_text": "Exterior Foam Wash and Rinse",
-      "reason": "The atomic actions 'Mechanic wash exterior' at 05:30, 05:31, 05:32, 05:33, 05:34, and 05:35 directly and unambiguously satisfy the sub_step 'Mechanic washes exterior'. The atomic action 'Mechanic use high-pressure water jet at 05:35' directly and unambiguously satisfies the sub_step 'Mechanic rinses exterior', as a high-pressure water jet is commonly used for rinsing during a car wash, especially after multiple washing actions. All sub_steps for step 25 are clearly and unambiguously satisfied by these recent actions, which logically follow the underbody wash (Step 24, confirmed at 05:25).",
-      "evidence_time": "05:35",
+      "id": 2,
+      "step_text": "Check Engine Oil Level",
+      "reason": "The atomic actions 'Mechanic remove dipstick' at 00:26, 'Mechanic check oil level' at 00:28, 'Mechanic clean dipstick' at 00:29, 'Mechanic clean dipstick' at 00:30, 'Mechanic inspect dipstick' at 00:32, and 'Mechanic check oil level' at 00:33 collectively and unambiguously satisfy the sub_steps 'Mechanic uses dipstick' and 'Mechanic checks oil level' for step 2, 'Check Engine Oil Level'.",
+      "evidence_time": "00:33",
+      "evidence_count": 1
+    },
+    {
+      "id": 5,
+      "step_text": "Inspect Air Filter",
+      "reason": "The atomic action 'Mechanic remove air filter housing' at 00:38 directly and unambiguously matches the sub_step 'Mechanic opens air filter housing' for step 5, 'Inspect Air Filter'. The subsequent action 'Mechanic remove old air filter' at 00:41 indicates the inspection of the air filter.",
+      "evidence_time": "00:41",
+      "evidence_count": 1
+    },
+    {
+      "id": 6,
+      "step_text": "Position and Lift Car",
+      "reason": "The atomic actions 'Mechanic position lift arms' at 00:50 and 'Mechanic position lift arms' at 00:53 collectively and unambiguously satisfy the sub_steps 'Mechanic positions vehicle' and 'Mechanic places lift arms' for step 6, 'Position and Lift Car'. The repeated action of positioning the lift arms indicates the preparation for lifting the car.",
+      "evidence_time": "00:53",
+      "evidence_count": 1
+    },
+    {
+      "id": 7,
+      "step_text": "Underbody Inspection",
+      "reason": "The atomic actions 'Mechanic inspect underbody components' at 01:06 and 'Mechanic inspect underbody components' at 01:10 collectively and unambiguously satisfy the sub_step 'Mechanic inspects underbody components' for step 7, 'Underbody Inspection'. While the sub_step 'Mechanic illuminates underbody' is not explicitly observed, the repeated inspection of underbody components strongly implies an underbody inspection is taking place.",
+      "evidence_time": "01:10",
+      "evidence_count": 1
+    },
+    {
+      "id": 8,
+      "step_text": "Check Tyre Tread Depth",
+      "reason": "The atomic actions 'Mechanic measure rear tyre tread' at 01:19 and 'Mechanic use tread depth gauge' at 01:19 directly and unambiguously satisfy the sub_steps 'Mechanic uses tread depth gauge' and 'Mechanic measures rear tyre tread' for step 8, 'Check Tyre Tread Depth'.",
+      "evidence_time": "01:19",
+      "evidence_count": 1
+    },
+    {
+      "id": 9,
+      "step_text": "Drain Old Engine Oil",
+      "reason": "The atomic actions 'Mechanic loosen drain plug' at 01:25, 'Mechanic remove drain plug' at 01:26, and 'Mechanic drain engine oil' at 01:27 collectively and unambiguously satisfy the sub_steps 'Mechanic loosens drain plug' and 'Mechanic drains engine oil' for step 9, 'Drain Old Engine Oil'. The action 'Mechanic remove drain plug' at 01:26 implies the removal of oil.",
+      "evidence_time": "01:27",
+      "evidence_count": 1
+    },
+    {
+      "id": 10,
+      "step_text": "Replace Engine Oil Filter",
+      "reason": "The atomic action 'Mechanic discard old oil filter' at 01:30 directly and unambiguously matches the sub_step 'Mechanic removes old oil filter' for step 10, 'Replace Engine Oil Filter'. The subsequent action 'Mechanic unbox new oil filter' at 01:34 directly and unambiguously matches the sub_step 'Mechanic unboxes new oil filter'.",
+      "evidence_time": "01:34",
+      "evidence_count": 1
+    },
+    {
+      "id": 11,
+      "step_text": "Remove Front Wheel",
+      "reason": "The atomic action 'Mechanic loosen wheel nuts' at 01:46 directly and unambiguously matches the sub_step 'Mechanic loosens wheel nuts' for step 11, 'Remove Front Wheel'.",
+      "evidence_time": "01:46",
+      "evidence_count": 1
+    },
+    {
+      "id": 12,
+      "step_text": "Inspect Front Brake Pads",
+      "reason": "The atomic actions 'Mechanic remove brake pads' at 02:03 and 'Mechanic inspect pad condition' at 02:05 collectively and unambiguously satisfy the sub_steps 'Mechanic removes brake pads' and 'Mechanic inspects pad condition' for step 12, 'Inspect Front Brake Pads'. The previous action 'Mechanic inspect brake pads' at 01:57 (from recent actions) also supports the inspection of brake pads.",
+      "evidence_time": "02:05",
+      "evidence_count": 1
+    },
+    {
+      "id": 13,
+      "step_text": "Reinstall Front Wheel",
+      "reason": "The atomic actions 'Mechanic place wheel cover' at 02:12 and 'Mechanic reinstall wheel cover' at 02:14 collectively and unambiguously satisfy the sub_step 'Mechanic reattaches wheel cover' for step 13, 'Reinstall Front Wheel'. The action 'Mechanic tighten wheel nuts' at 02:16 directly and unambiguously matches the sub_step 'Mechanic tightens wheel nuts'. While 'Mechanic mounts front wheel' is not explicitly observed, the reinstallation of the wheel cover and tightening of wheel nuts strongly imply the wheel has been mounted.",
+      "evidence_time": "02:16",
       "evidence_count": 1
     }
   ]

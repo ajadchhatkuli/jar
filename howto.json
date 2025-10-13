@@ -65,8 +65,7 @@
       "ambiguity": [],
       "sub-steps": [
         "Mechanic opens air filter housing",
-        "Mechanic removes air filter",
-        "Mechanic installs air filter"
+        "Mechanic inspects air filter"
       ]
     },
     {
@@ -124,7 +123,7 @@
       "sub-steps": [
         "Mechanic loosens drain plug",
         "Mechanic drains engine oil",
-        "Mechanic directs oil"
+        "Mechanic removes oil"
       ]
     },
     {

@@ -18,16 +18,13 @@ ACTION_VERBS_JSON = "./action_verbs.json"
 OUTPUT_DIR    = "outputs/twoVLM"
 
 # Sliding window
-STRIDE_SECONDS   = 5
-S1_WINDOW_SEC    = 5
+STRIDE_SECONDS   = 6
+S1_WINDOW_SEC    = 6
 S2_WINDOW_SEC    = 30
 
 # Sampling fps
-S1_FPS = 2
+S1_FPS = 1
 S2_FPS = 1
-
-# Patience policy
-PATIENCE_SECONDS = 20
 
 # Models
 VLM_MODEL_S1 = "gemini-2.5-pro"
@@ -35,11 +32,8 @@ VLM_MODEL_S2 = "gemini-2.5-flash"
 
 # Thresholds
 CONF_THRESHOLD                = 90
-STRONG_EVIDENCE               = 100
-MIN_EVIDENCE_PER_STEP         = 2
-EVIDENCE_CONTINUE_THRESHOLD   = 85
-SEQUENTIAL_BIAS_STEPS         = 2
-MAX_STEP_JUMP                 = 2
+SEQUENTIAL_BIAS_STEPS         = 5
+MAX_PROMOTION_STEP_GAP        = 5
 MAX_S2_FRAMES                 = 200   # 🔑 cap for Stage-2
 
 # Retry / robustness
@@ -50,7 +44,8 @@ MAX_RETRIES  = 3
 DOWNSCALE = (640, 360)
 JPEG_QUALITY = 85
 # Thinking budget for Gemini models (tokens)
-THINKING_BUDGET_TOKENS = 128
+THINKING_BUDGET_STAGE1 = 128
+THINKING_BUDGET_STAGE2 = 0
 
 # ====================== Setup ======================
 load_dotenv()
@@ -59,18 +54,21 @@ if not API_KEY:
     raise RuntimeError("Missing GOOGLE_API_KEY in .env")
 client = genai.Client(api_key=API_KEY)
 
-try:
-    THINKING_CONFIG = types.ThinkingConfig(thinking_budget=THINKING_BUDGET_TOKENS)
-except Exception:
-    THINKING_CONFIG = None
-    if DEBUG:
-        print("⚠️ ThinkingConfig not available; proceeding without explicit thinking budget.")
+_thinking_configs: Dict[str, Optional[Any]] = {}
+for _model, _budget in (
+        (VLM_MODEL_S1, THINKING_BUDGET_STAGE1),
+        (VLM_MODEL_S2, THINKING_BUDGET_STAGE2),
+    ):
+    try:
+        _thinking_configs[_model] = types.ThinkingConfig(thinking_budget=_budget)
+    except Exception:
+        _thinking_configs[_model] = None
+        if DEBUG:
+            print(f"⚠️ ThinkingConfig not available for {_model} with budget {_budget}; proceeding without explicit thinking budget.")
 
 def _thinking_config_for_model(model_name: str) -> Optional[Any]:
     """Return thinking config only for models that support it."""
-    if model_name == "gemini-2.5-pro":
-        return THINKING_CONFIG
-    return None
+    return _thinking_configs.get(model_name)
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -223,11 +221,13 @@ def parts_from_jpegs(jpegs: List[bytes]) -> List[dict]:
 class ActionTimeline:
     """
     Maintains atomic action history with flushing once actions are consumed or
-    become stale (unused after 5 later actions have been consumed).
+    become stale (unused after 5 later actions have been consumed). All actions are
+    persisted to disk without flushing, while only active (unmatched) actions stay in memory.
     """
 
     def __init__(self):
-        self._actions: List[Dict[str, Any]] = []
+        self._active_actions: List[Dict[str, Any]] = []
+        self._archive_actions: List[Dict[str, Any]] = []
         self._consumed_counter: int = 0
         self._next_seq: int = 0
 
@@ -237,11 +237,13 @@ class ActionTimeline:
             enriched["_seq"] = self._next_seq
             enriched["_added_consumed_count"] = self._consumed_counter
             self._next_seq += 1
-            self._actions.append(enriched)
+            self._active_actions.append(enriched)
+            # Store a user-facing copy in the archive for persistence.
+            self._archive_actions.append({k: v for k, v in action.items()})
 
     def recent(self, start: float, end: float) -> List[Dict[str, Any]]:
         recent: List[Dict[str, Any]] = []
-        for action in self._actions:
+        for action in self._active_actions:
             if not self._in_range(action, start, end):
                 continue
             time_display = str(action.get("time", ts(end)) or ts(end))
@@ -258,31 +260,28 @@ class ActionTimeline:
             return 0
         consumed: List[Dict[str, Any]] = []
         remaining: List[Dict[str, Any]] = []
-        for action in self._actions:
+        for action in self._active_actions:
             if self._in_range(action, start, end):
                 consumed.append(action)
             else:
                 remaining.append(action)
         if consumed:
             self._consumed_counter += len(consumed)
-            self._actions = remaining
+            self._active_actions = remaining
             self._flush_stale()
         else:
-            self._actions = remaining
+            self._active_actions = remaining
         return len(consumed)
 
     def serializable(self) -> List[Dict[str, Any]]:
-        return [
-            {k: v for k, v in action.items() if not k.startswith("_")}
-            for action in self._actions
-        ]
+        return list(self._archive_actions)
 
     def _flush_stale(self) -> None:
         if self._consumed_counter < 5:
             return
         threshold = self._consumed_counter - 5
-        self._actions = [
-            action for action in self._actions
+        self._active_actions = [
+            action for action in self._active_actions
             if action["_added_consumed_count"] > threshold
         ]
 
@@ -353,8 +352,7 @@ def build_s2_prompt(title: str,
                     evidence_history: Dict[int, List[Dict[str,Any]]],
                     atomic_actions_recent: List[Dict[str,Any]],
                     steps: List[Dict[str,Any]],
-                    last_completed_id: Optional[int],
-                    last_candidate_id: Optional[int]) -> str:
+                    last_completed_id: Optional[int]) -> str:
     steps_summary = [
         {
             "id": s.get("id"),
@@ -368,8 +366,7 @@ def build_s2_prompt(title: str,
         f"Time range: {ts(window_start)}–{ts(window_end)}\n\n"
         "- Match the recent atomic actions with an instruction step.\n"
         "- Treat each `sub_step` as a subject–verb–object condition that must all be satisfied for a match.\n"
-        f"- Highly prefer steps close to the last step with evidence (in evidence time) (±{SEQUENTIAL_BIAS_STEPS}).\n"
-        f"- Do not jump more than {MAX_STEP_JUMP} steps forward unless very strong.\n"
+        f"- Prefer steps that are within ±{SEQUENTIAL_BIAS_STEPS} of the last confirmed instruction when possible, but always prioritize correctness.\n"
         "- Only confirm a step if the recent actions clearly without ambiguity satisfy every listed sub_step.\n"
         "Recent atomic actions observed (ordered):\n"
         f"{json.dumps(atomic_actions_recent, ensure_ascii=False, indent=2)}\n\n"
@@ -377,11 +374,7 @@ def build_s2_prompt(title: str,
         f"{json.dumps(evidence_history, ensure_ascii=False, indent=2)}\n\n"
         "Candidate steps with required sub_steps:\n"
         f"{json.dumps(steps_summary, ensure_ascii=False, indent=2)}\n\n"
-        "Policy:\n"
-        "- If the verb is ambiguous, wait for more actions to promote the verb to specific action."
-        "- If the last step still appears, accumulate more evidence.\n"
-        "- Promote only when there’s strong evidence the previous step finished.\n"
-        "- If unclear, return no_match.\n\n"
+        "If no step matches, return no_match.\n\n"
         "Return ONLY JSON:\n"
         "{ \"step_id\": <int>, \"confidence\": <0-100>, \"reason\": \"...\", \"evidence_time\": \"MM:SS\" }\n"
         "OR { \"step_id\": \"no_match\", \"confidence\": 0 }"
@@ -484,8 +477,7 @@ def vlm_stage2(
         recent_atomic: List[Dict[str,Any]],   # 👈 NEW
         steps_for_prompt: List[Dict[str,Any]],
         title: str,
-        last_completed_id: Optional[int],
-        last_candidate_id: Optional[int]
+        last_completed_id: Optional[int]
     ) -> Dict[str,Any]:
 
     if not frames_jpg:
@@ -509,8 +501,7 @@ def vlm_stage2(
         evidence_history,
         recent_atomic,    # 👈 include in prompt
         steps_for_prompt,
-        last_completed_id,
-        last_candidate_id
+        last_completed_id
     )
 
     # contents = [{"new video frames:"}, new_frame_parts, {"video history:"}, frame_parts, {"text": prompt}]
@@ -564,6 +555,7 @@ def _parse_evidence_time(ev_time: str) -> float:
 def main():
     steps = load_steps(HOWTO_JSON)
     steps_by_id = {s["id"]: s for s in steps}
+    step_index_by_id = {s["id"]: idx for idx, s in enumerate(steps)}
 
     objects = load_objects(OBJECTS_JSON)   # ✅ load curated objects
     action_verbs = load_action_verbs(ACTION_VERBS_JSON)
@@ -577,7 +569,7 @@ def main():
     action_timeline = ActionTimeline()
     evidence_history: Dict[int,List[Dict[str,Any]]] = {}
     completed_steps = []
-    last_completed_id, last_candidate_id = None, None
+    last_completed_id: Optional[int] = None
     next_stride_time, frame_idx = 0.0, 0
 
     while True:
@@ -629,8 +621,7 @@ def main():
             recent_atomic,
             candidates,
             TITLE,
-            last_completed_id,
-            last_candidate_id
+            last_completed_id
         )
         stage2_time = time.perf_counter() - s2_timer_start
         total_elapsed = time.perf_counter() - window_timer
@@ -653,53 +644,32 @@ def main():
             consumed_count = action_timeline.consume(s2_start, consume_until)
             if DEBUG and consumed_count:
                 print(f"🧹 Flushed {consumed_count} actions up to {ts(consume_until)}")
-            last_candidate_id = step_id
             print(f"📌 Evidence added for step {step_id} (conf={conf}) at {ev_time}")
-
-            if step_id == last_completed_id:
-                # still accumulating for current step → wipe forward ambiguous
-                for sid in list(evidence_history.keys()):
-                    if sid > step_id and sid <= step_id + 2:
-                        del evidence_history[sid]
+            promote_allowed = True
+            if last_completed_id is not None:
+                prev_idx = step_index_by_id.get(last_completed_id)
+                curr_idx = step_index_by_id.get(step_id)
+                if (
+                    prev_idx is not None
+                    and curr_idx is not None
+                    and abs(curr_idx - prev_idx) > MAX_PROMOTION_STEP_GAP
+                ):
+                    promote_allowed = False
+            if promote_allowed:
+                already_completed = any(c["id"] == step_id for c in completed_steps)
+                if not already_completed:
+                    best = max(hist, key=lambda h: h.get("confidence", 0))
+                    completed_steps.append({
+                        "id": step_id,
+                        "step_text": steps_by_id.get(step_id, {}).get("step_text", ""),
+                        "reason": best.get("reason", ""),
+                        "evidence_time": best.get("evidence_time", ts(s2_end)),
+                        "evidence_count": len(hist),
+                    })
+                    print(f"✅ Step {step_id} completed automatically: {steps_by_id.get(step_id,{}).get('step_text','')}")
+                last_completed_id = step_id
             else:
-                # forward candidate during patience → just block promotion, keep evidence
-                prev_id = last_completed_id
-                if prev_id is not None:
-                    last_ev = evidence_history.get(prev_id, [])
-                    if last_ev:
-                        last_end_sec = _parse_evidence_time(
-                            last_ev[-1].get("evidence_time", ts(s2_end))
-                        )
-                        if (s2_end - last_end_sec) < PATIENCE_SECONDS:
-                            print(f"⏳ Patience active for step {prev_id} (ends @ {ts(last_end_sec)}), not promoting to {step_id} yet")
-                            # do not promote yet, but evidence stays
-                            continue
-        # Finalize the current candidate if patience expired and evidence is sufficient
-        if last_candidate_id is not None:
-            cand_id = last_candidate_id
-            cand_hist = evidence_history.get(cand_id, [])
-            if cand_hist:
-                last_end_sec = _parse_evidence_time(
-                    cand_hist[-1].get("evidence_time", ts(s2_end))
-                )
-                patience_elapsed = (s2_end - last_end_sec) >= PATIENCE_SECONDS
-                strong_enough = (
-                    len(cand_hist) >= MIN_EVIDENCE_PER_STEP
-                    or any(h.get("confidence", 0) >= STRONG_EVIDENCE for h in cand_hist)
-                )
-                if patience_elapsed and strong_enough:
-                    if cand_id not in [c["id"] for c in completed_steps]:
-                        best = max(cand_hist, key=lambda h: h.get("confidence", 0))
-                        completed_steps.append({
-                            "id": cand_id,
-                            "step_text": steps_by_id.get(cand_id, {}).get("step_text", ""),
-                            "reason": best.get("reason", ""),
-                            "evidence_time": best.get("evidence_time", ts(s2_end)),
-                            "evidence_count": len(cand_hist),
-                        })
-                        last_completed_id = cand_id
-                        last_candidate_id = None
-                        print(f"✅ Step {cand_id} completed (patience via evidence_time): {steps_by_id.get(cand_id,{}).get('step_text','')}")
+                print(f"🚫 Skipping promotion for step {step_id}; it is more than {MAX_PROMOTION_STEP_GAP} steps away from the last completed step.")
         _save_json(os.path.join(OUTPUT_DIR,"timeline_live.json"),{"actions":action_timeline.serializable()})
         _save_json(os.path.join(OUTPUT_DIR,"instruction_status.json"),{"completed_steps":completed_steps})
         _save_json(os.path.join(OUTPUT_DIR,"evidence_history.json"), evidence_history)
