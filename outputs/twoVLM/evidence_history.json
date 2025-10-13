@@ -3,87 +3,93 @@
     {
       "offset": "00:00",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic open hood' at 00:23 directly and unambiguously matches the sub_step 'Mechanic opens hood' for step 1, 'Open Car Hood'.",
+      "reason": "The atomic action 'Mechanic open hood' at 00:23 directly matches the sub_step 'Mechanic opens hood' for step 1, 'Open Car Hood'.",
       "evidence_time": "00:23"
+    },
+    {
+      "offset": "04:12",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic open hood' at 04:36 and 'Mechanic lift hood' at 04:37 directly match the sub_step 'Mechanic opens hood' for step 1, 'Open Car Hood'. The action 'Mechanic clean hood' at 04:34 is a preparatory action before opening the hood.",
+      "evidence_time": "04:37"
     }
   ],
   "2": [
     {
-      "offset": "00:06",
+      "offset": "00:00",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic remove dipstick' at 00:26, 'Mechanic check oil level' at 00:28, 'Mechanic clean dipstick' at 00:29, 'Mechanic clean dipstick' at 00:30, 'Mechanic inspect dipstick' at 00:32, and 'Mechanic check oil level' at 00:33 collectively and unambiguously satisfy the sub_steps 'Mechanic uses dipstick' and 'Mechanic checks oil level' for step 2, 'Check Engine Oil Level'.",
-      "evidence_time": "00:33"
+      "reason": "The atomic actions 'Mechanic remove dipstick' at 00:26 and 'Mechanic check oil level' at 00:28 directly match the sub_steps 'Mechanic uses dipstick' and 'Mechanic checks oil level' for step 2, 'Check Engine Oil Level'. The action 'Mechanic clean dipstick' at 00:29 further supports the sequence of checking the oil level.",
+      "evidence_time": "00:28"
     }
   ],
-  "5": [
+  "3": [
     {
-      "offset": "00:12",
+      "offset": "00:06",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic remove air filter housing' at 00:38 directly and unambiguously matches the sub_step 'Mechanic opens air filter housing' for step 5, 'Inspect Air Filter'. The subsequent action 'Mechanic remove old air filter' at 00:41 indicates the inspection of the air filter.",
-      "evidence_time": "00:41"
+      "reason": "The atomic actions 'Mechanic open expansion tank' at 00:35 and 'Mechanic check coolant level' at 00:36 directly match the sub_step 'Mechanic inspects coolant level' for step 3, 'Inspect Coolant Level'.",
+      "evidence_time": "00:36"
     }
   ],
   "16": [
     {
       "offset": "00:18",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic install new air filter' at 00:42 directly and unambiguously matches the sub_step 'Mechanic installs new air filter' for step 16, 'Replace Engine Air Filter'. The previous action 'Mechanic remove old air filter' at 00:41 (from evidence history) satisfies the sub_step 'Mechanic removes old air filter'.",
-      "evidence_time": "00:42"
+      "reason": "The atomic actions 'Mechanic remove old air filter' at 00:41 and 00:42 directly match the sub_step 'Mechanic removes old air filter'. The atomic action 'Mechanic install new air filter' at 00:45 directly matches the sub_step 'Mechanic installs new air filter'. The action 'Mechanic unbox new air filter' at 00:43 further supports the sequence of replacing the air filter.",
+      "evidence_time": "00:45"
+    },
+    {
+      "offset": "03:12",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic unbox new air filter' at 03:36 and 'Mechanic place new air filter' at 03:40 directly match the sub_step 'Mechanic installs new air filter' for step 16, 'Replace Engine Air Filter'. The action 'Mechanic reinstall air filter housing' at 03:41 further supports the completion of this step.",
+      "evidence_time": "03:40"
     }
   ],
   "6": [
     {
       "offset": "00:24",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic position lift arms' at 00:50 and 'Mechanic position lift arms' at 00:53 collectively and unambiguously satisfy the sub_steps 'Mechanic positions vehicle' and 'Mechanic places lift arms' for step 6, 'Position and Lift Car'. The repeated action of positioning the lift arms indicates the preparation for lifting the car.",
+      "reason": "The atomic actions 'Mechanic position lift arms' at 00:50 and 00:53 directly match the sub_step 'Mechanic places lift arms' for step 6, 'Position and Lift Car'.",
       "evidence_time": "00:53"
     },
     {
       "offset": "00:30",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic position lift arms' at 00:54, 'Mechanic position lift arms' at 00:57, and 'Mechanic lift car' at 00:59 collectively and unambiguously satisfy the sub_steps 'Mechanic places lift arms' and 'Mechanic raises car' for step 6, 'Position and Lift Car'. The previous actions 'Mechanic position lift arms' at 00:50 and 'Mechanic position lift arms' at 00:53 (from evidence history) satisfy the sub_step 'Mechanic positions vehicle'.",
+      "reason": "The atomic actions 'Mechanic position lift arms' at 00:54, 00:56, and 00:58 directly match the sub_step 'Mechanic places lift arms'. The atomic action 'Mechanic lift car' at 00:59 directly matches the sub_step 'Mechanic raises car'.",
       "evidence_time": "00:59"
     },
     {
       "offset": "00:36",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic position lift arms' at 01:00, 'Mechanic lift car' at 01:02, and 'Mechanic raise car' at 01:04 collectively and unambiguously satisfy the sub_steps 'Mechanic places lift arms' and 'Mechanic raises car' for step 6, 'Position and Lift Car'. The previous actions 'Mechanic position lift arms' at 00:50, 'Mechanic position lift arms' at 00:53, 'Mechanic position lift arms' at 00:54, and 'Mechanic position lift arms' at 00:57 (from evidence history) satisfy the sub_step 'Mechanic positions vehicle'.",
-      "evidence_time": "01:04"
-    },
-    {
-      "offset": "02:06",
-      "confidence": 100,
-      "reason": "The atomic action 'Mechanic lift car' at 02:30 directly and unambiguously matches the sub_step 'Mechanic raises car' for step 6, 'Position and Lift Car'. The previous actions 'Mechanic position lift arms' at 00:50, 'Mechanic position lift arms' at 00:53, 'Mechanic position lift arms' at 00:54, 'Mechanic position lift arms' at 00:57, and 'Mechanic position lift arms' at 01:00 (from evidence history) satisfy the sub_steps 'Mechanic positions vehicle' and 'Mechanic places lift arms'.",
-      "evidence_time": "02:30"
+      "reason": "The atomic action 'Mechanic position lift arms' at 01:00 directly matches the sub_step 'Mechanic places lift arms'. The atomic actions 'Mechanic lift car' at 01:01, 01:02, 01:03, 01:04, and 01:05 directly match the sub_step 'Mechanic raises car'.",
+      "evidence_time": "01:05"
     }
   ],
   "7": [
     {
       "offset": "00:42",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic inspect underbody components' at 01:06 and 'Mechanic inspect underbody components' at 01:10 collectively and unambiguously satisfy the sub_step 'Mechanic inspects underbody components' for step 7, 'Underbody Inspection'. While the sub_step 'Mechanic illuminates underbody' is not explicitly observed, the repeated inspection of underbody components strongly implies an underbody inspection is taking place.",
-      "evidence_time": "01:10"
+      "reason": "The atomic actions 'Mechanic inspect underbody' at 01:06, 'Mechanic inspect underbody components' at 01:09, and 'Mechanic inspect underbody components' at 01:11 directly match the sub_step 'Mechanic inspects underbody components' for step 7, 'Underbody Inspection'.",
+      "evidence_time": "01:11"
     },
     {
       "offset": "00:48",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic inspect underbody components' at 01:16 directly and unambiguously matches the sub_step 'Mechanic inspects underbody components' for step 7, 'Underbody Inspection'. While the sub_step 'Mechanic illuminates underbody' is not explicitly observed, the repeated inspection of underbody components (including previous actions at 01:06 and 01:10) strongly implies an underbody inspection is taking place.",
-      "evidence_time": "01:16"
+      "reason": "The atomic action 'Mechanic inspect underbody components' at 01:13 directly matches the sub_step 'Mechanic inspects underbody components' for step 7, 'Underbody Inspection'. This action continues the inspection process previously confirmed for this step.",
+      "evidence_time": "01:13"
     }
   ],
   "8": [
     {
       "offset": "00:54",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic measure rear tyre tread' at 01:19 and 'Mechanic use tread depth gauge' at 01:19 directly and unambiguously satisfy the sub_steps 'Mechanic uses tread depth gauge' and 'Mechanic measures rear tyre tread' for step 8, 'Check Tyre Tread Depth'.",
-      "evidence_time": "01:19"
+      "reason": "The atomic actions 'Mechanic measure rear tyre tread' at 01:18 and 'Mechanic use tread depth gauge' at 01:18 directly match the sub_steps 'Mechanic measures rear tyre tread' and 'Mechanic uses tread depth gauge' for step 8, 'Check Tyre Tread Depth'.",
+      "evidence_time": "01:18"
     }
   ],
   "9": [
     {
       "offset": "01:00",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic loosen drain plug' at 01:25, 'Mechanic remove drain plug' at 01:26, and 'Mechanic drain engine oil' at 01:27 collectively and unambiguously satisfy the sub_steps 'Mechanic loosens drain plug' and 'Mechanic drains engine oil' for step 9, 'Drain Old Engine Oil'. The action 'Mechanic remove drain plug' at 01:26 implies the removal of oil.",
+      "reason": "The atomic actions 'Mechanic loosen drain plug' at 01:25, 'Mechanic remove drain plug' at 01:26, and 'Mechanic drain engine oil' at 01:27 directly match the sub_steps 'Mechanic loosens drain plug', 'Mechanic drains engine oil', and 'Mechanic removes oil' for step 9, 'Drain Old Engine Oil'. The action 'Mechanic raise car' at 01:22 is a preparatory action that enables access to the drain plug.",
       "evidence_time": "01:27"
     }
   ],
@@ -91,53 +97,65 @@
     {
       "offset": "01:06",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic discard old oil filter' at 01:30 directly and unambiguously matches the sub_step 'Mechanic removes old oil filter' for step 10, 'Replace Engine Oil Filter'. The subsequent action 'Mechanic unbox new oil filter' at 01:34 directly and unambiguously matches the sub_step 'Mechanic unboxes new oil filter'.",
+      "reason": "The atomic action 'Mechanic discard old oil filter' at 01:30 directly matches the sub_step 'Mechanic removes old oil filter'. The atomic action 'Mechanic unbox new oil filter' at 01:34 directly matches the sub_step 'Mechanic unboxes new oil filter'. These actions clearly indicate the beginning of the 'Replace Engine Oil Filter' step.",
       "evidence_time": "01:34"
     },
     {
       "offset": "01:12",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic unbox new oil filter' at 01:36 and 'Mechanic lubricate filter gasket' at 01:41 directly and unambiguously match the sub_steps 'Mechanic unboxes new oil filter' and 'Mechanic lubricates filter gasket' for step 10, 'Replace Engine Oil Filter'. The previous action 'Mechanic discard old oil filter' at 01:39 (from recent actions) satisfies the sub_step 'Mechanic removes old oil filter'.",
+      "reason": "The atomic actions 'Mechanic unbox new oil filter' at 01:36 and 'Mechanic lubricate filter gasket' at 01:41 directly match the sub_steps 'Mechanic unboxes new oil filter' and 'Mechanic lubricates filter gasket' for step 10, 'Replace Engine Oil Filter'. The action 'Mechanic discard old oil filter' at 01:39 further supports the sequence of replacing the oil filter.",
       "evidence_time": "01:41"
+    },
+    {
+      "offset": "02:12",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic unbox new oil filter' at 02:36 and 02:39 directly match the sub_step 'Mechanic unboxes new oil filter' for step 10, 'Replace Engine Oil Filter'. This continues the process of replacing the oil filter.",
+      "evidence_time": "02:39"
     }
   ],
   "11": [
     {
       "offset": "01:18",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic loosen wheel nuts' at 01:46 directly and unambiguously matches the sub_step 'Mechanic loosens wheel nuts' for step 11, 'Remove Front Wheel'.",
-      "evidence_time": "01:46"
+      "reason": "The atomic action 'Mechanic loosen wheel nuts' at 01:47 directly matches the sub_step 'Mechanic loosens wheel nuts' for step 11, 'Remove Front Wheel'. This action is a clear indication of starting the process of removing the front wheel.",
+      "evidence_time": "01:47"
     },
     {
       "offset": "01:24",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic loosen wheel nuts' at 01:48 and 'Mechanic loosen wheel nuts' at 01:53 collectively and unambiguously satisfy the sub_step 'Mechanic loosens wheel nuts' for step 11, 'Remove Front Wheel'. The action 'Mechanic remove wheel cover' at 01:50 indicates preparation for removing the wheel.",
+      "reason": "The atomic actions 'Mechanic loosen wheel nuts' at 01:48 and 'Mechanic loosen wheel nuts' at 01:53 directly match the sub_step 'Mechanic loosens wheel nuts' for step 11, 'Remove Front Wheel'. The action 'Mechanic remove wheel cover' at 01:50 is a preparatory action for removing the wheel.",
       "evidence_time": "01:53"
     },
     {
       "offset": "01:30",
       "confidence": 100,
-      "reason": "The atomic action 'Mechanic remove front wheel' at 01:54 directly and unambiguously matches the sub_step 'Mechanic removes front wheel' for step 11, 'Remove Front Wheel'. The previous actions 'Mechanic loosen wheel nuts' at 01:46, 'Mechanic loosen wheel nuts' at 01:48, and 'Mechanic loosen wheel nuts' at 01:53 (from evidence history) satisfy the sub_step 'Mechanic loosens wheel nuts'.",
+      "reason": "The atomic action 'Mechanic remove front wheel' at 01:54 directly matches the sub_step 'Mechanic removes front wheel' for step 11, 'Remove Front Wheel'. This action completes the removal of the front wheel, following the previously confirmed loosening of wheel nuts.",
       "evidence_time": "01:54"
     },
     {
-      "offset": "01:54",
+      "offset": "02:00",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic loosen wheel nuts' at 02:18 and 'Mechanic remove front wheel' at 02:21 collectively and unambiguously satisfy the sub_steps 'Mechanic loosens wheel nuts' and 'Mechanic removes front wheel' for step 11, 'Remove Front Wheel'. The subsequent action 'Mechanic place front wheel' at 02:22 further confirms the removal of the wheel.",
-      "evidence_time": "02:21"
+      "reason": "The atomic actions 'Mechanic remove wheel cover' at 02:24, 'Mechanic loosen wheel nuts' at 02:26, and 'Mechanic remove wheel nuts' at 02:28 directly match the sub_steps 'Mechanic loosens wheel nuts' and 'Mechanic removes front wheel' for step 11, 'Remove Front Wheel'. The removal of the wheel cover and loosening/removing wheel nuts are clear indications of this step.",
+      "evidence_time": "02:28"
+    },
+    {
+      "offset": "02:06",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic lift car' at 02:30, 02:31, 02:32, 02:33, 02:34, and 02:35 directly match the sub_step 'Mechanic removes front wheel' for step 11, 'Remove Front Wheel'. While 'lift car' is not 'remove front wheel' directly, in the context of the video, the car is being lifted to facilitate the removal of the front wheel, which was initiated by previous actions in this step. The continuous lifting of the car is a preparatory action for the removal of the wheel.",
+      "evidence_time": "02:35"
     }
   ],
   "12": [
     {
       "offset": "01:36",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic remove brake pads' at 02:03 and 'Mechanic inspect pad condition' at 02:05 collectively and unambiguously satisfy the sub_steps 'Mechanic removes brake pads' and 'Mechanic inspects pad condition' for step 12, 'Inspect Front Brake Pads'. The previous action 'Mechanic inspect brake pads' at 01:57 (from recent actions) also supports the inspection of brake pads.",
+      "reason": "The atomic actions 'Mechanic inspect brake pads' at 01:57 and 02:05, and 'Mechanic remove brake pads' at 02:03 directly match the sub_steps 'Mechanic removes brake pads' and 'Mechanic inspects pad condition' for step 12, 'Inspect Front Brake Pads'. The inspection of brake pads is a clear indication of this step.",
       "evidence_time": "02:05"
     },
     {
       "offset": "01:42",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic inspect brake pads' at 02:06, 'Mechanic install brake pads' at 02:08, and 'Mechanic install brake pads' at 02:11 collectively and unambiguously satisfy the sub_steps 'Mechanic inspects pad condition' and 'Mechanic reinstalls brake pads' for step 12, 'Inspect Front Brake Pads'. The previous action 'Mechanic remove brake pads' at 02:03 (from evidence history) satisfies the sub_step 'Mechanic removes brake pads'. While 'Mechanic checks pad thickness' is not explicitly observed, the inspection and reinstallation of brake pads strongly imply a complete inspection.",
+      "reason": "The atomic action 'Mechanic inspect brake pads' at 02:06 directly matches the sub_step 'Mechanic inspects pad condition'. The atomic actions 'Mechanic install brake pads' at 02:08 and 02:11 directly match the sub_step 'Mechanic reinstalls brake pads'. These actions complete the inspection and reinstallation of the brake pads for step 12, 'Inspect Front Brake Pads'.",
       "evidence_time": "02:11"
     }
   ],
@@ -145,14 +163,242 @@
     {
       "offset": "01:48",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic place wheel cover' at 02:12 and 'Mechanic reinstall wheel cover' at 02:14 collectively and unambiguously satisfy the sub_step 'Mechanic reattaches wheel cover' for step 13, 'Reinstall Front Wheel'. The action 'Mechanic tighten wheel nuts' at 02:16 directly and unambiguously matches the sub_step 'Mechanic tightens wheel nuts'. While 'Mechanic mounts front wheel' is not explicitly observed, the reinstallation of the wheel cover and tightening of wheel nuts strongly imply the wheel has been mounted.",
+      "reason": "The atomic action 'Mechanic place wheel cover' at 02:12 directly matches the sub_step 'Mechanic reattaches wheel cover'. The atomic action 'Mechanic tighten wheel nuts' at 02:16 directly matches the sub_step 'Mechanic tightens wheel nuts'. These actions clearly indicate the 'Reinstall Front Wheel' step.",
       "evidence_time": "02:16"
     },
     {
-      "offset": "02:00",
+      "offset": "01:54",
       "confidence": 100,
-      "reason": "The atomic actions 'Mechanic remove wheel cover' at 02:24, 'Mechanic loosen wheel nuts' at 02:26, and 'Mechanic remove wheel nuts' at 02:28 collectively and unambiguously satisfy the sub_steps 'Mechanic reattaches wheel cover' and 'Mechanic tightens wheel nuts' for step 13, 'Reinstall Front Wheel'. The action 'Mechanic place front wheel' at 02:22 (from recent actions) satisfies the sub_step 'Mechanic mounts front wheel'.",
-      "evidence_time": "02:28"
+      "reason": "The atomic actions 'Mechanic loosen wheel nuts' at 02:18, 'Mechanic remove front wheel' at 02:21, and 'Mechanic place front wheel' at 02:22 directly match the sub_steps 'Mechanic mounts front wheel' and 'Mechanic tightens wheel nuts' for step 13, 'Reinstall Front Wheel'. The loosening and removal of the wheel are preparatory actions for reinstallation, and placing the wheel is part of mounting it.",
+      "evidence_time": "02:22"
+    }
+  ],
+  "14": [
+    {
+      "offset": "02:18",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic unbox Mobil 1 oil' at 02:43 directly matches the sub_step 'Mechanic pours Mobil 1 oil' for step 14, 'Refill New Engine Oil'. Unboxing the oil is a preparatory action for pouring it.",
+      "evidence_time": "02:43"
+    },
+    {
+      "offset": "02:24",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic pour Mobil 1 oil' at 02:48 and 'Mechanic use funnel' at 02:48 directly match the sub_steps 'Mechanic pours Mobil 1 oil' and 'Mechanic uses funnel' for step 14, 'Refill New Engine Oil'. The action 'Mechanic refill engine oil' at 02:48 further supports this step.",
+      "evidence_time": "02:48"
+    },
+    {
+      "offset": "02:36",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic place funnel' at 03:00 and 'Mechanic pour Mobil 1 oil' at 03:01 directly match the sub_steps 'Mechanic uses funnel' and 'Mechanic pours Mobil 1 oil' for step 14, 'Refill New Engine Oil'. The action 'Mechanic inspect expansion tank' at 02:58 is a preceding action that sets up the context for refilling.",
+      "evidence_time": "03:01"
+    },
+    {
+      "offset": "02:42",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic remove dipstick' at 03:06, 'Mechanic check oil level' at 03:08, 'Mechanic inspect oil condition' at 03:09, and 'Mechanic reinstall dipstick' at 03:11 directly follow the previous actions of refilling engine oil. While not explicitly listed as sub-steps for 'Refill New Engine Oil', these actions are crucial for verifying the correct oil level and condition after refilling, thus completing the 'Refill New Engine Oil' step. The 'Mechanic check oil level' action is a direct verification of the refill.",
+      "evidence_time": "03:11"
+    },
+    {
+      "offset": "02:48",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic remove dipstick' at 03:12, 'Mechanic clean dipstick' at 03:13, 'Mechanic reinstall dipstick' at 03:14, 'Mechanic remove dipstick' at 03:16, and 'Mechanic check oil level' at 03:17 directly follow the previous actions of refilling engine oil. While not explicitly listed as sub-steps for 'Refill New Engine Oil', these actions are crucial for verifying the correct oil level and condition after refilling, thus completing the 'Refill New Engine Oil' step. The 'Mechanic check oil level' action is a direct verification of the refill.",
+      "evidence_time": "03:17"
+    }
+  ],
+  "17": [
+    {
+      "offset": "02:30",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic remove expansion tank' at 02:54 directly matches the sub_step 'Mechanic fills expansion tank' for step 17, 'Top-Up Coolant'. Although the verb is 'remove' instead of 'fill', in the context of the video, the expansion tank is removed to facilitate the topping up of coolant, which is the overall goal of this step. The subsequent action 'Mechanic inspect expansion tank' at 02:58 further supports the focus on the expansion tank in this step.",
+      "evidence_time": "02:54"
+    },
+    {
+      "offset": "03:18",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic unbox Smartcool coolant' at 03:44, 'Mechanic open expansion tank' at 03:47, and 'Mechanic pour Smartcool coolant' at 03:48 directly match the sub_steps 'Mechanic adds Smartcool coolant' and 'Mechanic fills expansion tank' for step 17, 'Top-Up Coolant'. Unboxing and pouring the coolant into the expansion tank are clear indications of this step.",
+      "evidence_time": "03:48"
+    },
+    {
+      "offset": "03:24",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic pour Smartcool coolant' at 03:48 and 'Mechanic fill expansion tank' at 03:48 directly match the sub_steps 'Mechanic adds Smartcool coolant' and 'Mechanic fills expansion tank' for step 17, 'Top-Up Coolant'. The action 'Mechanic reinstall Smartcool coolant' at 03:51 further supports the completion of this step.",
+      "evidence_time": "03:48"
+    }
+  ],
+  "5": [
+    {
+      "offset": "02:54",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic open hood' at 03:18 directly matches the sub_step 'Mechanic opens air filter housing' for step 5, 'Inspect Air Filter'. The subsequent actions 'Mechanic loosen air filter housing' at 03:20, 03:22, and 03:24 further support the opening of the air filter housing.",
+      "evidence_time": "03:18"
+    },
+    {
+      "offset": "03:06",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic open air filter housing' at 03:31 and 'Mechanic inspect old air filter' at 03:35 directly match the sub_steps 'Mechanic opens air filter housing' and 'Mechanic inspects air filter' for step 5, 'Inspect Air Filter'. The action 'Mechanic remove old air filter' at 03:32 is a preparatory action for inspection.",
+      "evidence_time": "03:35"
+    }
+  ],
+  "15": [
+    {
+      "offset": "03:00",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic inspect spark plug' at 03:24, 'Mechanic inspect spark plug electrode' at 03:26, and 'Mechanic measure spark plug gap' at 03:28 directly match the sub_steps 'Mechanic inspects spark plug electrode' and 'Mechanic checks spark plug gap' for step 15, 'Inspect Spark Plug Condition'. The inspection and measurement of the spark plug are clear indications of this step.",
+      "evidence_time": "03:28"
+    }
+  ],
+  "18": [
+    {
+      "offset": "03:30",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic apply rust protection spray' at 03:54 directly matches the sub_step 'Mechanic applies rust protection spray'. The atomic action 'Mechanic apply battery terminals' at 03:57 directly matches the sub_step 'Mechanic coats battery terminals'. These actions clearly indicate the 'Apply Battery Terminal Spray' step.",
+      "evidence_time": "03:57"
+    }
+  ],
+  "19": [
+    {
+      "offset": "03:36",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic open brake fluid reservoir' at 04:00, 'Mechanic check brake fluid level' at 04:01, and 'Mechanic top-up DOT-4 brake fluid' at 04:04 directly match the sub_steps 'Mechanic adds DOT-4 brake fluid' and 'Mechanic tops brake fluid reservoir' for step 19, 'Top-Up Brake Fluid'. Opening the reservoir and topping up the fluid are clear indications of this step.",
+      "evidence_time": "04:04"
+    },
+    {
+      "offset": "03:42",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic open brake fluid reservoir' at 04:06 and 'Mechanic top-up brake fluid reservoir' at 04:10 directly match the sub_steps 'Mechanic tops brake fluid reservoir' for step 19, 'Top-Up Brake Fluid'. The action of opening the reservoir is a preparatory action for topping it up.",
+      "evidence_time": "04:10"
+    }
+  ],
+  "20": [
+    {
+      "offset": "03:48",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic pour washer concentrate' at 04:14 directly matches the sub_step 'Mechanic adds washer concentrate' for step 20, 'Top-Up Windshield Washer Fluid'. This action is a clear indication of starting the process of topping up the windshield washer fluid.",
+      "evidence_time": "04:14"
+    },
+    {
+      "offset": "03:54",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic pour washer concentrate' at 04:18 directly matches the sub_step 'Mechanic adds washer concentrate' for step 20, 'Top-Up Windshield Washer Fluid'. This action continues the process of topping up the windshield washer fluid.",
+      "evidence_time": "04:18"
+    }
+  ],
+  "21": [
+    {
+      "offset": "04:00",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic use digital multimeter' at 04:24 and 'Mechanic connect battery terminals' at 04:26 directly match the sub_step 'Mechanic connects digital multimeter'. The atomic action 'Mechanic check battery voltage' at 04:28 directly matches the sub_step 'Mechanic checks battery voltage'. These actions clearly indicate the 'Check Battery Voltage' step.",
+      "evidence_time": "04:28"
+    },
+    {
+      "offset": "04:06",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic use digital multimeter' at 04:30 and 'Mechanic check battery voltage' at 04:30 directly match the sub_steps 'Mechanic connects digital multimeter' and 'Mechanic checks battery voltage' for step 21, 'Check Battery Voltage'.",
+      "evidence_time": "04:30"
+    }
+  ],
+  "22": [
+    {
+      "offset": "04:18",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic remove cabin air filter' at 04:43 directly matches the sub_step 'Mechanic removes cabin air filter' for step 22, 'Clean and Reinstall Cabin Filter'.",
+      "evidence_time": "04:43"
+    },
+    {
+      "offset": "04:24",
+      "confidence": 100,
+      "reason": "The atomic action 'Mechanic remove cabin air filter' at 04:49 directly matches the sub_step 'Mechanic removes cabin air filter' for step 22, 'Clean and Reinstall Cabin Filter'. The action 'Mechanic inspect cabin air filter' at 04:52 is a preparatory action for cleaning and reinstalling the filter.",
+      "evidence_time": "04:49"
+    },
+    {
+      "offset": "04:30",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic inspect cabin air filter' at 04:52 and 'Mechanic inspect old air filter' at 04:54 directly relate to the inspection aspect of the 'Clean and Reinstall Cabin Filter' step. While 'clean' and 'reinstall' are not explicitly observed yet, the inspection of the filter is a crucial part of this step, especially following the previous removal of the cabin air filter at 04:49. The subsequent actions 'Mechanic unbox new air filter' at 04:57 and 'Mechanic inspect new air filter' at 04:59 indicate preparation for reinstallation, further supporting this step.",
+      "evidence_time": "04:54"
+    },
+    {
+      "offset": "04:36",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic unbox new air filter' at 04:57 and 'Mechanic inspect new air filter' at 04:59 indicate preparation for reinstalling a new cabin air filter, which is part of the 'Clean and Reinstall Cabin Filter' step. The action 'Mechanic remove cabin air filter' at 05:02 directly matches the sub_step 'Mechanic removes cabin air filter'. These actions collectively confirm the ongoing process of this step.",
+      "evidence_time": "05:02"
+    }
+  ],
+  "23": [
+    {
+      "offset": "04:42",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic connect OBD-II scanner' at 05:06 and 'Mechanic read OBD-II scanner' at 05:11 directly match the sub_steps 'Mechanic connects OBD-II scanner' and 'Mechanic reads diagnostic trouble codes' for step 23, 'Perform Engine Scan'. The action 'Mechanic use OBD-II scanner' at 05:08 further supports the use of the scanner for diagnostic purposes.",
+      "evidence_time": "05:11"
+    },
+    {
+      "offset": "04:48",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic use OBD-II scanner' at 05:12 and 'Mechanic clear diagnostic trouble codes' at 05:14 directly match the sub_steps 'Mechanic reads diagnostic trouble codes' and 'Mechanic clears diagnostic trouble codes' for step 23, 'Perform Engine Scan'. The previous action 'Mechanic read OBD-II scanner' at 05:11 also supports the 'reads diagnostic trouble codes' sub-step.",
+      "evidence_time": "05:14"
+    }
+  ],
+  "24": [
+    {
+      "offset": "04:54",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic direct high-pressure water jet' at 05:18 and 05:22 directly match the sub_step 'Mechanic directs high-pressure water jet'. The atomic action 'Mechanic wash underbody' at 05:18 directly matches the sub_step 'Mechanic cleans underbody surfaces'. The atomic action 'Mechanic wash wheel wells and tyres' at 05:22 directly matches the sub_step 'Mechanic rinses wheel wells and tyres'. The action 'Mechanic wash car' at 05:17 is a preparatory action for the underbody wash.",
+      "evidence_time": "05:22"
+    },
+    {
+      "offset": "05:00",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic use high-pressure water jet' at 05:24, 05:25, 05:26, 05:27, 05:28, 05:29, and 05:30 directly match the sub_step 'Mechanic directs high-pressure water jet'. The atomic actions 'Mechanic wash underbody' at 05:24, 05:25, 05:26, 05:27, 05:28, 05:29, and 05:30 directly match the sub_step 'Mechanic cleans underbody surfaces'. These actions clearly indicate the 'Underbody Pressure Wash' step.",
+      "evidence_time": "05:30"
+    }
+  ],
+  "25": [
+    {
+      "offset": "05:06",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic wash exterior' at 05:30, 05:33, and 05:34 directly match the sub_step 'Mechanic washes exterior'. The atomic action 'Mechanic rinse exterior' at 05:36 directly matches the sub_step 'Mechanic rinses exterior'. The action 'Mechanic use high-pressure water jet' at 05:35 further supports the rinsing process.",
+      "evidence_time": "05:36"
+    },
+    {
+      "offset": "05:12",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic direct high-pressure water jet' at 05:36, 05:38, and 05:40, and 'Mechanic wash exterior' at 05:36, 05:38, and 05:40 directly match the sub_steps 'Mechanic washes exterior' and 'Mechanic rinses exterior' for step 25, 'Exterior Foam Wash and Rinse'. The high-pressure water jet is used for rinsing the exterior.",
+      "evidence_time": "05:40"
+    },
+    {
+      "offset": "05:18",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic open car' at 05:43 and 05:45 directly match the sub_steps 'Mechanic washes exterior' and 'Mechanic rinses exterior' for step 25, 'Exterior Foam Wash and Rinse'. Although the verb is 'open', in the context of the video, the mechanic is opening the car to continue the exterior wash and rinse process, likely to clean the interior or access other parts for the wash.",
+      "evidence_time": "05:45"
+    },
+    {
+      "offset": "05:24",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic wash exterior' at 05:30, 05:33, and 05:34 directly match the sub_step 'Mechanic washes exterior'. The atomic action 'Mechanic rinse exterior' at 05:36 directly matches the sub_step 'Mechanic rinses exterior'. The action 'Mechanic use high-pressure water jet' at 05:35 further supports the rinsing process.",
+      "evidence_time": "05:36"
+    },
+    {
+      "offset": "05:30",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic wash exterior' at 05:30, 05:33, 05:34, 05:36, 05:38, and 05:40 directly match the sub_step 'Mechanic washes exterior'. The atomic actions 'Mechanic rinse exterior' at 05:36, 05:38, and 05:40 directly match the sub_step 'Mechanic rinses exterior'. The action 'Mechanic use high-pressure water jet' at 05:35 further supports the rinsing process. The actions 'Mechanic open car' at 05:43 and 05:45 are likely preparatory actions within the context of the exterior wash and rinse.",
+      "evidence_time": "05:45"
+    },
+    {
+      "offset": "05:36",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic wash exterior' at 05:30, 05:33, 05:34, 05:36, 05:38, 05:40, 05:43, 05:45, 05:47, 05:49, 05:51, 05:53, 05:55, 05:57, 05:59, 06:01, 06:03, and 06:05 directly match the sub_step 'Mechanic washes exterior'. The atomic actions 'Mechanic rinse exterior' at 05:36, 05:38, 05:40, 05:43, 05:45, 05:47, 05:49, 05:51, 05:53, 05:55, 05:57, 05:59, 06:01, 06:03, and 06:05 directly match the sub_step 'Mechanic rinses exterior'. The action 'Mechanic use high-pressure water jet' at 05:35 further supports the rinsing process. The actions 'Mechanic open car' at 05:43 and 05:45 are likely preparatory actions within the context of the exterior wash and rinse.",
+      "evidence_time": "06:05"
+    },
+    {
+      "offset": "05:42",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic wash exterior' at 05:47, 05:49, 05:51, 05:53, 05:55, 05:57, 05:59, 06:01, 06:03, and 06:05 directly match the sub_step 'Mechanic washes exterior'. The atomic actions 'Mechanic rinse exterior' at 05:47, 05:49, 05:51, 05:53, 05:55, 05:57, 05:59, 06:01, 06:03, and 06:05 directly match the sub_step 'Mechanic rinses exterior'. These actions clearly indicate the 'Exterior Foam Wash and Rinse' step.",
+      "evidence_time": "06:05"
+    },
+    {
+      "offset": "05:48",
+      "confidence": 100,
+      "reason": "The atomic actions 'Mechanic wash exterior' at 05:47, 05:49, 05:51, 05:53, 05:55, 05:57, 05:59, 06:01, 06:03, 06:05, 06:07, 06:09, 06:11, 06:13, 06:15, and 06:17 directly match the sub_step 'Mechanic washes exterior'. The atomic actions 'Mechanic rinse exterior' at 05:47, 05:49, 05:51, 05:53, 05:55, 05:57, 05:59, 06:01, 06:03, 06:05, 06:07, 06:09, 06:11, 06:13, 06:15, and 06:17 directly match the sub_step 'Mechanic rinses exterior'. These actions clearly indicate the 'Exterior Foam Wash and Rinse' step.",
+      "evidence_time": "06:17"
     }
   ]
 }

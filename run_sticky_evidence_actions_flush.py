@@ -1,7 +1,8 @@
 # run_two_sticky_evidence.py
 
-import os, cv2, json, time, random, subprocess
+import os, cv2, json, time, random, threading, queue, copy
 from collections import deque
+from dataclasses import dataclass, field
 from typing import List, Dict, Any, Optional, Tuple
 from dotenv import load_dotenv
 
@@ -290,6 +291,30 @@ class ActionTimeline:
         t = _sec(action.get("time", "00:00"))
         return start <= t <= end
 
+SENTINEL = object()
+
+@dataclass
+class WindowJob:
+    window_id: int
+    s1_start: float
+    s1_end: float
+    s2_start: float
+    s2_end: float
+    window_label: str
+    s1_frames: List[bytes]
+    s2_buffer: List[Tuple[float, bytes]]
+    window_timer_start: float
+    stage1_time: float = 0.0
+    stage1_actions: List[Dict[str, Any]] = field(default_factory=list)
+
+class PipelineState:
+    def __init__(self) -> None:
+        self.action_timeline = ActionTimeline()
+        self.evidence_history: Dict[int, List[Dict[str, Any]]] = {}
+        self.completed_steps: List[Dict[str, Any]] = []
+        self.last_completed_id: Optional[int] = None
+        self.lock = threading.Lock()
+
 # ====================== Prompts ======================
 def build_s1_prompt(
                     title: str,
@@ -566,116 +591,204 @@ def main():
     s2_interval = max(1, int(round(fps / S2_FPS)))
 
     s1_buf, s2_buf = deque(), deque()
-    action_timeline = ActionTimeline()
-    evidence_history: Dict[int,List[Dict[str,Any]]] = {}
-    completed_steps = []
-    last_completed_id: Optional[int] = None
-    next_stride_time, frame_idx = 0.0, 0
+    state = PipelineState()
 
-    while True:
-        ret, frame = cap.read()
-        if not ret: break
-        frame_idx += 1
-        t_now = (cap.get(cv2.CAP_PROP_POS_MSEC) or 0)/1000.0
+    s1_queue: "queue.Queue[WindowJob]" = queue.Queue(maxsize=4)
+    s2_queue: "queue.Queue[WindowJob]" = queue.Queue(maxsize=4)
+    print_lock = threading.Lock()
 
-        small = cv2.resize(frame, DOWNSCALE)
-        ok,jpg = cv2.imencode(".jpg", small, [int(cv2.IMWRITE_JPEG_QUALITY), JPEG_QUALITY])
-        if not ok: continue
-        jpg_b = jpg.tobytes()
-        if frame_idx % s1_interval == 0: s1_buf.append((t_now,jpg_b))
-        if frame_idx % s2_interval == 0: s2_buf.append((t_now,jpg_b))
-        while s1_buf and (t_now-s1_buf[0][0]>S1_WINDOW_SEC): s1_buf.popleft()
-        while s2_buf and (t_now-s2_buf[0][0]>S2_WINDOW_SEC): s2_buf.popleft()
+    def stage1_worker() -> None:
+        while True:
+            job = s1_queue.get()
+            if job is SENTINEL:
+                s2_queue.put(SENTINEL)
+                break
+            with state.lock:
+                evidence_snapshot = copy.deepcopy(state.evidence_history)
+            timer_start = time.perf_counter()
+            actions: List[Dict[str, Any]] = []
+            try:
+                actions = vlm_stage1(
+                    job.s1_frames,
+                    job.s1_start,
+                    job.s1_end,
+                    TITLE,
+                    objects,
+                    steps,
+                    evidence_snapshot,
+                    action_verbs,
+                )
+                if actions:
+                    with state.lock:
+                        state.action_timeline.extend(actions)
+            except Exception as exc:
+                with print_lock:
+                    print(f"❌ Stage-1 worker error on window {job.window_label}: {exc}")
+            finally:
+                job.stage1_time = time.perf_counter() - timer_start
+                job.stage1_actions = actions
+                s2_queue.put(job)
 
-        if t_now < next_stride_time: continue
-        next_stride_time = (int(t_now//STRIDE_SECONDS)+1)*STRIDE_SECONDS
-        s1_start, s2_start, s1_end, s2_end = max(0,t_now-S1_WINDOW_SEC), max(0,t_now-S2_WINDOW_SEC), t_now, t_now
-        window_start_ts = ts(s2_start)
-        window_end_ts = ts(s2_end)
-        print(f"▶️ Window {window_start_ts}–{window_end_ts}", end="")
-        window_timer = time.perf_counter()
+    def stage2_worker() -> None:
+        while True:
+            job = s2_queue.get()
+            if job is SENTINEL:
+                break
+            try:
+                with state.lock:
+                    evidence_snapshot = copy.deepcopy(state.evidence_history)
+                    recent_atomic = state.action_timeline.recent(job.s2_start, job.s2_end)
+                    last_completed = state.last_completed_id
+                s2_timer_start = time.perf_counter()
+                s2_frames = select_s2_frames(job.s2_buffer, evidence_snapshot, global_fps=0.2)
+                candidates = _candidates_with_bias(steps, last_completed)
+                s2_result = vlm_stage2(
+                    job.s1_frames,
+                    s2_frames,
+                    job.s2_start,
+                    job.s2_end,
+                    evidence_snapshot,
+                    recent_atomic,
+                    candidates,
+                    TITLE,
+                    last_completed
+                )
+                stage2_time = time.perf_counter() - s2_timer_start
+                total_elapsed = job.stage1_time + stage2_time
+                waiting_overhead = 0.0
+                if DEBUG:
+                    raw_elapsed = time.perf_counter() - job.window_timer_start
+                    waiting_overhead = max(0.0, raw_elapsed - total_elapsed)
 
-        # Stage 1 timing
-        s1_timer_start = time.perf_counter()
-        s1_frames = [b for (_t,b) in s1_buf if _t>=s1_start]
-        s1_actions = vlm_stage1(s1_frames, s1_start, s1_end, TITLE, objects, steps,
-                                evidence_history, action_verbs)
-        stage1_time = time.perf_counter() - s1_timer_start
-        if s1_actions:
-            action_timeline.extend(s1_actions)
+                log_lines: List[str] = []
+                step_id = s2_result.get("step_id")
+                conf = s2_result.get("confidence", 0)
+                reason = s2_result.get("reason", "")
+                ev_time = s2_result.get("evidence_time", ts(job.s2_end))
 
-        # Stage 2 timing
-        s2_timer_start = time.perf_counter()
-        s2_frames = select_s2_frames(s2_buf, evidence_history, global_fps=0.2)
-        candidates = _candidates_with_bias(steps, last_completed_id)
+                timeline_for_save: Dict[str, Any] = {"actions": []}
+                instruction_status_for_save: Dict[str, Any] = {"completed_steps": []}
+                evidence_for_save: Dict[int, List[Dict[str, Any]]] = {}
 
-        # ✅ derive recent actions from timeline while respecting flush policy
-        recent_atomic = action_timeline.recent(s2_start, s2_end)
+                with state.lock:
+                    if isinstance(step_id, int) and conf >= CONF_THRESHOLD:
+                        hist = state.evidence_history.setdefault(step_id, [])
+                        hist.append({
+                            "offset": ts(job.s2_start),
+                            "confidence": conf,
+                            "reason": reason,
+                            "evidence_time": ev_time or ts(job.s2_end)
+                        })
+                        consume_until_raw = _parse_evidence_time(ev_time or ts(job.s2_end))
+                        if consume_until_raw <= 0:
+                            consume_until_raw = job.s2_end
+                        consume_until = min(max(consume_until_raw, job.s2_start), job.s2_end)
+                        consumed_count = state.action_timeline.consume(job.s2_start, consume_until)
+                        if DEBUG and consumed_count:
+                            log_lines.append(f"🧹 Flushed {consumed_count} actions up to {ts(consume_until)}")
+                        log_lines.append(f"📌 Evidence added for step {step_id} (conf={conf}) at {ev_time}")
+                        promote_allowed = True
+                        if state.last_completed_id is not None:
+                            prev_idx = step_index_by_id.get(state.last_completed_id)
+                            curr_idx = step_index_by_id.get(step_id)
+                            if (
+                                prev_idx is not None
+                                and curr_idx is not None
+                                and abs(curr_idx - prev_idx) > MAX_PROMOTION_STEP_GAP
+                            ):
+                                promote_allowed = False
+                        if promote_allowed:
+                            already_completed = any(c["id"] == step_id for c in state.completed_steps)
+                            if not already_completed:
+                                best = max(hist, key=lambda h: h.get("confidence", 0))
+                                state.completed_steps.append({
+                                    "id": step_id,
+                                    "step_text": steps_by_id.get(step_id, {}).get("step_text", ""),
+                                    "reason": best.get("reason", ""),
+                                    "evidence_time": best.get("evidence_time", ts(job.s2_end)),
+                                    "evidence_count": len(hist),
+                                })
+                                log_lines.append(f"✅ Step {step_id} completed automatically: {steps_by_id.get(step_id, {}).get('step_text', '')}")
+                            state.last_completed_id = step_id
+                        else:
+                            log_lines.append(f"🚫 Skipping promotion for step {step_id}; it is more than {MAX_PROMOTION_STEP_GAP} steps away from the last completed step.")
+                    timeline_for_save = {"actions": state.action_timeline.serializable()}
+                    instruction_status_for_save = {"completed_steps": list(state.completed_steps)}
+                    evidence_for_save = copy.deepcopy(state.evidence_history)
+                with print_lock:
+                    print(f"▶️ Window {job.window_label}  (T: {total_elapsed:.2f}s, S1: {job.stage1_time:.2f}s, S2: {stage2_time:.2f}s)")
+                    if DEBUG and waiting_overhead > 0.0:
+                        print(f"  ⏱️ queue overhead: {waiting_overhead:.2f}s")
+                    for line in log_lines:
+                        print(line)
+                _save_json(os.path.join(OUTPUT_DIR, "timeline_live.json"), timeline_for_save)
+                _save_json(os.path.join(OUTPUT_DIR, "instruction_status.json"), instruction_status_for_save)
+                _save_json(os.path.join(OUTPUT_DIR, "evidence_history.json"), evidence_for_save)
+            except Exception as exc:
+                with print_lock:
+                    print(f"❌ Stage-2 worker error on window {job.window_label}: {exc}")
 
-        s2_result = vlm_stage2(
-            s1_frames,
-            s2_frames,
-            s2_start,
-            s2_end,
-            evidence_history,
-            recent_atomic,
-            candidates,
-            TITLE,
-            last_completed_id
-        )
-        stage2_time = time.perf_counter() - s2_timer_start
-        total_elapsed = time.perf_counter() - window_timer
-        print(f"  (T: {total_elapsed:.2f}s, S1: {stage1_time:.2f}s, S2: {stage2_time:.2f}s)")
-        step_id, conf, reason, ev_time = s2_result.get("step_id"), s2_result.get("confidence",0), s2_result.get("reason",""), s2_result.get("evidence_time","")
-        #print(f"Stage-2 result raw: {s2_result}")
-        if isinstance(step_id, int) and conf >= CONF_THRESHOLD:
-            # Always record evidence
-            hist = evidence_history.setdefault(step_id, [])
-            hist.append({
-                "offset": ts(s2_start),
-                "confidence": conf,
-                "reason": reason,
-                "evidence_time": ev_time or ts(s2_end)
-            })
-            consume_until_raw = _parse_evidence_time(ev_time or ts(s2_end))
-            if consume_until_raw <= 0:
-                consume_until_raw = s2_end
-            consume_until = min(max(consume_until_raw, s2_start), s2_end)
-            consumed_count = action_timeline.consume(s2_start, consume_until)
-            if DEBUG and consumed_count:
-                print(f"🧹 Flushed {consumed_count} actions up to {ts(consume_until)}")
-            print(f"📌 Evidence added for step {step_id} (conf={conf}) at {ev_time}")
-            promote_allowed = True
-            if last_completed_id is not None:
-                prev_idx = step_index_by_id.get(last_completed_id)
-                curr_idx = step_index_by_id.get(step_id)
-                if (
-                    prev_idx is not None
-                    and curr_idx is not None
-                    and abs(curr_idx - prev_idx) > MAX_PROMOTION_STEP_GAP
-                ):
-                    promote_allowed = False
-            if promote_allowed:
-                already_completed = any(c["id"] == step_id for c in completed_steps)
-                if not already_completed:
-                    best = max(hist, key=lambda h: h.get("confidence", 0))
-                    completed_steps.append({
-                        "id": step_id,
-                        "step_text": steps_by_id.get(step_id, {}).get("step_text", ""),
-                        "reason": best.get("reason", ""),
-                        "evidence_time": best.get("evidence_time", ts(s2_end)),
-                        "evidence_count": len(hist),
-                    })
-                    print(f"✅ Step {step_id} completed automatically: {steps_by_id.get(step_id,{}).get('step_text','')}")
-                last_completed_id = step_id
-            else:
-                print(f"🚫 Skipping promotion for step {step_id}; it is more than {MAX_PROMOTION_STEP_GAP} steps away from the last completed step.")
-        _save_json(os.path.join(OUTPUT_DIR,"timeline_live.json"),{"actions":action_timeline.serializable()})
-        _save_json(os.path.join(OUTPUT_DIR,"instruction_status.json"),{"completed_steps":completed_steps})
-        _save_json(os.path.join(OUTPUT_DIR,"evidence_history.json"), evidence_history)
+    stage1_thread = threading.Thread(target=stage1_worker, name="Stage1Worker", daemon=True)
+    stage2_thread = threading.Thread(target=stage2_worker, name="Stage2Worker", daemon=True)
+    stage1_thread.start()
+    stage2_thread.start()
 
-    cap.release()
-    print("🏁 Done.")
+    next_stride_time = 0.0
+    frame_idx = 0
+    window_id = 0
+
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            frame_idx += 1
+            t_now = (cap.get(cv2.CAP_PROP_POS_MSEC) or 0)/1000.0
+
+            small = cv2.resize(frame, DOWNSCALE)
+            ok, jpg = cv2.imencode(".jpg", small, [int(cv2.IMWRITE_JPEG_QUALITY), JPEG_QUALITY])
+            if not ok:
+                continue
+            jpg_b = jpg.tobytes()
+            if frame_idx % s1_interval == 0:
+                s1_buf.append((t_now, jpg_b))
+            if frame_idx % s2_interval == 0:
+                s2_buf.append((t_now, jpg_b))
+            while s1_buf and (t_now - s1_buf[0][0] > S1_WINDOW_SEC):
+                s1_buf.popleft()
+            while s2_buf and (t_now - s2_buf[0][0] > S2_WINDOW_SEC):
+                s2_buf.popleft()
+
+            if t_now < next_stride_time:
+                continue
+            next_stride_time = (int(t_now // STRIDE_SECONDS) + 1) * STRIDE_SECONDS
+
+            s1_start = max(0, t_now - S1_WINDOW_SEC)
+            s2_start = max(0, t_now - S2_WINDOW_SEC)
+            s1_end = t_now
+            s2_end = t_now
+            window_label = f"{ts(s2_start)}–{ts(s2_end)}"
+
+            job = WindowJob(
+                window_id=window_id,
+                s1_start=s1_start,
+                s1_end=s1_end,
+                s2_start=s2_start,
+                s2_end=s2_end,
+                window_label=window_label,
+                s1_frames=[b for (_t, b) in s1_buf if _t >= s1_start],
+                s2_buffer=list(s2_buf),
+                window_timer_start=time.perf_counter(),
+            )
+            window_id += 1
+            s1_queue.put(job)
+    finally:
+        cap.release()
+        s1_queue.put(SENTINEL)
+        stage1_thread.join()
+        stage2_thread.join()
+    with print_lock:
+        print("🏁 Done.")
 
 if __name__=="__main__":
     main()
