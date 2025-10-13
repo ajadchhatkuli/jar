@@ -219,6 +219,78 @@ def atomic_conf_to_num(c: str) -> int:
 def parts_from_jpegs(jpegs: List[bytes]) -> List[dict]:
     return [{"image": {"bytes": b}} for b in jpegs]
 
+
+class ActionTimeline:
+    """
+    Maintains atomic action history with flushing once actions are consumed or
+    become stale (unused after 5 later actions have been consumed).
+    """
+
+    def __init__(self):
+        self._actions: List[Dict[str, Any]] = []
+        self._consumed_counter: int = 0
+        self._next_seq: int = 0
+
+    def extend(self, new_actions: List[Dict[str, Any]]) -> None:
+        for action in new_actions:
+            enriched = dict(action)
+            enriched["_seq"] = self._next_seq
+            enriched["_added_consumed_count"] = self._consumed_counter
+            self._next_seq += 1
+            self._actions.append(enriched)
+
+    def recent(self, start: float, end: float) -> List[Dict[str, Any]]:
+        recent: List[Dict[str, Any]] = []
+        for action in self._actions:
+            if not self._in_range(action, start, end):
+                continue
+            time_display = str(action.get("time", ts(end)) or ts(end))
+            recent.append({
+                "subject": action.get("subject", ""),
+                "verb": action.get("verb", ""),
+                "object": action.get("object", ""),
+                "time": f"at {time_display}"
+            })
+        return recent
+
+    def consume(self, start: float, end: float) -> int:
+        if end < start:
+            return 0
+        consumed: List[Dict[str, Any]] = []
+        remaining: List[Dict[str, Any]] = []
+        for action in self._actions:
+            if self._in_range(action, start, end):
+                consumed.append(action)
+            else:
+                remaining.append(action)
+        if consumed:
+            self._consumed_counter += len(consumed)
+            self._actions = remaining
+            self._flush_stale()
+        else:
+            self._actions = remaining
+        return len(consumed)
+
+    def serializable(self) -> List[Dict[str, Any]]:
+        return [
+            {k: v for k, v in action.items() if not k.startswith("_")}
+            for action in self._actions
+        ]
+
+    def _flush_stale(self) -> None:
+        if self._consumed_counter < 5:
+            return
+        threshold = self._consumed_counter - 5
+        self._actions = [
+            action for action in self._actions
+            if action["_added_consumed_count"] > threshold
+        ]
+
+    @staticmethod
+    def _in_range(action: Dict[str, Any], start: float, end: float) -> bool:
+        t = _sec(action.get("time", "00:00"))
+        return start <= t <= end
+
 # ====================== Prompts ======================
 def build_s1_prompt(
                     title: str,
@@ -502,7 +574,7 @@ def main():
     s2_interval = max(1, int(round(fps / S2_FPS)))
 
     s1_buf, s2_buf = deque(), deque()
-    atomic_timeline = []
+    action_timeline = ActionTimeline()
     evidence_history: Dict[int,List[Dict[str,Any]]] = {}
     completed_steps = []
     last_completed_id, last_candidate_id = None, None
@@ -538,24 +610,15 @@ def main():
                                 evidence_history, action_verbs)
         stage1_time = time.perf_counter() - s1_timer_start
         if s1_actions:
-            atomic_timeline.extend(s1_actions)
+            action_timeline.extend(s1_actions)
 
         # Stage 2 timing
         s2_timer_start = time.perf_counter()
         s2_frames = select_s2_frames(s2_buf, evidence_history, global_fps=0.2)
         candidates = _candidates_with_bias(steps, last_completed_id)
 
-        # ✅ define recent_atomic here (subject, verb, object, plus time string)
-        recent_atomic = []
-        for a in atomic_timeline:
-            if not _in_range(a, s2_start, s2_end):
-                continue
-            recent_atomic.append({
-                "subject": a.get("subject", ""),
-                "verb": a.get("verb", ""),
-                "object": a.get("object", ""),
-                "time": f"at {a.get('time', ts(s2_end))}"
-            })
+        # ✅ derive recent actions from timeline while respecting flush policy
+        recent_atomic = action_timeline.recent(s2_start, s2_end)
 
         s2_result = vlm_stage2(
             s1_frames,
@@ -583,6 +646,13 @@ def main():
                 "reason": reason,
                 "evidence_time": ev_time or ts(s2_end)
             })
+            consume_until_raw = _parse_evidence_time(ev_time or ts(s2_end))
+            if consume_until_raw <= 0:
+                consume_until_raw = s2_end
+            consume_until = min(max(consume_until_raw, s2_start), s2_end)
+            consumed_count = action_timeline.consume(s2_start, consume_until)
+            if DEBUG and consumed_count:
+                print(f"🧹 Flushed {consumed_count} actions up to {ts(consume_until)}")
             last_candidate_id = step_id
             print(f"📌 Evidence added for step {step_id} (conf={conf}) at {ev_time}")
 
@@ -630,7 +700,7 @@ def main():
                         last_completed_id = cand_id
                         last_candidate_id = None
                         print(f"✅ Step {cand_id} completed (patience via evidence_time): {steps_by_id.get(cand_id,{}).get('step_text','')}")
-        _save_json(os.path.join(OUTPUT_DIR,"timeline_live.json"),{"actions":atomic_timeline})
+        _save_json(os.path.join(OUTPUT_DIR,"timeline_live.json"),{"actions":action_timeline.serializable()})
         _save_json(os.path.join(OUTPUT_DIR,"instruction_status.json"),{"completed_steps":completed_steps})
         _save_json(os.path.join(OUTPUT_DIR,"evidence_history.json"), evidence_history)
 

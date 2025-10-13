@@ -1,3 +1,18 @@
 {
-  "completed_steps": []
+  "completed_steps": [
+    {
+      "id": 1,
+      "step_text": "Open Car Hood",
+      "reason": "The atomic action 'Mechanic open hood at 00:23' directly and unambiguously satisfies the sub_step 'Mechanic opens hood' for step 1.",
+      "evidence_time": "00:23",
+      "evidence_count": 3
+    },
+    {
+      "id": 25,
+      "step_text": "Exterior Foam Wash and Rinse",
+      "reason": "The atomic actions 'Mechanic wash exterior' at 05:30, 05:31, 05:32, 05:33, 05:34, and 05:35 directly and unambiguously satisfy the sub_step 'Mechanic washes exterior'. The atomic action 'Mechanic use high-pressure water jet at 05:35' directly and unambiguously satisfies the sub_step 'Mechanic rinses exterior', as a high-pressure water jet is commonly used for rinsing during a car wash, especially after multiple washing actions. All sub_steps for step 25 are clearly and unambiguously satisfied by these recent actions, which logically follow the underbody wash (Step 24, confirmed at 05:25).",
+      "evidence_time": "05:35",
+      "evidence_count": 1
+    }
+  ]
 }
