@@ -12,6 +12,7 @@ pipeline.HOWTO_JSON = "./realwear-videos/howto_coffee.json"
 pipeline.OBJECTS_JSON = "./realwear-videos/objects.json"
 pipeline.ACTION_VERBS_JSON = "./realwear-videos/action_verbs.json"
 pipeline.OUTPUT_DIR = "realwear-videos/outputs/coffee"
+pipeline.S1_MAX_FRAMES = 5  # Limit Stage-1 prompts to five frames per window.
 
 
 def main() -> None:

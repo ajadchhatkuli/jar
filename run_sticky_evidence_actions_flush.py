@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 from google import genai
 from google.genai import types
+from utils.frame_selection import FrameQualityMethod, queue_frame_with_quality
 
 # ====================== Config ======================
 
@@ -26,6 +27,10 @@ S2_WINDOW_SEC    = 30
 # Sampling fps
 S1_FPS = 1
 S2_FPS = 1
+S1_FRAME_QUALITY_METHOD = FrameQualityMethod.LAPLACIAN.value
+S1_BRISQUE_THRESHOLD = 55.0  # Lower values indicate sharper frames.
+S1_LAPLACIAN_THRESHOLD = 120.0  # Higher values indicate sharper frames.
+S1_MAX_FRAMES: Optional[int] = None  # Set per deployment (e.g., coffee workflow).
 
 # Models
 VLM_MODEL_S1 = "gemini-2.5-pro"
@@ -134,6 +139,21 @@ def load_action_verbs(path: str) -> List[str]:
         if val:
             cleaned.append(val)
     return cleaned
+
+def _uniform_sample(items: List[Any], limit: int) -> List[Any]:
+    if limit is None or limit <= 0 or len(items) <= limit:
+        return list(items)
+    if limit == 1:
+        return [items[len(items) // 2]]
+    span = len(items) - 1
+    return [items[(i * span) // (limit - 1)] for i in range(limit)]
+
+
+def _stage1_window_frames(buffer: deque[Tuple[float, bytes]], window_start: float) -> List[bytes]:
+    frames = [b for (t, b) in buffer if t >= window_start]
+    if S1_MAX_FRAMES is not None:
+        frames = _uniform_sample(frames, S1_MAX_FRAMES)
+    return frames
 
 def retry_json_call(
         model: str,
@@ -342,6 +362,7 @@ def build_s1_prompt(
         f"Analyze frames from {time_range}.\n\n"
         "Your task is to extract **fine-grained human–object actions** that are relevant to the above title.\n"
         "Give specific action, without inventing unseen actions.\n"
+        "Give a maximum of 2 actions."
         "### Allowed Subjects\n"
         f"{subjects_block}\n\n"
         "### Allowed Objects\n"
@@ -591,7 +612,9 @@ def main():
     s2_interval = max(1, int(round(fps / S2_FPS)))
 
     s1_buf, s2_buf = deque(), deque()
+    s1_last_sample_time: Optional[float] = None
     state = PipelineState()
+    s1_quality_method = FrameQualityMethod(S1_FRAME_QUALITY_METHOD)
 
     s1_queue: "queue.Queue[WindowJob]" = queue.Queue(maxsize=4)
     s2_queue: "queue.Queue[WindowJob]" = queue.Queue(maxsize=4)
@@ -627,7 +650,22 @@ def main():
             finally:
                 job.stage1_time = time.perf_counter() - timer_start
                 job.stage1_actions = actions
-                s2_queue.put(job)
+                window_length = job.s2_end - job.s2_start
+                should_run_stage2 = bool(actions) or window_length >= S2_WINDOW_SEC
+                if not should_run_stage2:
+                    with state.lock:
+                        has_recent_actions = bool(
+                            state.action_timeline.recent(job.s2_start, job.s2_end)
+                        )
+                    should_run_stage2 = has_recent_actions
+                if should_run_stage2:
+                    s2_queue.put(job)
+                elif DEBUG:
+                    with print_lock:
+                        print(
+                            f"⏭️ Stage-2 deferred for {job.window_label}; "
+                            f"window {window_length:.1f}s has no atomic actions yet."
+                        )
 
     def stage2_worker() -> None:
         while True:
@@ -751,11 +789,21 @@ def main():
                 continue
             jpg_b = jpg.tobytes()
             if frame_idx % s1_interval == 0:
-                s1_buf.append((t_now, jpg_b))
+                s1_last_sample_time, _ = queue_frame_with_quality(
+                    s1_buf,
+                    small,
+                    t_now,
+                    S1_FPS,
+                    max_age_seconds=S1_WINDOW_SEC,
+                    last_sample_time=s1_last_sample_time,
+                    method=s1_quality_method,
+                    brisque_threshold=S1_BRISQUE_THRESHOLD,
+                    laplacian_threshold=S1_LAPLACIAN_THRESHOLD,
+                    jpeg_bytes=jpg_b,
+                    jpeg_quality=JPEG_QUALITY,
+                )
             if frame_idx % s2_interval == 0:
                 s2_buf.append((t_now, jpg_b))
-            while s1_buf and (t_now - s1_buf[0][0] > S1_WINDOW_SEC):
-                s1_buf.popleft()
             while s2_buf and (t_now - s2_buf[0][0] > S2_WINDOW_SEC):
                 s2_buf.popleft()
 
@@ -776,7 +824,7 @@ def main():
                 s2_start=s2_start,
                 s2_end=s2_end,
                 window_label=window_label,
-                s1_frames=[b for (_t, b) in s1_buf if _t >= s1_start],
+                s1_frames=_stage1_window_frames(s1_buf, s1_start),
                 s2_buffer=list(s2_buf),
                 window_timer_start=time.perf_counter(),
             )

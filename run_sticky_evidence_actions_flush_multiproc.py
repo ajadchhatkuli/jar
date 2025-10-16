@@ -8,12 +8,14 @@ import os
 import time
 import copy
 import cv2
+import numpy as np
 import queue
 import threading
 from collections import deque
 from typing import Any, Dict, List, Optional, Tuple
 
 import run_sticky_evidence_actions_flush as base
+from utils.frame_selection import queue_frame_with_quality
 
 PRODUCER_FPS = 1.0
 FRAME_QUEUE_MAXSIZE = 8
@@ -118,6 +120,8 @@ def consumer_process(
 
     s1_buf: deque[Tuple[float, bytes]] = deque()
     s2_buf: deque[Tuple[float, bytes]] = deque()
+    s1_last_sample_time: Optional[float] = None
+    s1_quality_method = base.FrameQualityMethod(base.S1_FRAME_QUALITY_METHOD)
     state = base.PipelineState()
 
     s1_queue: "queue.Queue[base.WindowJob]" = queue.Queue(maxsize=4)
@@ -157,7 +161,23 @@ def consumer_process(
             finally:
                 job.stage1_time = time.perf_counter() - timer_start
                 job.stage1_actions = actions
-                s2_queue.put(job)
+                window_length = job.s2_end - job.s2_start
+                should_run_stage2 = bool(actions) or window_length >= base.S2_WINDOW_SEC
+                if not should_run_stage2:
+                    with state.lock:
+                        has_recent_actions = bool(
+                            state.action_timeline.recent(job.s2_start, job.s2_end)
+                        )
+                    should_run_stage2 = has_recent_actions
+                if should_run_stage2:
+                    s2_queue.put(job)
+                elif base.DEBUG:
+                    with print_lock:
+                        _emit_log(
+                            "Consumer",
+                            f"⏭️ Stage-2 deferred for {job.window_label}; "
+                            f"window {window_length:.1f}s has no atomic actions yet.",
+                        )
 
     def stage2_worker() -> None:
         while True:
@@ -348,10 +368,31 @@ def consumer_process(
                     message.get("emitted_at"),
                 )
 
-                s1_buf.append((t_now, jpg_b))
+                frame_small = cv2.imdecode(
+                    np.frombuffer(jpg_b, dtype=np.uint8), cv2.IMREAD_COLOR
+                )
+                if frame_small is None:
+                    _emit_log(
+                        "Consumer",
+                        f"Failed to decode frame at video {base.ts(t_now)}; skipping.",
+                        message.get("emitted_at"),
+                    )
+                else:
+                    s1_last_sample_time, _ = queue_frame_with_quality(
+                        s1_buf,
+                        frame_small,
+                        t_now,
+                        base.S1_FPS,
+                        max_age_seconds=base.S1_WINDOW_SEC,
+                        last_sample_time=s1_last_sample_time,
+                        method=s1_quality_method,
+                        brisque_threshold=base.S1_BRISQUE_THRESHOLD,
+                        laplacian_threshold=base.S1_LAPLACIAN_THRESHOLD,
+                        jpeg_bytes=jpg_b,
+                        jpeg_quality=base.JPEG_QUALITY,
+                    )
+
                 s2_buf.append((t_now, jpg_b))
-                while s1_buf and (t_now - s1_buf[0][0] > base.S1_WINDOW_SEC):
-                    s1_buf.popleft()
                 while s2_buf and (t_now - s2_buf[0][0] > base.S2_WINDOW_SEC):
                     s2_buf.popleft()
 
@@ -372,7 +413,7 @@ def consumer_process(
                     s2_start=s2_start,
                     s2_end=s2_end,
                     window_label=window_label,
-                    s1_frames=[b for (_t, b) in s1_buf if _t >= s1_start],
+                    s1_frames=base._stage1_window_frames(s1_buf, s1_start),
                     s2_buffer=list(s2_buf),
                     window_timer_start=time.perf_counter(),
                 )
