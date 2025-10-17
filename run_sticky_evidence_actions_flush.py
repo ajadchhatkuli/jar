@@ -25,7 +25,7 @@ S1_WINDOW_SEC    = 6
 S2_WINDOW_SEC    = 30
 
 # Sampling fps
-S1_FPS = 1
+S1_FPS = 3
 S2_FPS = 1
 S1_FRAME_QUALITY_METHOD = FrameQualityMethod.LAPLACIAN.value
 S1_BRISQUE_THRESHOLD = 55.0  # Lower values indicate sharper frames.
@@ -332,7 +332,7 @@ class PipelineState:
         self.action_timeline = ActionTimeline()
         self.evidence_history: Dict[int, List[Dict[str, Any]]] = {}
         self.completed_steps: List[Dict[str, Any]] = []
-        self.last_completed_id: Optional[int] = None
+        self.last_completed_id: Optional[int] = 0
         self.lock = threading.Lock()
 
 # ====================== Prompts ======================
@@ -602,6 +602,7 @@ def main():
     steps = load_steps(HOWTO_JSON)
     steps_by_id = {s["id"]: s for s in steps}
     step_index_by_id = {s["id"]: idx for idx, s in enumerate(steps)}
+    step_index_by_id.setdefault(0, -1)
 
     objects = load_objects(OBJECTS_JSON)   # ✅ load curated objects
     action_verbs = load_action_verbs(ACTION_VERBS_JSON)

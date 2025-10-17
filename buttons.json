@@ -1,0 +1,32 @@
+{
+  "buttons": [
+    {
+      "id": "second button",
+      "bounding_box_color": "red",
+      "position": {
+        "start": {
+          "x": 120,
+          "y": 244
+        },
+        "end": {
+          "x": 248,
+          "y": 276
+        }
+      }
+    },
+    {
+      "id": "third button",
+      "bounding_box_color": "green",
+      "position": {
+        "start": {
+          "x": 118,
+          "y": 290
+        },
+        "end": {
+          "x": 248,
+          "y": 325
+        }
+      }
+    }
+  ]
+}

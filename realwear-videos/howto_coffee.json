@@ -1,0 +1,128 @@
+{
+  "source_video": "coffee-full.mp4",
+  "steps": [
+    {
+      "id": 1,
+      "process_title": "Preparation",
+      "step_text": "Open the kitchen cabinet to retrieve a clean cup.",
+      "how": "The user opens the overhead cabinet to access the shelf where clean cups and glasses are stored.",
+      "keywords": [
+        "open",
+        "cabinet",
+        "get",
+        "cup"
+      ],
+      "sub-steps": [
+        "User opens cabinet door",
+        "User picks a cup"
+      ]
+    },
+    {
+      "id": 2,
+      "process_title": "Preparation",
+      "step_text": "Place the selected cup under the coffee machine's dispenser.",
+      "how": "The user positions the white ceramic cup on the drip tray, directly beneath the spouts of the coffee machine to prepare for brewing.",
+      "keywords": [
+        "place",
+        "cup",
+        "coffee machine",
+        "dispenser"
+      ],
+      "sub-steps": [
+        "User places a cup on the drip tray"
+      ]
+    },
+    {
+      "id": 3,
+      "process_title": "Brewing",
+      "step_text": "Select the desired coffee type on the machine's control panel.",
+      "how": "The user interacts with the coffee machine's interface, likely pressing a button to choose a specific coffee program, which is indicated on the digital display.",
+      "keywords": [
+        "select",
+        "press",
+        "second button",
+        "coffee machine"
+      ],
+      "sub-steps": [
+        "User selects the coffee type, second button from top"
+      ]
+    },
+    {
+      "id": 4,
+      "process_title": "Dispensing",
+      "step_text": "Wait for the coffee machine to dispense the coffee into the cup.",
+      "how": "The machine automatically begins the brewing process, dispensing hot coffee from its spouts directly into the cup placed below.",
+      "keywords": [
+        "dispense",
+        "brew",
+        "coffee",
+        "cup"
+      ],
+      "sub-steps": [
+        "Machine dispenses coffee into the cup"
+      ]
+    },
+    {
+      "id": 5,
+      "process_title": "Stopping",
+      "step_text": "Press the third button to stop dispensing coffee.",
+      "how": "The machine automatically begins the brewing process, dispensing hot coffee from its spouts directly into the cup placed below.",
+      "keywords": [
+        "dispense",
+        "brew",
+        "coffee",
+        "cup"
+      ],
+      "sub-steps": [
+        "Machine stops dispensing coffee into the cup"
+      ]
+    },
+    {
+      "id": 6,
+      "process_title": "Retrieve",
+      "step_text": "Retrieve the brewed coffee from the drip tray.",
+      "how": "The operator retrieves the brewed coffee from the drip tray.",
+      "keywords": [
+        "retrieve",
+        "drip tray",
+        "coffee",
+        "ready"
+      ],
+      "sub-steps": [
+        "User retrieves coffee from the drip tray"
+      ]
+    },
+    {
+      "id": 7,
+      "process_title": "Drink",
+      "step_text": "Drink the coffee.",
+      "how": "The user drinks the coffee.",
+      "keywords": [
+        "drink",
+        "coffee"
+      ],
+      "sub-steps": [
+        "User drinks coffee"
+      ]
+    },
+
+
+    {
+      "id": 8,
+      "process_title": "Cleanup",
+      "step_text": "Open the dishwasher to load the dirty cup.",
+      "how": "The user opens the dishwasher located under the counter, revealing racks containing clean dishes, cups, and glasses.",
+      "keywords": [
+        "open",
+        "dishwasher",
+        "load",
+        "unload"
+      ],
+      "sub-steps": [
+        "User pulls open dishwasher door",
+        "User places the dirty cup in the dishwasher",
+        "User closes the dishwasher door"
+      ]
+    }
+  ]
+}
