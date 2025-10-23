@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "step_text": "Ensure aircraft is chocked and secured.",
+    "question": "Do the actions clearly show wheel chocks being placed and the aircraft secured before maintenance?",
+    "how": "For an Airbus A320, position approved triangular chocks snugly on both sides of the nose gear wheels and at least one main gear set, set the parking brake from the flight deck, and confirm the ECAM WHEEL page shows the brake system pressurized before starting maintenance.",
+    "keywords": ["chock aircraft", "secure aircraft", "wheel chocks", "parking brake"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 2,
+    "step_text": "Install safety pins on landing gear struts if required.",
+    "question": "Do the actions clearly show safety pins being installed on the landing gear struts?",
+    "how": "Remove the landing gear safety pins from the Airbus A320 flight deck stowage, insert each pin fully through the nose and main landing gear downlock mechanism, and secure the red RBF streamers so they remain visible during the job.",
+    "keywords": ["safety pins", "landing gear", "install pins", "strut locks"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 3,
+    "step_text": "Depressurize brake hydraulic system if brakes are installed.",
+    "question": "Do the actions clearly show the brake hydraulic system being depressurized or bled off?",
+    "how": "With the A320 powered on external power, select the green hydraulic system depressurization on the maintenance panel, open the brake accumulator pressure relief valve per AMM instructions, and verify the accumulator pressure drops below the specified limit before disconnecting any lines.",
+    "keywords": ["depressurize brakes", "hydraulic release", "bleed pressure", "brake system"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 4,
+    "step_text": "Wear appropriate PPE (gloves, eye protection, hearing protection).",
+    "question": "Do the actions clearly show the technician donning gloves, eye protection, and hearing protection?",
+    "how": "Don Airbus-approved nitrile gloves, EN166-rated safety goggles, and hearing protection before approaching the A320 landing gear bay, and ensure high-visibility clothing is worn per ramp safety policy.",
+    "keywords": ["PPE", "safety gear", "gloves", "eye protection"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 5,
+    "step_text": "Verify correct aircraft jacking procedure and lift the aircraft so the wheel is clear of the ground.",
+    "question": "Do the actions clearly show the aircraft being jacked following the correct procedure until the wheel is off the ground?",
+    "how": "Consult the Airbus A320 AMM jacking task, position the tripod jacks under the wing and nose jack pads, connect the jack air supply, and raise the aircraft synchronously until the selected wheel clears the ground while monitoring structure alignment marks.",
+    "keywords": ["jack aircraft", "lifting procedure", "raise aircraft", "wheel off ground"],
+    "prerequisites": [],
+    "ambiguity": [26]
+  },
+  {
+    "id": 6,
+    "step_text": "Remove any wheel fairings/dust caps as required.",
+    "question": "Do the actions clearly show wheel fairings or dust caps being removed from the assembly and the dust cap is visible?",
+    "how": "On the A320 main wheel, undo the quick-release screws for the brake wear indicator cover, gently pry off the dust cap using a plastic wedge, and store it in a labeled parts bin to prevent FOD.",
+    "keywords": ["remove fairings", "dust caps", "wheel cover", "fairing removal"],
+    "prerequisites": [],
+    "ambiguity": [27]
+  },
+  {
+    "id": 7,
+    "step_text": "Remove cotter pin/safety wire from axle nut.",
+    "question": "Is the axle nut visible? and Do the actions clearly show the cotter pin or safety wire being extracted from the axle nut?",
+    "how": "Straighten the Airbus axle nut cotter pin legs with needle-nose pliers, extract the pin completely from the castellated nut, and dispose of it per maintenance procedures since cotter pins are single-use items.",
+    "keywords": ["cotter pin", "safety wire", "axle nut", "remove pin"],
+    "prerequisites": [],
+    "ambiguity": [23]
+  },
+  {
+    "id": 8,
+    "step_text": "Loosen and remove axle nut/retainer.",
+    "question": "Ensure Axle Nut is visible and it is not the dust cover! Do the actions clearly show the correct tool being used to loosen and remove the axle nut or retainer?",
+    "how": "",
+    "keywords": ["loosen axle nut"],
+    "prerequisites": [],
+    "ambiguity": [20, 21, 22]
+  },
+  {
+    "id": 9,
+    "step_text": "Collect washers, spacers, and keep them in order for reinstallation.",
+    "question": "Do the actions clearly show washers and spacers being removed and organized for reinstallation?",
+    "how": "Slide the A320 wheel thrust washers and spacer sleeves off the axle in sequence, lay them on a clean lint-free cloth in removal order, and tag the inboard versus outboard orientation to avoid mixing during reassembly.",
+    "keywords": ["washers", "spacers", "organize hardware", "reinstallation order"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 10,
+    "step_text": "Carefully slide the wheel assembly off the axle, supporting its weight to avoid bearing or axle damage.",
+    "question": "Do the actions clearly show the wheel assembly being supported while sliding off the axle?",
+    "how": "Support the A320 wheel with a wheel dolly or second technician, pull it straight off the axle without tilting, and lower it gently onto the dolly cradle to protect the carbon brake stack and axle threads.",
+    "keywords": ["remove wheel", "support wheel", "slide off axle", "prevent damage"],
+    "prerequisites": [],
+    "ambiguity": [19]
+  },
+  {
+    "id": 11,
+    "step_text": "Place wheel on a suitable dolly or cradle.",
+    "question": "Do the actions clearly show the wheel being placed on a dolly or cradle?",
+    "how": "Position the Airbus wheel on a padded main wheel dolly, secure it with the retaining strap, and note the serial number on the dolly tag for traceability.",
+    "keywords": ["wheel dolly", "cradle", "support wheel", "storage"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 12,
+    "step_text": "Extract inner and outer bearings from the hub.",
+    "question": "Do the actions clearly show the inner and outer bearings being removed from the hub?",
+    "how": "Remove the Airbus carbon seal retaining ring, use a nylon drift to tap out the outboard and inboard tapered roller bearings from the rim halves, and keep each bearing set with its respective side.",
+    "keywords": ["remove bearings", "inner bearing", "outer bearing", "wheel hub"],
+    "prerequisites": [],
+    "ambiguity": [17]
+  },
+  {
+    "id": 13,
+    "step_text": "Clean bearings using approved solvent.",
+    "question": "Do the actions clearly show the bearings being cleaned with an approved solvent?",
+    "how": "Immerse the A320 bearings in MIL-PRF-680 Type II solvent, agitate them in an ultrasonic cleaner if available, rinse with filtered solvent, and blow dry using oil-free nitrogen.",
+    "keywords": ["clean bearings", "approved solvent", "degrease bearings", "bearing cleaning"],
+    "prerequisites": [],
+    "ambiguity": [16]
+  },
+  {
+    "id": 14,
+    "step_text": "Inspect bearings for wear, corrosion, cracks, or pitting.",
+    "question": "Do the actions clearly show the bearings being inspected for wear, corrosion, cracks, or pitting?",
+    "how": "Under magnification per A320 AMM guidance, examine each bearing race for spalling, feel the rollers for flat spots, and measure radial clearance with a feeler gauge to ensure it remains within Airbus limits.",
+    "keywords": ["inspect bearings", "wear check", "corrosion check", "bearing damage"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 15,
+    "step_text": "Replace bearings if limits are exceeded.",
+    "question": "Do the actions clearly show worn bearings being replaced when inspection limits are exceeded?",
+    "how": "If any A320 wheel bearing fails inspection, retrieve a serviceable replacement from bonded stores, record the part number and batch in the removal/installation sheet, and stage it on a clean bench for packing.",
+    "keywords": ["replace bearings", "worn bearings", "service limits", "bearing replacement"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 16,
+    "step_text": "Repack serviceable bearings with approved grease.",
+    "question": "Do the actions clearly show serviceable bearings being repacked with approved grease?",
+    "how": "Load the Airbus grease packer with Mobilgrease 28 (or the AMM-specified product), press grease through the bearing until it exudes evenly around the cage, and wipe off excess from the exterior surfaces.",
+    "keywords": ["repack bearings", "approved grease", "grease application", "bearing lubrication"],
+    "prerequisites": [],
+    "ambiguity": [13]
+  },
+  {
+    "id": 17,
+    "step_text": "Insert cleaned and greased bearings into the wheel hub.",
+    "question": "Do the actions clearly show the cleaned, greased bearings being installed back into the wheel hub?",
+    "how": "Install the inboard bearing into the A320 wheel half, seat the grease retainer, then place the outboard bearing and ensure both are fully seated before reinstalling the retaining ring per AMM torque values.",
+    "keywords": ["install bearings", "wheel hub", "replace bearings", "greased bearings"],
+    "prerequisites": [],
+    "ambiguity": [12]
+  },
+  {
+    "id": 18,
+    "step_text": "Ensure correct positioning of bearing spacers/seals.",
+    "question": "Do the actions clearly show bearing spacers or seals being positioned correctly in the hub?",
+    "how": "Fit the Airbus spacer tube between the bearings, seat the carbon brake seal with a press tool, and verify the seal lip is uniformly compressed without wrinkles.",
+    "keywords": ["bearing spacers", "seals", "alignment", "correct positioning"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 19,
+    "step_text": "Carefully align wheel with axle and slide into position.",
+    "question": "Do the actions clearly show the wheel being aligned with the axle and slid back into place?",
+    "how": "Align the A320 wheel hub bore with the axle using the dolly height adjustment, push the wheel inward while guiding it over the brake drive keys, and ensure the inboard bearing seats fully against the axle shoulder.",
+    "keywords": ["align wheel", "slide on axle", "wheel installation", "reinstall wheel"],
+    "prerequisites": [],
+    "ambiguity": [10]
+  },
+  {
+    "id": 20,
+    "step_text": "Install thrust washer(s) and axle nut/retainer.",
+    "question": "Do the actions clearly show thrust washers and the axle nut or retainer being installed?",
+    "how": "Refit the Airbus A320 inboard and outboard thrust washers in the recorded order, thread the axle nut by hand until seated, and ensure the nut turns freely without cross-threading before torqueing.",
+    "keywords": ["thrust washer", "axle nut", "install hardware", "retainer"],
+    "prerequisites": [],
+    "ambiguity": [8]
+  },
+  {
+    "id": 21,
+    "step_text": "Tighten nut while rotating the wheel to seat bearings.",
+    "question": "Do the actions clearly show the axle nut being tightened while the wheel is rotated to seat the bearings?",
+    "how": "Attach a calibrated torque wrench, rotate the A320 wheel by hand to settle the bearings, and tighten the axle nut to the initial seating torque specified in the AMM while continuing to rotate the wheel.",
+    "keywords": ["tighten axle nut", "rotate wheel", "seat bearings", "torque nut"],
+    "prerequisites": [],
+    "ambiguity": [8]
+  },
+  {
+    "id": 22,
+    "step_text": "Back off nut per AMM instructions, then re-torque to specified preload.",
+    "question": "Do the actions clearly show the nut being backed off and re-torqued to the specified preload per the AMM?",
+    "how": "Back off the A320 axle nut the prescribed number of flats, reapply torque to the final preload value, and align the castellations with the axle cross hole without exceeding the maximum additional torque allowance.",
+    "keywords": ["torque procedure", "back off nut", "AMM instructions", "specified preload"],
+    "prerequisites": [],
+    "ambiguity": [8]
+  },
+  {
+    "id": 23,
+    "step_text": "Install cotter pin/safety wire through axle nut castellations.",
+    "question": "Do the actions clearly show a cotter pin or safety wire being installed through the axle nut castellations?",
+    "how": "Insert a new Airbus-approved cotter pin through the aligned hole, bend the long leg over the end of the axle and trim excess, or install stainless safety wire as directed by the AMM and twist it to the specified pitch.",
+    "keywords": ["install cotter pin", "safety wire", "axle nut castellations", "secure nut"],
+    "prerequisites": [],
+    "ambiguity": [7]
+  },
+  {
+    "id": 24,
+    "step_text": "Verify free rotation of wheel.",
+    "question": "Do the actions clearly show the wheel being rotated freely to confirm proper installation?",
+    "how": "Spin the A320 wheel by hand, observe the tire sidewall for wobble, confirm the brake rotors remain centered, and listen for bearing noise to ensure a smooth rotation.",
+    "keywords": ["check rotation", "spin wheel", "free rotation", "verify movement"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 25,
+    "step_text": "Ensure no excessive end play (check with dial indicator if required).",
+    "question": "Do the actions clearly show end play being checked, using a dial indicator if required?",
+    "how": "Mount a dial indicator on the A320 axle housing, pull and push the wheel laterally to measure end play, and compare the reading with the Airbus tolerance; adjust torque if needed.",
+    "keywords": ["end play check", "dial indicator", "wheel play", "bearing clearance"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 26,
+    "step_text": "Remove jacks and return aircraft to ground.",
+    "question": "Do the actions clearly show the aircraft being lowered from the jacks back onto the ground?",
+    "how": "Confirm all A320 gear doors and gear bays are clear, bleed off hydraulic pressure from the jacks evenly, and monitor the jack load gauges until the landing gear takes full weight before removing the jack heads.",
+    "keywords": ["remove jacks", "lower aircraft", "return to ground", "jack down"],
+    "prerequisites": [],
+    "ambiguity": [5]
+  },
+  {
+    "id": 27,
+    "step_text": "Reinstall any dust caps, covers, or fairings.",
+    "question": "Do the actions clearly show dust caps, covers, or fairings being reinstalled on the wheel assembly?",
+    "how": "Reinstall the A320 brake wear indicator cover or dust cap, torque the fasteners to the specified value, and double-check that the anti-skid sensor harness is routed correctly.",
+    "keywords": ["reinstall dust cap", "wheel fairing", "cover installation", "finish assembly"],
+    "prerequisites": [],
+    "ambiguity": [6]
+  },
+  {
+    "id": 28,
+    "step_text": "Record wheel removal/installation in the technical log.",
+    "question": "Do the actions clearly show the wheel removal and installation being documented in the technical log?",
+    "how": "Enter the Airbus A320 aircraft registration, flight hours, removed wheel serial, and installed wheel serial in the aircraft technical log, and reference the completed AMM task number for traceability.",
+    "keywords": ["technical log", "record removal", "maintenance entry", "logbook"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 29,
+    "step_text": "Record bearing inspection and grease replenishment.",
+    "question": "Do the actions clearly show the bearing inspection and grease replenishment being recorded?",
+    "how": "Document the bearing inspection results in the A320 job card, note any replaced part numbers, and record the grease type and quantity applied per Airbus continuing airworthiness requirements.",
+    "keywords": ["record inspection", "grease log", "bearing entry", "maintenance record"],
+    "prerequisites": [],
+    "ambiguity": []
+  },
+  {
+    "id": 30,
+    "step_text": "If tire change was performed, log serial numbers of removed/installed wheels.",
+    "question": "Do the actions clearly show the serial numbers of removed and installed wheels being logged when a tire change occurs?",
+    "how": "When changing an Airbus A320 tire, record both the tire and wheel serial numbers in the component tracking system, cross-reference the work order, and update the aircraft configuration list if required.",
+    "keywords": ["serial numbers", "log wheels", "tire change record", "wheel tracking"],
+    "prerequisites": [],
+    "ambiguity": []
+  }
+]
