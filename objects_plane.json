@@ -1,0 +1,104 @@
+[
+  {
+    "object": "wheel chock",
+    "appearance": "Triangular rubber or metal block, usually yellow or black, placed against aircraft wheels.",
+    "function": "Prevents aircraft movement while parked.",
+    "possible_confusions": ["small toolboxes", "wedges not near wheels"]
+  },
+  {
+    "object": "safety pin (landing gear)",
+    "appearance": "Metal pin with red 'REMOVE BEFORE FLIGHT' streamer attached.",
+    "function": "Locks landing gear in down position for safety.",
+    "possible_confusions": ["cotter pins", "safety wire", "red tags not attached to landing gear"]
+  },
+  {
+    "object": "brake accumulator / hydraulic panel",
+    "appearance": "Small hydraulic valve or accumulator tank, metallic with pressure gauge.",
+    "function": "Maintains brake pressure; needs depressurization before work.",
+    "possible_confusions": ["fuel lines", "hydraulic reservoirs elsewhere"]
+  },
+  {
+    "object": "PPE",
+    "appearance": "Gloves, safety glasses, hearing protectors, high-visibility vest.",
+    "function": "Protects technician from hazards.",
+    "possible_confusions": ["casual clothing", "non-safety eyewear"]
+  },
+  {
+    "object": "tripod jack",
+    "appearance": "Large hydraulic jacks with three legs, placed under jack pads on fuselage/wing.",
+    "function": "Raises aircraft so wheels clear the ground.",
+    "possible_confusions": ["service carts", "maintenance stands"]
+  },
+  {
+    "object": "dust cap / wheel fairing",
+    "appearance": "Circular metal or plastic cap covering wheel hub, sometimes painted or bare metal.",
+    "function": "Protects wheel hub from dust and debris.",
+    "possible_confusions": ["hub itself", "bearing covers", "axle hub"]
+  },
+  {
+    "object": "cotter pin",
+    "appearance": "Small bent metal pin, usually silver, through axle nut castellations.",
+    "function": "Locks axle nut to prevent loosening.",
+    "possible_confusions": ["safety wire", "small nails"]
+  },
+  {
+    "object": "axle nut",
+    "appearance": "Large castellated nut on the wheel axle.",
+    "function": "Secures wheel to axle.",
+    "possible_confusions": ["smaller fasteners nearby"]
+  },
+  {
+    "object": "washer/spacer",
+    "appearance": "Flat metal rings or sleeves, small compared to wheel.",
+    "function": "Maintain spacing and alignment of wheel assembly.",
+    "possible_confusions": ["discarded metal pieces"]
+  },
+  {
+    "object": "wheel assembly",
+    "appearance": "Large aircraft wheel with tire, heavy, often dark rubber and metallic hub.",
+    "function": "Supports aircraft weight, rolls during taxi/takeoff/landing.",
+    "possible_confusions": ["automotive wheels", "jacks"]
+  },
+  {
+    "object": "wheel dolly/cradle",
+    "appearance": "Wheeled support platform for moving heavy wheels.",
+    "function": "Supports and transports aircraft wheels safely.",
+    "possible_confusions": ["tool carts", "maintenance trolleys"]
+  },
+  {
+    "object": "bearing (inner/outer)",
+    "appearance": "Circular metal roller bearings, silver/steel, small relative to wheel.",
+    "function": "Allow smooth wheel rotation.",
+    "possible_confusions": ["spacers", "seals"]
+  },
+  {
+    "object": "solvent container",
+    "appearance": "Liquid container, often labeled, with bearings immersed.",
+    "function": "Used to degrease and clean bearings.",
+    "possible_confusions": ["water buckets", "fuel containers"]
+  },
+  {
+    "object": "grease packer / grease gun",
+    "appearance": "Hand tool or press with grease reservoir.",
+    "function": "Packs grease into bearings.",
+    "possible_confusions": ["oil applicator", "paint gun"]
+  },
+  {
+    "object": "seal / spacer tube",
+    "appearance": "Ring or tube placed between bearings, sometimes rubberized.",
+    "function": "Ensures alignment and sealing.",
+    "possible_confusions": ["washers", "bearings"]
+  },
+  {
+    "object": "dial indicator",
+    "appearance": "Measuring gauge with a needle, mounted on a base.",
+    "function": "Measures wheel end play precisely.",
+    "possible_confusions": ["pressure gauge", "clock"]
+  },
+  {
+    "object": "technical log / job card",
+    "appearance": "Paper logbook or electronic tablet for maintenance entries.",
+    "function": "Records wheel removal/installation, bearing checks, grease logs.",
+    "possible_confusions": ["notebooks", "checklists"]
+  }
+]
